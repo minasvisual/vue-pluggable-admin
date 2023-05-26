@@ -33,13 +33,14 @@
 
 <script setup>  
 import _ from 'lodash'
-import ImgCell from './image'
-import Tags from './tags'
-import HrefLink from './link'
-import Expression from './expression'
-import GridSelect from './select'
-import Toggle from './toggle' 
-import Dates from './dates' 
+import ImgCell from './image.vue'
+import Tags from './tags.vue'
+import HrefLink from './link.vue'
+import Expression from './expression.vue'
+import GridSelect from './select.vue'
+import Toggle from './toggle.vue' 
+import Dates from './dates.vue' 
+import { computed, } from 'vue'
 // import Actions from './action'
 // import BelongsTo from './belongsTo'
 const { get } = _

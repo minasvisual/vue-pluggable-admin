@@ -1,19 +1,32 @@
 {
-  "name": "pluggable-module",
-  "version": "1.0.0",
-  "description": "- Table   - Local   - [X] Filtering   - [X] LImit   - [ ] Sorting",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "main": "index.js",
+  "name": "vue3-pluggable-admin",
+  "version": "0.0.4",
+  "description": "Under construction",
+  "main": "dist/library.js",
+  "module": "dist/library.mjs",
+  "type": "module",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "peerDependencies": {
     "@formkit/vue": "latest",
-    "axios": "^1.4.0",
-    "lodash": "^4.17.21",
-    "moment": "^2.29.4",
     "vue": "^3.2.21"
+  },
+  "devDependencies": {
+    "rollup": "^3.23.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.62.1"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "deepmerge": "^4.3.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4"
   }
 }

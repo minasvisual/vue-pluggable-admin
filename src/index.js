@@ -1,11 +1,10 @@
-import components from'./components'
-
+import components from './components/index' 
 const plugin = {
   install (Vue) {
     for (const prop in components) {
       if (components.hasOwnProperty(prop)) {
         const component = components[prop]
-        Vue.component(component.name, component)
+        Vue.component(`Crud${component.__name}`, component)
       }
     }
   }

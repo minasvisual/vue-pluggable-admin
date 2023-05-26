@@ -1,7 +1,7 @@
 <template> 
     <FormKitSchema :schema="header"  />  
 		<Table 
-			:model="chema" :resource="resource" 
+			:model="schema" 
 			@create="doEvent"
 			@edit="doEvent"
 			@delete="doEvent"
@@ -61,7 +61,7 @@
 					$el: 'section', attrs:{class:'section has-background-light'} 
 			}, 
 	]
-	const chema = {
+	const schema = {
 		"type": "object",
 		"title": "Basic",
 		"primaryKey": "id",
@@ -190,94 +190,22 @@
 			}
 		],
 		"api": {
-			"rootApi": "https://jsonplaceholder.typicode.com/users",
-			"getData": false,
-			// "getDataById": false,
-			// "deleteDataById": false,
+			"rootApi": "https://jsonplaceholder.typicode.com/users", 
 			"pagination": {
 				"local": true,
 				"pageField": "page",
 				"limitField": "per_page",
 				"sortField": "direction",
 				"sortExp": "{sort}",
-				"filterField": "filter",
-				"filterExp": "{prop},like,%{value}%"
-			},
-			// "params": {
-			// 	"page": 1,
-			// 	"per_page": 15,
-			// 	"direction": "desc"
-			// },
+				"filterField": "{prop}",
+				"filterExp": "{value}"
+			}, 
 			"headers": {
 				"Accept": "application/json"
 			}
 		}
-	}
-	const resource = [
-		{
-			"id": 1,
-			"name": "Leanne Graham",
-			"username": "Bret",
-			"email": "Sincere@april.biz",
-			"gender": "male",
-			"addresses": [
-				{
-					"street": "Kulas Light",
-					"suite": "Apt. 556",
-					"city": "Gwenborough",
-					"zipcode": "92998-3874",
-					"geo": {
-						"lat": "-37.3159",
-						"lng": "81.1496"
-					}
-				},
-				{
-					"street": "Light Street",
-					"suite": "556",
-					"city": "london",
-					"zipcode": "192168-874",
-					"geo": {
-						"lat": "-37.8159",
-						"lng": "80.9496"
-					}
-				}
-			],
-			"phone": "1-770-736-8031 x56442",
-			"website": "hildegard.org",
-			"company": {
-				"name": "Romaguera-Crona",
-				"catchPhrase": "Multi-layered client-server neural-net",
-				"bs": "harness real-time e-markets"
-			}, 
-		},
-		{
-			"id": 2,
-			"name": "Ervin Howell",
-			"username": "Antonette",
-			"email": "Shanna@melissa.tv",
-			"address": [
-				{
-					"street": "Victor Plains",
-					"suite": "Suite 879",
-					"city": "Wisokyburgh",
-					"zipcode": "90566-7771",
-					"geo": {
-						"lat": "-43.9509",
-						"lng": "-34.4618"
-					}
-				}
-			],
-			"phone": "010-692-6593 x09125",
-			"website": "anastasia.net",
-			"company": {
-				"name": "Deckow-Crist",
-				"catchPhrase": "Proactive didactic contingency",
-				"bs": "synergize scalable supply-chains"
-			}
-		}
-	]
-
+	} 
 	function doEvent(e){
-		// console.log( 'Event received', JSON.stringify(e, null, 2))
+		console.log( 'Event received', JSON.stringify(e, null, 2))
 	}
 </script>

@@ -92,9 +92,10 @@
   import _ from 'lodash' 
   import axios from 'axios' 
 
+  import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
   import CommonPagination from './common/Pagination.vue'
   import TableInputs from './tables/index.vue'
-  import { RefreshIcon, TrashIcon, PlusIcon, PencilIcon, ArrowDownIcon, ArrowUpIcon } from './icons'
+  import { RefreshIcon, TrashIcon, PlusIcon, PencilIcon, ArrowDownIcon, ArrowUpIcon } from './icons/index'
   
   import ResourceClass from '../libs/resource'
   import { schemaColumns, can, isSelected, selectionChange, selectionAll, fetchQueryInfo, filterParams, validateQueryInfo, 

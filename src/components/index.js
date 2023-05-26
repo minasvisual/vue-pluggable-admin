@@ -1,5 +1,5 @@
 import Table from './Table.vue'
 
-export {
+export default {
   Table
 }

@@ -53,11 +53,13 @@
 </template>
 
 <script setup> 
+  import { nextTick } from 'vue'
   import _ from 'lodash'
   import { getErrorMessage } from '~/libs/core/helpers'
   // import SessionMixin from '~/libs/core/session.mixin'
   import { useAuth } from '~/store/auth' 
   import { useAppContext } from '~/store/global' 
+
 
   const { has, get, merge } = _
   const auth = useAuth(); 

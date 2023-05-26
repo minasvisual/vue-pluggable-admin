@@ -31,7 +31,8 @@
 </template>
 
 <script>
-  import { ChevronRightIcon, ChevronLeftIcon } from '../icons'
+  import { ref, computed, watch, } from 'vue'
+  import { ChevronRightIcon, ChevronLeftIcon } from '../icons/index'
   import _ from 'lodash'
 
   export default { 
