@@ -1,0 +1,19 @@
+{
+  "name": "pluggable-module",
+  "version": "1.0.0",
+  "description": "- Table   - Local   - [X] Filtering   - [X] LImit   - [ ] Sorting",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "@formkit/vue": "latest",
+    "axios": "^1.4.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "vue": "^3.2.21"
+  }
+}
