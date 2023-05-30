@@ -21,7 +21,7 @@
   - [] Logout
 
 # Schema docs
-- See Github Wiki - https://github.com/minasvisual/vue-pluggable-admin/wik
+- See Github Wiki - https://github.com/minasvisual/vue-pluggable-admin/wiki
 
 # Installation Vue
 
@@ -44,11 +44,22 @@ app.vue
 ```vue
 <template>
   <main class="w-full m-auto">
-    <CrudTable :model="schema" />
+    <CrudTable :model="schema" @create="e => setData(e.row)" @edit="e => setData(e.row)" />
+
+    <div class="p-4" v-if="data">
+      <button @click="e => setData(null)">X</button>
+      <CrudForm
+        :model="schema"  
+        :data="data"  
+      />
+    </div>
   </main>
 </template>
 
 <script setup lang="ts">  
+  import { ref, nextTick } from 'vue'  
+  const data = ref()
+
   const schema = {
     properties:[
       {
@@ -65,6 +76,13 @@ app.vue
         "local": true
       }
     }
+  }
+
+  function setData (newVal) {
+    data.value = null
+    nextTick(() => {
+      data.value = newVal
+    })
   }
 </script>
 ```
