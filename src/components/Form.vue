@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="form" v-if="!!row">
     <div v-if="res.message" class="text-red">{{ res.message }}</div>
     <FormKit v-if="schema" type="form" method="post" submit-label="Submit" form-class="w-full"
             :actions="can(model, 'submit')"
@@ -10,22 +10,24 @@
     </FormKit> 
     <div v-else>
       schema nao encontrado
-    </div>
+    </div> 
   </div>
 </template>
 
 <script setup>
   import _ from 'lodash' 
-  import Resource from '~/libs/core/resource'
-  import { useAppContext } from '~/store/global'; 
-  import { useAuth } from '~/store/auth'; 
-  import { normalizeInput, can, mergeDeep, filterParams } from '~/libs/core/helpers'; 
+  import axios from 'axios' 
+  import Resource from '../libs/resource'
+  import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
+  // import { useAppContext } from '~/store/global'; 
+  // import { useAuth } from '~/store/auth'; 
+  import { normalizeInput, can, mergeDeep, filterParams } from '../libs/helpers'; 
 
-  let { $axios, $bus, $message } = useNuxtApp() 
-  let Instance = Resource({ $axios })
+  // let { $axios, $bus, $message } = useNuxtApp() 
+  let Instance = Resource({ $axios: axios })
   const emit = defineEmits(['saved'])
-  const App = useAppContext()
-  const Auth = useAuth()
+  // const App = useAppContext()
+  // const Auth = useAuth()
   const schema = ref([]) 
 
   const { model, data } = defineProps({
@@ -45,11 +47,11 @@
     console.log('Save', payload)
     let exclude = Object.keys(payload).filter(i => i.includes('__'))
     Instance.saveData(_.omit(payload, exclude)).then((rs) => {
-      $message("Saved ")
+      // $message("Saved ")
       res.value = rs
       emit('saved', rs)
 
-      $bus.emit('form:created', payload)
+      // $bus.emit('form:created', payload)
     }).catch(err => res.value = _.get(err, 'response.data', err) )
   }
 
@@ -76,17 +78,17 @@
     console.log('form wathc', newVal)
     Instance.setModel(JSON.parse(JSON.stringify(newVal))) 
   })
-
+  
   const modifyInput = async (input) => {
     if( input.model && typeof input.model == 'string' ) 
       input.model = await App.loadModel(input.model)
     
-    if( Auth?.session?.request )
-    	input.model = mergeDeep((input.model || {}), { api:Auth?.session?.request })
+    // if( Auth?.session?.request )
+    // 	input.model = mergeDeep((input.model || {}), { api:Auth?.session?.request })
 
     return input
   }
-
+ 
   onBeforeMount(async () => {
     try {  
       Instance.setModel(JSON.parse(JSON.stringify(model)))
@@ -113,7 +115,7 @@
   })
 </script>
 
-<style>
+<style lang="scss">
 .formkit-wrapper{
 	max-width: 100% !important;
 }

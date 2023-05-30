@@ -20,6 +20,8 @@
   - [] Logged
   - [] Logout
 
+# Schema docs
+- See Github Wiki - https://github.com/minasvisual/vue-pluggable-admin/wik
 
 # Installation Vue
 
@@ -70,9 +72,7 @@ app.vue
 index.html (Tailwind CSS basic styles)
 ```html
 <head>
-   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   ...
 </head>
 ```
-
-// SOON Schema Docs

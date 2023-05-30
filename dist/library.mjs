@@ -4,32 +4,51 @@ import axios from 'axios';
 import deepmerge from 'deepmerge';
 import moment from 'moment';
 
+const _hoisted_1$i = {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 320 512"
+};
+const _hoisted_2$e = /*#__PURE__*/createElementVNode("path", { d: "M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" }, null, -1 /* HOISTED */);
+const _hoisted_3$4 = [
+  _hoisted_2$e
+];
+
+function render$d(_ctx, _cache) {
+  return (openBlock(), createElementBlock("svg", _hoisted_1$i, _hoisted_3$4))
+}
+
+const script$i = {};
+
+
+script$i.render = render$d;
+script$i.__file = "src/components/icons/ChevronLeft.vue";
+
 const _hoisted_1$h = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 320 512"
 };
-const _hoisted_2$d = /*#__PURE__*/createElementVNode("path", { d: "M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" }, null, -1 /* HOISTED */);
-const _hoisted_3$3 = [
-  _hoisted_2$d
-];
+const _hoisted_2$d = /*#__PURE__*/createElementVNode("path", { d: "M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" }, null, -1 /* HOISTED */);
 
-function render$d(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$h, _hoisted_3$3))
+function render$c(_ctx, _cache) {
+  return (openBlock(), createElementBlock("svg", _hoisted_1$h, [
+    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
+    _hoisted_2$d
+  ]))
 }
 
 const script$h = {};
 
 
-script$h.render = render$d;
-script$h.__file = "src/components/icons/ChevronLeft.vue";
+script$h.render = render$c;
+script$h.__file = "src/components/icons/ChevronRight.vue";
 
 const _hoisted_1$g = {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 320 512"
+  viewBox: "0 0 384 512"
 };
-const _hoisted_2$c = /*#__PURE__*/createElementVNode("path", { d: "M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" }, null, -1 /* HOISTED */);
+const _hoisted_2$c = /*#__PURE__*/createElementVNode("path", { d: "M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" }, null, -1 /* HOISTED */);
 
-function render$c(_ctx, _cache) {
+function render$b(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$g, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$c
@@ -39,16 +58,16 @@ function render$c(_ctx, _cache) {
 const script$g = {};
 
 
-script$g.render = render$c;
-script$g.__file = "src/components/icons/ChevronRight.vue";
+script$g.render = render$b;
+script$g.__file = "src/components/icons/ArrowDown.vue";
 
 const _hoisted_1$f = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 384 512"
 };
-const _hoisted_2$b = /*#__PURE__*/createElementVNode("path", { d: "M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" }, null, -1 /* HOISTED */);
+const _hoisted_2$b = /*#__PURE__*/createElementVNode("path", { d: "M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" }, null, -1 /* HOISTED */);
 
-function render$b(_ctx, _cache) {
+function render$a(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$f, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$b
@@ -58,16 +77,16 @@ function render$b(_ctx, _cache) {
 const script$f = {};
 
 
-script$f.render = render$b;
-script$f.__file = "src/components/icons/ArrowDown.vue";
+script$f.render = render$a;
+script$f.__file = "src/components/icons/ArrowUp.vue";
 
 const _hoisted_1$e = {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 384 512"
+  viewBox: "0 0 512 512"
 };
-const _hoisted_2$a = /*#__PURE__*/createElementVNode("path", { d: "M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" }, null, -1 /* HOISTED */);
+const _hoisted_2$a = /*#__PURE__*/createElementVNode("path", { d: "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" }, null, -1 /* HOISTED */);
 
-function render$a(_ctx, _cache) {
+function render$9(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$e, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$a
@@ -77,16 +96,16 @@ function render$a(_ctx, _cache) {
 const script$e = {};
 
 
-script$e.render = render$a;
-script$e.__file = "src/components/icons/ArrowUp.vue";
+script$e.render = render$9;
+script$e.__file = "src/components/icons/Pencil.vue";
 
 const _hoisted_1$d = {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 512 512"
+  viewBox: "0 0 448 512"
 };
-const _hoisted_2$9 = /*#__PURE__*/createElementVNode("path", { d: "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" }, null, -1 /* HOISTED */);
+const _hoisted_2$9 = /*#__PURE__*/createElementVNode("path", { d: "M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" }, null, -1 /* HOISTED */);
 
-function render$9(_ctx, _cache) {
+function render$8(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$d, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$9
@@ -96,16 +115,16 @@ function render$9(_ctx, _cache) {
 const script$d = {};
 
 
-script$d.render = render$9;
-script$d.__file = "src/components/icons/Pencil.vue";
+script$d.render = render$8;
+script$d.__file = "src/components/icons/Plus.vue";
 
 const _hoisted_1$c = {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 448 512"
+  viewBox: "0 0 512 512"
 };
-const _hoisted_2$8 = /*#__PURE__*/createElementVNode("path", { d: "M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" }, null, -1 /* HOISTED */);
+const _hoisted_2$8 = /*#__PURE__*/createElementVNode("path", { d: "M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z" }, null, -1 /* HOISTED */);
 
-function render$8(_ctx, _cache) {
+function render$7(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$c, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$8
@@ -115,16 +134,16 @@ function render$8(_ctx, _cache) {
 const script$c = {};
 
 
-script$c.render = render$8;
-script$c.__file = "src/components/icons/Plus.vue";
+script$c.render = render$7;
+script$c.__file = "src/components/icons/Refresh.vue";
 
 const _hoisted_1$b = {
   xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 512 512"
+  viewBox: "0 0 448 512"
 };
-const _hoisted_2$7 = /*#__PURE__*/createElementVNode("path", { d: "M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z" }, null, -1 /* HOISTED */);
+const _hoisted_2$7 = /*#__PURE__*/createElementVNode("path", { d: "M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" }, null, -1 /* HOISTED */);
 
-function render$7(_ctx, _cache) {
+function render$6(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$b, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$7
@@ -134,30 +153,11 @@ function render$7(_ctx, _cache) {
 const script$b = {};
 
 
-script$b.render = render$7;
-script$b.__file = "src/components/icons/Refresh.vue";
+script$b.render = render$6;
+script$b.__file = "src/components/icons/Trash.vue";
 
-const _hoisted_1$a = {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 448 512"
-};
-const _hoisted_2$6 = /*#__PURE__*/createElementVNode("path", { d: "M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" }, null, -1 /* HOISTED */);
-
-function render$6(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$a, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$6
-  ]))
-}
-
-const script$a = {};
-
-
-script$a.render = render$6;
-script$a.__file = "src/components/icons/Trash.vue";
-
-var script$9 = { 
-    components: {  ChevronRightIcon: script$g, ChevronLeftIcon: script$h },
+var script$a = { 
+    components: {  ChevronRightIcon: script$h, ChevronLeftIcon: script$i },
     props:{
       pages: {
         type: Number
@@ -226,9 +226,9 @@ var script$9 = {
     }
   };
 
-const _hoisted_1$9 = { class: "flex justify-center" };
-const _hoisted_2$5 = { "aria-label": "Page navigation example" };
-const _hoisted_3$2 = { class: "flex list-style-none" };
+const _hoisted_1$a = { class: "flex justify-center" };
+const _hoisted_2$6 = { "aria-label": "Page navigation example" };
+const _hoisted_3$3 = { class: "flex list-style-none" };
 const _hoisted_4$1 = {
   key: 0,
   class: "page-item"
@@ -248,9 +248,9 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronLeftIcon = resolveComponent("ChevronLeftIcon");
   const _component_ChevronRightIcon = resolveComponent("ChevronRightIcon");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1$9, [
-    createElementVNode("nav", _hoisted_2$5, [
-      createElementVNode("ul", _hoisted_3$2, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$a, [
+    createElementVNode("nav", _hoisted_2$6, [
+      createElementVNode("ul", _hoisted_3$3, [
         ($setup.hasPrev)
           ? (openBlock(), createElementBlock("li", _hoisted_4$1, [
               createElementVNode("a", {
@@ -299,10 +299,10 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 
-script$9.render = render$5;
-script$9.__file = "src/components/common/Pagination.vue";
+script$a.render = render$5;
+script$a.__file = "src/components/common/Pagination.vue";
 
-var script$8 = {
+var script$9 = {
     props:['data', 'cell'],
     data(){ return {
         formopen: false
@@ -319,7 +319,7 @@ var script$8 = {
     }
 };
 
-const _hoisted_1$8 = ["src"];
+const _hoisted_1$9 = ["src"];
 
 function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("span", null, [
@@ -328,14 +328,14 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
       src: $props.data,
       style: {"height":"30px","width":"auto"},
       onError: _cache[1] || (_cache[1] = (...args) => ($options.replaceByDefault && $options.replaceByDefault(...args)))
-    }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$8)
+    }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$9)
   ]))
 }
 
-script$8.render = render$4;
-script$8.__file = "src/components/tables/image.vue";
+script$9.render = render$4;
+script$9.__file = "src/components/tables/image.vue";
 
-var script$7 = {
+var script$8 = {
     props:['data', 'cell'],
     data(){ return {
         valid: true,
@@ -365,19 +365,19 @@ var script$7 = {
     }
 };
 
-const _hoisted_1$7 = { key: 0 };
-const _hoisted_2$4 = { key: 1 };
+const _hoisted_1$8 = { key: 0 };
+const _hoisted_2$5 = { key: 1 };
 
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("span", null, [
     ($data.valid)
-      ? (openBlock(), createElementBlock("span", _hoisted_1$7, toDisplayString($data.model && $data.model.join(', ')), 1 /* TEXT */))
-      : (openBlock(), createElementBlock("span", _hoisted_2$4, "Invalid data array"))
+      ? (openBlock(), createElementBlock("span", _hoisted_1$8, toDisplayString($data.model && $data.model.join(', ')), 1 /* TEXT */))
+      : (openBlock(), createElementBlock("span", _hoisted_2$5, "Invalid data array"))
   ]))
 }
 
-script$7.render = render$3;
-script$7.__file = "src/components/tables/tags.vue";
+script$8.render = render$3;
+script$8.__file = "src/components/tables/tags.vue";
 
 const { has: has$1, sortBy, get: get$2, isNil: isNil$1, isObject, omit, isEqual, capitalize, round } = _;
  
@@ -651,7 +651,29 @@ const calcPages = (totalRows, perPage) => {
   return count > rounded ? rounded + 1 : rounded
 };
 
-var script$6 = {
+const normalizeInput = async (row, modifier) => {  
+  if( typeof row == 'string' ) return row
+
+  if( row.children && Array.isArray(row.children) )
+    for(let idx in row.children){ 
+      row.children[idx] = await normalizeInput(row.children[idx], modifier);
+    }  
+
+  if( row['$el'] ) return row
+
+  let input = {
+    ...row,
+    label: _.get(row, 'label', _.capitalize(row?.name ?? '')),
+    placeholder: _.get(row, 'placeholder', _.capitalize(row?.name ?? '')),
+  };
+  if( input['type'] || (!input['$cmp'] && !input['$el'] && !input['type']) ) input['$formkit'] = input.type || 'text';
+ 
+  if( modifier && typeof modifier == 'function') input = await modifier(input);
+
+  return input
+};
+
+var script$7 = {
     props:['data', 'cell', 'row'],
     methods: {
         replaceContent() {
@@ -663,20 +685,20 @@ var script$6 = {
     }
 };
 
-const _hoisted_1$6 = ["href", "target", "innerHTML"];
+const _hoisted_1$7 = ["href", "target", "innerHTML"];
 
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("a", {
     href: $props.cell?.action?.handler,
     target: ($props.cell?.action?.target ?? '_self'),
     innerHTML: $options.replaceContent()
-  }, null, 8 /* PROPS */, _hoisted_1$6))
+  }, null, 8 /* PROPS */, _hoisted_1$7))
 }
 
-script$6.render = render$2;
-script$6.__file = "src/components/tables/link.vue";
+script$7.render = render$2;
+script$7.__file = "src/components/tables/link.vue";
 
-var script$5 = {
+var script$6 = {
     props:['data', 'cell', 'row'],
     computed:{ 
         expression(){ 
@@ -686,18 +708,18 @@ var script$5 = {
     }
 };
 
-const _hoisted_1$5 = ["innerHTML"];
+const _hoisted_1$6 = ["innerHTML"];
 
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
-  return (openBlock(), createElementBlock("span", mergeProps({ innerHTML: $options.expression }, toHandlers(_ctx.$listeners, true)), null, 16 /* FULL_PROPS */, _hoisted_1$5))
+  return (openBlock(), createElementBlock("span", mergeProps({ innerHTML: $options.expression }, toHandlers(_ctx.$listeners, true)), null, 16 /* FULL_PROPS */, _hoisted_1$6))
 }
 
-script$5.render = render$1;
-script$5.__file = "src/components/tables/expression.vue";
+script$6.render = render$1;
+script$6.__file = "src/components/tables/expression.vue";
 
 const { get: get$1, set, has, isNil, isEmpty } = _;
 
-var ResourceClass = ({ $axios,  }) => {
+var Resource = ({ $axios,  }) => {
   let modelUrl = null;
   let model = {};
   // table
@@ -882,7 +904,7 @@ var ResourceClass = ({ $axios,  }) => {
       session: model.auth
     };
   
-    if( has(data, primaryKey) )
+    if( has(data, primaryKey) && !isNil(data[primaryKey]) )
       url = `${api.rootApi}${ isNil(api.urlPatch) ? '/{id}':api.urlPatch }`;
     else
       url = `${api.rootApi}${ isNil(api.urlPost) ? '': api.urlPost}`;
@@ -981,18 +1003,18 @@ var ResourceClass = ({ $axios,  }) => {
 
 // import InputMixin from '~/libs/core/input.mixin'
 
-var script$4 = {
+var script$5 = {
   props:['data', 'cell'],
   // mixins: [InputMixin],
   data(){return { 
-    Instance: ResourceClass({ $axios: axios }),  
+    Instance: Resource({ $axios: axios }),  
   }},
   computed:{
 
   },
   async mounted(){
     let { action, model } = this.cell;
-    this.Instance = ResourceClass;
+    this.Instance = Resource;
     // if( schema )
     //   schema = await this.loadNestedSchema(schema)
       
@@ -1051,8 +1073,8 @@ var script$4 = {
   }
 };
 
-const _hoisted_1$4 = ["value"];
-const _hoisted_2$3 = ["value"];
+const _hoisted_1$5 = ["value"];
+const _hoisted_2$4 = ["value"];
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (_ctx.renderComponent)
@@ -1068,26 +1090,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return (openBlock(), createElementBlock("option", {
             key: idx,
             value: opt.value
-          }, toDisplayString(opt.label), 9 /* TEXT, PROPS */, _hoisted_2$3))
+          }, toDisplayString(opt.label), 9 /* TEXT, PROPS */, _hoisted_2$4))
         }), 128 /* KEYED_FRAGMENT */))
-      ], 8 /* PROPS */, _hoisted_1$4))
+      ], 8 /* PROPS */, _hoisted_1$5))
     : createCommentVNode("v-if", true)
 }
 
-script$4.render = render;
-script$4.__file = "src/components/tables/select.vue";
+script$5.render = render;
+script$5.__file = "src/components/tables/select.vue";
 
-const _hoisted_1$3 = {
+const _hoisted_1$4 = {
   key: 0,
   class: "font-semibold text-xs mr-1"
 };
-const _hoisted_2$2 = {
+const _hoisted_2$3 = {
   key: 1,
   class: "font-semibold text-xs ml-1"
 };
 
 
-var script$3 = {
+var script$4 = {
   __name: 'toggle',
   props: ['data', 'cell', 'row'],
   setup(__props) {
@@ -1102,7 +1124,7 @@ return (_ctx, _cache) => {
     class: normalizeClass(["flex items-center cursor-pointer py-2", ['cursor-not-allowed']])
   }, [
     (!unref(model))
-      ? (openBlock(), createElementBlock("span", _hoisted_1$3, " Off "))
+      ? (openBlock(), createElementBlock("span", _hoisted_1$4, " Off "))
       : createCommentVNode("v-if", true),
     createElementVNode("div", {
       class: normalizeClass(["rounded-full w-10 h-6 p-0.5 bg-gray-300", {'bg-red-500': !unref(model),'bg-green-500': unref(model)}])
@@ -1112,7 +1134,7 @@ return (_ctx, _cache) => {
       }, null, 2 /* CLASS */)
     ], 2 /* CLASS */),
     (unref(model))
-      ? (openBlock(), createElementBlock("span", _hoisted_2$2, " On "))
+      ? (openBlock(), createElementBlock("span", _hoisted_2$3, " On "))
       : createCommentVNode("v-if", true)
   ]))
 }
@@ -1120,11 +1142,11 @@ return (_ctx, _cache) => {
 
 };
 
-script$3.__file = "src/components/tables/toggle.vue";
+script$4.__file = "src/components/tables/toggle.vue";
 
-const _hoisted_1$2 = { class: "whitespace-nowrap" };
+const _hoisted_1$3 = { class: "whitespace-nowrap" };
   
-var script$2 = {
+var script$3 = {
   __name: 'dates',
   props: ['data', 'cell', 'row'],
   setup(__props) {
@@ -1133,21 +1155,21 @@ var script$2 = {
     
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", _hoisted_1$2, toDisplayString(unref(formatDate)(__props.data, __props.cell?.action?.format || 'MM/DD/YYYY hh:mm', __props.cell?.action?.from || null, __props.cell?.action?.utc || false)), 1 /* TEXT */))
+  return (openBlock(), createElementBlock("div", _hoisted_1$3, toDisplayString(unref(formatDate)(__props.data, __props.cell?.action?.format || 'MM/DD/YYYY hh:mm', __props.cell?.action?.from || null, __props.cell?.action?.utc || false)), 1 /* TEXT */))
 }
 }
 
 };
 
-script$2.__file = "src/components/tables/dates.vue";
+script$3.__file = "src/components/tables/dates.vue";
 
-const _hoisted_1$1 = ["textContent"];
-const _hoisted_2$1 = ["innerHTML"];
-const _hoisted_3$1 = ["textContent"];
+const _hoisted_1$2 = ["textContent"];
+const _hoisted_2$2 = ["innerHTML"];
+const _hoisted_3$2 = ["textContent"];
 // import Actions from './action'
 // import BelongsTo from './belongsTo'
 
-var script$1 = {
+var script$2 = {
   __name: 'index',
   props: ['data','cell'],
   setup(__props) {
@@ -1174,7 +1196,7 @@ return (_ctx, _cache) => {
   return (__props.cell.type == 'tags')
     ? (openBlock(), createBlock(_component_CommonsFragment, { key: 0 }, {
         default: withCtx(() => [
-          createVNode(script$7, {
+          createVNode(script$8, {
             data: __props.data[__props.cell.key],
             cell: __props.cell,
             row: __props.data,
@@ -1186,7 +1208,7 @@ return (_ctx, _cache) => {
     : (__props.cell.type == 'image')
       ? (openBlock(), createBlock(_component_CommonsFragment, { key: 1 }, {
           default: withCtx(() => [
-            createVNode(script$8, {
+            createVNode(script$9, {
               data: __props.data[__props.cell.key],
               cell: __props.cell,
               row: __props.data,
@@ -1198,7 +1220,7 @@ return (_ctx, _cache) => {
       : (__props.cell.type == 'switch' || __props.cell.type == 'toggle')
         ? (openBlock(), createBlock(_component_CommonsFragment, { key: 2 }, {
             default: withCtx(() => [
-              createVNode(script$3, {
+              createVNode(script$4, {
                 data: __props.data[__props.cell.key],
                 cell: __props.cell,
                 row: __props.data,
@@ -1213,7 +1235,7 @@ return (_ctx, _cache) => {
               onClick: emitAction
             }, {
               default: withCtx(() => [
-                createVNode(script$4, {
+                createVNode(script$5, {
                   data: __props.data[__props.cell.key],
                   cell: __props.cell,
                   row: __props.data,
@@ -1227,7 +1249,7 @@ return (_ctx, _cache) => {
                 createCommentVNode(" <span v-else-if=\"cell.type == 'belongsTo'\">\r\n        <BelongsTo :data=\"data[cell.key]\" :cell=\"cell\" :row=\"data\" v-on:click=\"emitAction\"   />\r\n    </span>  "),
                 createVNode(_component_CommonsFragment, null, {
                   default: withCtx(() => [
-                    createVNode(script$6, {
+                    createVNode(script$7, {
                       data: __props.data[__props.cell.key],
                       cell: __props.cell,
                       row: __props.data,
@@ -1240,7 +1262,7 @@ return (_ctx, _cache) => {
             : (__props.cell.type == 'expression')
               ? (openBlock(), createBlock(_component_CommonsFragment, { key: 5 }, {
                   default: withCtx(() => [
-                    createVNode(script$5, {
+                    createVNode(script$6, {
                       data: __props.data[__props.cell.key],
                       cell: __props.cell,
                       row: __props.data,
@@ -1254,7 +1276,7 @@ return (_ctx, _cache) => {
                     key: 6,
                     onClick: emitAction
                   }, [
-                    createVNode(script$2, {
+                    createVNode(script$3, {
                       data: __props.data[__props.cell.key],
                       cell: __props.cell,
                       row: __props.data,
@@ -1267,32 +1289,32 @@ return (_ctx, _cache) => {
                       createElementVNode("span", {
                         textContent: toDisplayString(unref(get)(__props.data, `row.${__props.cell.action.name}`, __props.data[__props.cell.key])),
                         onClick: emitAction
-                      }, null, 8 /* PROPS */, _hoisted_1$1)
+                      }, null, 8 /* PROPS */, _hoisted_1$2)
                     ], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */))
                   : (__props.cell.type == 'html')
                     ? (openBlock(), createElementBlock("span", {
                         key: 8,
                         innerHTML: __props.data[__props.cell.key],
                         onClick: emitAction
-                      }, null, 8 /* PROPS */, _hoisted_2$1))
+                      }, null, 8 /* PROPS */, _hoisted_2$2))
                     : (openBlock(), createElementBlock("span", {
                         key: 9,
                         textContent: toDisplayString(__props.data[__props.cell.key]),
                         onClick: emitAction
-                      }, null, 8 /* PROPS */, _hoisted_3$1))
+                      }, null, 8 /* PROPS */, _hoisted_3$2))
 }
 }
 
 };
 
-script$1.__file = "src/components/tables/index.vue";
+script$2.__file = "src/components/tables/index.vue";
 
-const _hoisted_1 = { class: "relative shadow-md sm:rounded-lg crud-table overflow-x-auto w-full" };
-const _hoisted_2 = {
+const _hoisted_1$1 = { class: "relative shadow-md sm:rounded-lg crud-table overflow-x-auto w-full" };
+const _hoisted_2$1 = {
   key: 1,
   class: "w-full text-sm text-left text-gray-500 dark:text-gray-400"
 };
-const _hoisted_3 = { class: "text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" };
+const _hoisted_3$1 = { class: "text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" };
 const _hoisted_4 = { class: "pd-toolbar" };
 const _hoisted_5 = ["colspan"];
 const _hoisted_6 = { class: "headers flex" };
@@ -1318,7 +1340,7 @@ const _hoisted_25 = ["colspan"];
   // import { useAppContext } from '~/store/global' 
   
   
-var script = {
+var script$1 = {
   __name: 'Table',
   props: {  
     model:{
@@ -1340,7 +1362,7 @@ const { resource, model:defModel } = __props;
   let model = defModel ? ref$1(defModel) : inject('model');  
   inject('session');  
   // const App = useAppContext() 
-  let Instance = ResourceClass({ $axios: axios }); 
+  let Instance = Resource({ $axios: axios }); 
   let alert = ref$1(null);
   let ready = ref$1(false);
   let schema = ref$1([]);
@@ -1538,7 +1560,7 @@ const { resource, model:defModel } = __props;
 return (_ctx, _cache) => {
   const _component_FormKit = resolveComponent("FormKit");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$1, [
     (unref(alert) && unref(alert).message)
       ? (openBlock(), createElementBlock("div", {
           key: 0,
@@ -1548,8 +1570,8 @@ return (_ctx, _cache) => {
         ], 2 /* CLASS */))
       : createCommentVNode("v-if", true),
     (unref(ready))
-      ? (openBlock(), createElementBlock("table", _hoisted_2, [
-          createElementVNode("thead", _hoisted_3, [
+      ? (openBlock(), createElementBlock("table", _hoisted_2$1, [
+          createElementVNode("thead", _hoisted_3$1, [
             createElementVNode("tr", _hoisted_4, [
               createElementVNode("th", {
                 scope: "col",
@@ -1565,7 +1587,7 @@ return (_ctx, _cache) => {
                           type: "button",
                           onClick: deleteSelected
                         }, [
-                          createVNode(unref(script$a), { class: "h-5" }),
+                          createVNode(unref(script$b), { class: "h-5" }),
                           createTextVNode(" " + toDisplayString(unref(selected).length) + " Selected ", 1 /* TEXT */)
                         ]))
                       : createCommentVNode("v-if", true),
@@ -1574,14 +1596,14 @@ return (_ctx, _cache) => {
                       type: "button",
                       onClick: getDatasource
                     }, [
-                      createVNode(unref(script$b), { class: "h-5" })
+                      createVNode(unref(script$c), { class: "h-5" })
                     ]),
                     createElementVNode("button", {
                       class: "px-4",
                       type: "button",
                       onClick: _cache[0] || (_cache[0] = () => emit('create', {target: 'create', row: {}}))
                     }, [
-                      createVNode(unref(script$c), { class: "h-5" })
+                      createVNode(unref(script$d), { class: "h-5" })
                     ]),
                     renderSlot(_ctx.$slots, "toolbar-left")
                   ]),
@@ -1608,11 +1630,11 @@ return (_ctx, _cache) => {
                     (col.sorter && unref(config).sort == col.key)
                       ? (openBlock(), createElementBlock("span", _hoisted_13, [
                           (col._order)
-                            ? (openBlock(), createBlock(unref(script$e), {
+                            ? (openBlock(), createBlock(unref(script$f), {
                                 key: 0,
                                 class: "h-4"
                               }))
-                            : (openBlock(), createBlock(unref(script$f), {
+                            : (openBlock(), createBlock(unref(script$g), {
                                 key: 1,
                                 class: "h-4"
                               }))
@@ -1684,7 +1706,7 @@ return (_ctx, _cache) => {
                     class: "px-2 py-2",
                     key: col.key
                   }, [
-                    createVNode(script$1, {
+                    createVNode(script$2, {
                       cell: col,
                       data: row
                     }, null, 8 /* PROPS */, ["cell", "data"])
@@ -1697,7 +1719,7 @@ return (_ctx, _cache) => {
                         class: "cursor-pointer mr-3",
                         onClick: () => emit('edit', { target: 'edit', row})
                       }, [
-                        createVNode(unref(script$d), { class: "h-5" })
+                        createVNode(unref(script$e), { class: "h-5" })
                       ], 8 /* PROPS */, _hoisted_22))
                     : createCommentVNode("v-if", true),
                   (unref(can)(unref(schema), 'canDelete'))
@@ -1706,7 +1728,7 @@ return (_ctx, _cache) => {
                         class: "cursor-pointer",
                         onClick: () => deleteEmit(row)
                       }, [
-                        createVNode(unref(script$a), { class: "h-5" })
+                        createVNode(unref(script$b), { class: "h-5" })
                       ], 8 /* PROPS */, _hoisted_23))
                     : createCommentVNode("v-if", true)
                 ])
@@ -1719,7 +1741,7 @@ return (_ctx, _cache) => {
                 colspan: unref(totalCols),
                 class: "w-full p-2 pt-4"
               }, [
-                createVNode(script$9, {
+                createVNode(script$a, {
                   pages: unref(totalPages),
                   actual: 1,
                   onChange: changePage
@@ -1735,10 +1757,157 @@ return (_ctx, _cache) => {
 
 };
 
-script.__file = "src/components/Table.vue";
+script$1.__file = "src/components/Table.vue";
+
+const _hoisted_1 = {
+  key: 0,
+  class: "form"
+};
+const _hoisted_2 = {
+  key: 0,
+  class: "text-red"
+};
+const _hoisted_3 = { key: 2 };
+
+  // let { $axios, $bus, $message } = useNuxtApp() 
+  
+var script = {
+  __name: 'Form',
+  props: {
+    model: {
+      type: Object,
+      default: () => ({ properties: [] })
+    }, 
+    data: {
+      type: Object,
+      default: () => ({})
+    }, 
+  },
+  emits: ['saved'],
+  setup(__props, { emit }) {
+
+const { model, data } = __props;
+
+  let Instance = Resource({ $axios: axios });
+  
+  // const App = useAppContext()
+  // const Auth = useAuth()
+  const schema = ref$1([]); 
+
+  
+ 
+  const save = (payload) => {
+    Instance.setModel(JSON.parse(JSON.stringify(model)));
+
+    console.log('Save', payload);
+    let exclude = Object.keys(payload).filter(i => i.includes('__'));
+    Instance.saveData(_.omit(payload, exclude)).then((rs) => {
+      // $message("Saved ")
+      res.value = rs;
+      emit('saved', rs);
+
+      // $bus.emit('form:created', payload)
+    }).catch(err => res.value = _.get(err, 'response.data', err) );
+  };
+
+  let row = ref$1(data);
+  let res = ref$1({});
+ 
+  const getDatasource = async (payload={}, config={}) => {
+    try { 
+      console.debug("chamou to formDatasource", model);  
+      let api = filterParams({ ..._.get(model, 'api', {}) }, { data: row.value }); 
+
+      Instance.setModel({ ...model, api });
+
+      row.value = await Instance.getDataObject(payload, config);
+        
+      console.debug("concluiu  getDatasource", api);
+    } catch (error) {
+      console.error('error formDatarousce', error);
+      alert("Error to getData");
+    }
+  };
+
+  watch(model, (newVal) => {
+    console.log('form wathc', newVal);
+    Instance.setModel(JSON.parse(JSON.stringify(newVal))); 
+  });
+  
+  const modifyInput = async (input) => {
+    if( input.model && typeof input.model == 'string' ) 
+      input.model = await App.loadModel(input.model);
+    
+    // if( Auth?.session?.request )
+    // 	input.model = mergeDeep((input.model || {}), { api:Auth?.session?.request })
+
+    return input
+  };
+ 
+  onBeforeMount(async () => {
+    try {  
+      Instance.setModel(JSON.parse(JSON.stringify(model)));
+      // row.value = await Instance.getData(row.value)
+ 
+      // Instance.setModel(model.value)
+      // resource.value = await Instance.getData() 
+
+      for(let row of model.properties){ 
+        schema.value.push( await normalizeInput(row, modifyInput) );
+      } 
+    } catch (error) {
+      console.error("onmounted", error);
+    }
+  });
+
+  onMounted(() => {
+    if( model.type == 'form' )
+        getDatasource();
+  });
+
+  onUnmounted(() => { 
+    console.log("onmounted");
+  });
+
+return (_ctx, _cache) => {
+  const _component_FormKitSchema = resolveComponent("FormKitSchema");
+  const _component_FormKit = resolveComponent("FormKit");
+
+  return (!!unref(row))
+    ? (openBlock(), createElementBlock("div", _hoisted_1, [
+        (unref(res).message)
+          ? (openBlock(), createElementBlock("div", _hoisted_2, toDisplayString(unref(res).message), 1 /* TEXT */))
+          : createCommentVNode("v-if", true),
+        (schema.value)
+          ? (openBlock(), createBlock(_component_FormKit, {
+              key: 1,
+              type: "form",
+              method: "post",
+              "submit-label": "Submit",
+              "form-class": "w-full",
+              actions: unref(can)(__props.model, 'submit'),
+              modelValue: unref(row),
+              "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => (isRef(row) ? (row).value = $event : row = $event)),
+              onSubmit: save
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_FormKitSchema, { schema: schema.value }, null, 8 /* PROPS */, ["schema"])
+              ]),
+              _: 1 /* STABLE */
+            }, 8 /* PROPS */, ["actions", "modelValue"]))
+          : (openBlock(), createElementBlock("div", _hoisted_3, " schema nao encontrado "))
+      ]))
+    : createCommentVNode("v-if", true)
+}
+}
+
+};
+
+script.__file = "src/components/Form.vue";
 
 var components = {
-  Table: script
+  Table: script$1,
+  Form: script
 };
 
 const plugin = {

@@ -189,7 +189,7 @@ export default ({ $axios,  }) => {
       session: model.auth
     }
   
-    if( has(data, primaryKey) )
+    if( has(data, primaryKey) && !isNil(data[primaryKey]) )
       url = `${api.rootApi}${ isNil(api.urlPatch) ? '/{id}':api.urlPatch }`
     else
       url = `${api.rootApi}${ isNil(api.urlPost) ? '': api.urlPost}`
