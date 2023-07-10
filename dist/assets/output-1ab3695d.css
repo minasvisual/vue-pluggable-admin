@@ -1,0 +1,65 @@
+.formkit-wrapper {
+  max-width: 100% !important;
+}
+
+.crud-table .pd-filters .formkit-outer {
+  margin: 0;
+}
+
+.tag-input[data-v-342edb1f] {
+  width: 100%;
+  border: 1px solid #eee;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: flex;
+}
+
+.tag-input__tag[data-v-342edb1f] {
+  /* float: left; */
+  display: flex;
+  margin-right: 10px;
+  background-color: #eee;
+  margin-top: 5px;
+  line-height: 30px;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.tag-input__tag > span[data-v-342edb1f] {
+  cursor: pointer;
+  opacity: 0.75;
+  margin-right: 10px;
+}
+
+.tag-input__text[data-v-342edb1f] {
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  background: none;
+  max-width: 120px;
+}
+
+.cell select {
+  background: transparent !important;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.cell .form-group {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.table-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  border: none !important;
+  background-color: transparent !important;
+  color: #333;
+}

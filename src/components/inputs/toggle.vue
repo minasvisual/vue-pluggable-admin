@@ -27,6 +27,7 @@
 </template>
  
 <script setup> 
+  import { ref, computed, } from 'vue'
   const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})
   const model = ref(context.value ?? false)

@@ -15,8 +15,7 @@
 <script> 
 import { filterParams, mergeDeep, interpolate, } from '../../libs/helpers'
 import Resource from '../../libs/resource'
-import axios  from 'axios'
-// import InputMixin from '~/libs/core/input.mixin'
+import axios  from 'axios' 
 
 export default {
   props:['data', 'cell'],

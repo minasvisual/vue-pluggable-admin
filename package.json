@@ -1,6 +1,6 @@
 {
   "name": "vue3-pluggable-admin",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Under construction",
   "main": "dist/library.js",
   "module": "dist/library.mjs",
@@ -26,6 +26,7 @@
   "dependencies": {
     "axios": "^1.4.0",
     "deepmerge": "^4.3.1",
+    "imask": "^7.1.0-alpha.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4"
   }

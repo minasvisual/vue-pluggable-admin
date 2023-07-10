@@ -9,7 +9,8 @@
 </template>
 
 <script setup>
-  import CrudTable from '../Table.vue' 
+  import { computedm ref } from 'vue';
+  import CrudTable from '../Table.vue'    
 
   const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})  

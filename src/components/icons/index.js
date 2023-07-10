@@ -6,6 +6,8 @@ import PencilIcon from './Pencil.vue'
 import PlusIcon from './Plus.vue'
 import RefreshIcon from './Refresh.vue'
 import TrashIcon from './Trash.vue' 
+import MinusCircleIcon from './MinusCircle.vue' 
+import PlusCircleIcon from './PlusCircle.vue' 
 
 export {
   ChevronLeftIcon,
@@ -15,5 +17,7 @@ export {
   PencilIcon,
   PlusIcon,
   RefreshIcon,
-  TrashIcon
+  TrashIcon,
+  MinusCircleIcon,
+  PlusCircleIcon,
 }

@@ -1,7 +1,7 @@
 import { createInput } from '@formkit/vue'
 import _ from 'lodash'
-import ResourceClass from '~/libs/core/resource'
-import { mergeDeep, interpolate } from '~~/libs/core/helpers' 
+import ResourceClass from '../../libs/resource'
+import { mergeDeep, interpolate } from '../../libs/helpers' 
 
 let arrOptions = []
 const searchFeature = async (node) => {

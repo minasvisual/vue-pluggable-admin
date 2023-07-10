@@ -31,6 +31,7 @@
 </template>
 
 <script setup> 
+  import { ref, computed, onMounted } from 'vue'
   const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})
   const valid = ref(true)

@@ -9,7 +9,7 @@
             <div class="flex"> 
               <FormKit v-if="![null,undefined].includes(model[i])" v-bind="_.omit(schema[0], ['$formkit'])" v-model="model[i]" />  
               <button type="button" class="flex justify-between items-center gap-2 p-2" @click="removeTag(i)">
-                <MinusCircleIcon class="h-5"/>
+                <MinusCircleIcon class="h-5" />
               </button>
             </div>
             <hr>
@@ -21,7 +21,7 @@
         <span v-else>error</span> 
     </section>
     <button type="button" class="flex justify-start items-center gap-2" @click="addTag">
-      <PlusCircleIcon class="h-5"/> Add
+      <PlusCircleIcon class="h-5" /> Add
     </button> 
 
     <span class="formkit-help" :class="[props.helpClass ?? '']" v-if="context.help">
@@ -36,9 +36,10 @@
 </template>
 
 <script setup>  
+  import { ref, computed, onMounted } from 'vue'
   import _ from 'lodash'
-  import { normalizeInput } from '~~/libs/core/helpers';
-  import { MinusCircleIcon, PlusCircleIcon } from '@heroicons/vue/outline';
+  import { normalizeInput } from '../../libs/helpers'; 
+  import { MinusCircleIcon, PlusCircleIcon } from '../icons/index';
   const { context = {} } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})
   const valid = ref(true)
@@ -113,3 +114,17 @@
  
 <style scoped> 
 </style>
+
+
+<!-- {
+  "name": "repeater",
+  "label": "Item array (custom input)",
+  "type": "repeater",
+  "inline": true, // true = array string 1 field | false = object
+  "schema":[
+    {
+      "name": "tags",
+      "label": "Tags", 
+    }
+  ]
+} -->

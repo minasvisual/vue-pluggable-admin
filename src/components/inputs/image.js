@@ -1,10 +1,13 @@
+import { inject } from 'vue'
 import { createInput } from '@formkit/vue'
+import axios from 'axios'
 import _ from 'lodash'
-import ResourceClass from '~/libs/core/resource'
-import { mergeDeep } from '~~/libs/core/helpers' 
+import ResourceClass from '../../libs/resource'
+import { mergeDeep } from '../../libs/helpers' 
  
 const features = (node) => {
-  const { $axios } = useNuxtApp()
+  const $axios = axios
+  // const { $axios } = useNuxtApp()
   const schemaModel = inject('model')
   const Instance = ResourceClass({ $axios })
   let uploading = false

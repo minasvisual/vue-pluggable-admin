@@ -29,15 +29,12 @@
 </template>
  
 <script setup> 
+  import { ref, computed,  } from 'vue'
   const { context } = defineProps(['context'])
   const jsonData = ref( typeof context?.value !== 'string' ? JSON.stringify(context?.value):context?.value );
    
   const props = computed(() => context.node?.props || {})
-  const hasMessages = computed(() => Object.keys(context?.messages || {}).length > 0 )
-  // function setValue (value) {
-  //   console.log('value:', jsonData.value) 
-  //   context.node.input(jsonData.value)
-  // } 
+  const hasMessages = computed(() => Object.keys(context?.messages || {}).length > 0 ) 
   
   async function parsePromise (text) {
     return JSON.parse(text)
@@ -51,7 +48,5 @@
     } else if( value.json )
       context.node.input(value.json)
  
-  } 
-
-
+  }  
 </script>

@@ -1,14 +1,13 @@
 <template> 
-  <FormKitSchema :class="{'display': ready ? 'block':'none'}" :schema="schema?.properties || schema" :data="section" />
+  <FormKitSchema :class="({'display': ready ? 'block':'none'})" :schema="schema?.properties || schema" :data="section" />
 </template>
  
 <script setup>  
   import { $attrs } from '@formkit/inputs';
-import ResourceClass from '~/libs/core/resource'
-  import { useAppContext } from '~/store/global';  
+  import ResourceClass from '../../libs/resource'  
 
-  const { $axios } = useNuxtApp()  
-  const { current={}, loadModel } = useAppContext()  
+  // const { $axios } = useNuxtApp()  
+  // const { current={}, loadModel } = useAppContext()  
   const { model } = defineProps(['model'])
   const ready = ref(false)
   // const section = ref({})

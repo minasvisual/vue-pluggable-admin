@@ -11,10 +11,10 @@
   - [X] Get local
   - [ ] Formkit custom input install
 - Form
-  - Local
-  - [] CRUD 
-  - [] Get local
-  - [ ] Formkit custom input install
+  - [ ] Local
+  - [ ] CRUD 
+  - [ ] Get local
+  - [X] Formkit custom input install
 - Auth 
   - [] Login 
   - [] Logged
@@ -32,11 +32,16 @@ npm install vue3-pluggable-admin @formkit/vue
 main.ts
 ```ts
 import '../node_modules/vue3-pluggable-admin/dist/assets/output-60960543.css'
-import Pluggable from 'vue3-pluggable-admin';
+import { CustomInputs, Pluggable } from 'vue3-pluggable-admin';
 import { plugin, defaultConfig } from '@formkit/vue'
 
 //After const app = createApp(App)
-app.use(plugin, defaultConfig)
+app.use(plugin, defaultConfig({
+  inputs:{
+    ...CustomInputs // Add custom pluggable inputs 
+    // you can add yours: check docs https://formkit.com/guides/create-a-custom-input
+  }
+}))
 app.use(Pluggable)
 ```
 
@@ -47,7 +52,7 @@ app.vue
     <CrudTable :model="schema" @create="e => setData(e.row)" @edit="e => setData(e.row)" />
 
     <div class="p-4" v-if="data">
-      <button @click="e => setData(null)">X</button>
+      <button @click="e => setData(null)">&#10006;</button>
       <CrudForm
         :model="schema"  
         :data="data"  
