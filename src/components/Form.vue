@@ -44,7 +44,7 @@
   const save = (payload) => {
     Instance.setModel(JSON.parse(JSON.stringify(model)))
 
-    console.log('Save', payload)
+    console.debug('Save', payload)
     let exclude = Object.keys(payload).filter(i => i.includes('__'))
     Instance.saveData(_.omit(payload, exclude)).then((rs) => {
       // $message("Saved ")

@@ -1,6 +1,12 @@
-# Under construction
+# Under construction (not stable)
+- this module can contains break changes until it is in beta version
 
-# Pluggable module
+# About
+Inspired on :
+- react admin: https://marmelab.com/react-admin/Admin.html
+- Md-crud angular: https://github.com/ClassHP/md-crud
+
+# Pluggable module roadmap
 - [ ] Formkit custom input install
 - Table
   - Local
@@ -20,18 +26,22 @@
   - [] Logged
   - [] Logout
 
+# Demo
+https://stackblitz.com/edit/vitejs-vite-shfymz
+
 # Schema docs
 - See Github Wiki - https://github.com/minasvisual/vue-pluggable-admin/wiki
 
-# Installation Vue
+# Installation 
+
+## Vue 3
 
 ```shell
 npm install vue3-pluggable-admin @formkit/vue
 ```
 
 main.ts
-```ts
-import '../node_modules/vue3-pluggable-admin/dist/assets/output-60960543.css'
+```ts 
 import { CustomInputs, Pluggable } from 'vue3-pluggable-admin';
 import { plugin, defaultConfig } from '@formkit/vue'
 
@@ -44,6 +54,9 @@ app.use(plugin, defaultConfig({
 }))
 app.use(Pluggable)
 ```
+
+# Nuxt 3
+- SOON
 
 app.vue
 ```vue
