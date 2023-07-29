@@ -4,23 +4,23 @@
       {{ context.label }}
     </span> 
     <section class="formkit-wrapper" :class="[props.wrapperClass ?? '']">   
-        <div v-if="schema && rendered && props.inline === true" >  
+        <div v-if="schema && rendered && props.inline === true"  class="relative">  
           <template v-for="(row, i) in context.value" :key="i"> 
-            <div class="flex"> 
+            <div class="flex py-2 gap-2"> 
               <FormKit v-if="![null,undefined].includes(model[i])" v-bind="_.omit(schema[0], ['$formkit'])" v-model="model[i]" />  
-              <button type="button" class="flex justify-between items-center gap-2 p-2" @click="removeTag(i)">
-                <MinusCircleIcon class="h-5" />
+              <button type="button" class="flex justify-between items-center gap-2 p-2" @click="removeTag(i)" title="Remove item">
+                <MinusCircleIcon class="h-5"  />
               </button>
             </div>
             <hr>
           </template>  
         </div> 
-        <div v-else-if="schema && rendered && !props.inline" class="">  
+        <div v-else-if="schema && rendered && !props.inline" class="relative">  
           <FormKitSchema :schema="schemaObj" />  
         </div>
         <span v-else>error</span> 
     </section>
-    <button type="button" class="flex justify-start items-center gap-2" @click="addTag">
+    <button type="button" class="flex justify-start items-center gap-2 py-2" @click="addTag"  title="Add new item">
       <PlusCircleIcon class="h-5" /> Add
     </button> 
 
@@ -56,7 +56,7 @@
           "children": [
             {
               "$el": "div",
-              "attrs": {"class":"flex"},
+              "attrs": {"class":"flex py-2 gap-2"},
               "children":[
                 {
                   "$el": "div",
@@ -69,7 +69,7 @@
                   "children": [
                     {
                       "$cmp": MinusCircleIcon,
-                      "props": { "class": "h-5" }
+                      "props": { "class": "h-5", "title":"Remove item" }
                     } 
                   ]
                 },

@@ -1,3 +1,15 @@
+.crud-table .pd-filters .formkit-outer {
+  margin: 0;
+}
+
+.formkit-wrapper {
+  max-width: 100% !important;
+}
+
+.formkit-actions {
+  padding: 10px 0;
+}
+
 .tag-input[data-v-342edb1f] {
   width: 100%;
   border: 1px solid #eee;
@@ -30,14 +42,6 @@
   font-size: 0.9em;
   background: none;
   max-width: 120px;
-}
-
-.crud-table .pd-filters .formkit-outer {
-  margin: 0;
-}
-
-.formkit-wrapper {
-  max-width: 100% !important;
 }
 
 .cell select {

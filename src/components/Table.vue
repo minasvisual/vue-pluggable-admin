@@ -15,7 +15,7 @@
                       <button class="px-4" type="button" @click="getDatasource">
                         <RefreshIcon class="h-5" />
                       </button>
-                      <button class="px-4" type="button" @click="() => emit('create', {target: 'create', row: {}})">
+                      <button class="px-4" type="button" v-if="can(model, 'canCreate')" @click="() => emit('create', {target: 'create', row: {}})">
                         <PlusIcon class="h-5" />
                       </button>
                       <slot name="toolbar-left" />
@@ -45,7 +45,7 @@
                 <th class="px-4 flex gap-2">
                   <input type="checkbox" :checked="(selected.length == table.length)" @change="selectAll" /> All
                 </th>
-                <th scope="col" class="px-2 py-1" v-for="col in schema" :key="col.key">
+                <th scope="col" class="px-2" v-for="col in schema" :key="col.key">
                   <FormKit v-if="col.filter" :type="gete(col, 'filter.type', 'search')" :delay="500" outer-class="m-0 p-0" input-class="w-full p-1"
                           :model="gete(col, 'model', {})"
                           :overwrite="gete(col, 'overwrite', {})"
@@ -55,7 +55,7 @@
                 </th>
                 <th class="px-2 flex items-center justify-end">
                   <p class="">Limit</p> 
-                  <FormKit outer-class="m-0 p-0 pl-2" type="select" v-model="perPage" :options="[1,5,15,25,50,100,500]" @input="changeLimit" />
+                  <FormKit outer-class="m-0 p-0 pl-2" input-class="text-xs" type="select" v-model="perPage" :options="[1,5,15,25,50,100,500]" @input="changeLimit" />
                 </th>
             </tr>
         </thead> 
@@ -68,10 +68,10 @@
                   <TableInputs :cell="col" :data="row" /> 
                 </td> 
                 <td class="px-2 py-2 flex justify-end" >
-                  <a class="cursor-pointer mr-3" @click="() => emit('edit', { target: 'edit', row})" v-if="can(schema, 'canEdit')">
+                  <a class="cursor-pointer mr-3" v-if="can(model, 'canEdit')" @click="() => emit('edit', { target: 'edit', row})" >
                     <PencilIcon class="h-5" />
                   </a>
-                  <a class="cursor-pointer" @click="() => deleteEmit(row)" v-if="can(schema, 'canDelete')">
+                  <a class="cursor-pointer" v-if="can(model, 'canDelete')" @click="() => deleteEmit(row)" >
                     <TrashIcon class="h-5" />
                   </a>
                 </td> 
@@ -79,7 +79,7 @@
         </tbody>
         <tfoot>
           <tr class="pd-footer">
-            <td :colspan="totalCols" class="w-full p-2 pt-4 ">
+            <td :colspan="totalCols" class="w-full pt-4">
               <CommonPagination :pages="totalPages" :actual="1" @change="changePage" />
             </td>
           </tr>
@@ -254,7 +254,7 @@
       console.debug("concluiu  getDatasource")
     } catch (error) {
       console.error(error)
-      alert("Error to getData")
+      setAlert({ message:"Error to getData" })
     }
   }
 

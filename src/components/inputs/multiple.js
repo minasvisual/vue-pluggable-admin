@@ -9,7 +9,7 @@ const features = (node) => {
   let loading = false; 
   const $axios = axios
   // const { $axios } = useNuxtApp()
-  const schemaModel = inject('model')
+  // const schemaModel = inject('model')
   const Instance = ResourceClass({ $axios }) 
   node.props.arrOptions = []
   node.props.arrFiltered = []
@@ -19,13 +19,13 @@ const features = (node) => {
 
   const getOptions = async ({ rootApi, fieldLabel, fieldValue, ...data }) => {
     try{  
-      console.log('getOptions', { rootApi, fieldLabel, fieldValue, ...data })
+      console.debug('getOptions', { rootApi, fieldLabel, fieldValue, ...data })
       if( rootApi ){
         loading = true;
         rootApi = interpolate(rootApi, { data: node.value })
         Instance.setModel({ api:{ ...data,  rootApi, resource:{} } })
 
-        let { rows } = await Instance.getData({ data: node.value}) 
+        let { rows } = await Instance.getData({ data: node.value }) 
 
         node.props.arrOptions = rows && rows.map((i, k) => ({ 
             label: _.get(i, fieldLabel, i.toString()), 
@@ -54,19 +54,19 @@ const features = (node) => {
   // We wait for our node to be fully  "created" before we start to add our
   // handlers to ensure the core Vue plugin has added its context object:
   node.on('created', () => {  
-    node.props.arrOptions = node.props.options
+    node.props.arrOptions = node.props.options ?? []
 
     Object.assign(node.context.handlers, { 
       setValue: e => {
         node.input(e) 
       }, 
       checked: e => {
-        let item = e.target.value
+        let item = e?.target?.value
         let exists = node.value.findIndex(i => i == item)
         if( exists >= 0 ){
           node.input( node.value.splice(exists, 1) ) 
         }else{
-          node.input( node.value.push(item) )
+          node.input([...node.value, item])
         } 
       },
       isChecked: e => {  

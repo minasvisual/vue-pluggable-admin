@@ -6,8 +6,7 @@ Inspired on :
 - react admin: https://marmelab.com/react-admin/Admin.html
 - Md-crud angular: https://github.com/ClassHP/md-crud
 
-# Pluggable module roadmap
-- [ ] Formkit custom input install
+# Pluggable module roadmap 
 - Table
   - Local
   - [X] Filtering
@@ -15,16 +14,16 @@ Inspired on :
   - [X] Sorting
   - [X] Delete local
   - [X] Get local
-  - [ ] Formkit custom input install
-- Form
-  - [ ] Local
-  - [ ] CRUD 
-  - [ ] Get local
   - [X] Formkit custom input install
+- Form
+  - [X] CRUD 
+  - [X] Formkit custom input install
+  - [X] Get local
+  - [ ] Local
 - Auth 
-  - [] Login 
-  - [] Logged
-  - [] Logout
+  - [ ] Login 
+  - [ ] Logged
+  - [ ] Logout
 
 # Demo
 https://stackblitz.com/edit/vitejs-vite-shfymz
@@ -42,6 +41,7 @@ npm install vue3-pluggable-admin @formkit/vue
 
 main.ts
 ```ts 
+import 'vue3-pluggable-admin/vue3-pluggable-admin.css'
 import { CustomInputs, Pluggable } from 'vue3-pluggable-admin';
 import { plugin, defaultConfig } from '@formkit/vue'
 
@@ -64,12 +64,15 @@ app.vue
   <main class="w-full m-auto">
     <CrudTable :model="schema" @create="e => setData(e.row)" @edit="e => setData(e.row)" />
 
-    <div class="p-4" v-if="data">
-      <button @click="e => setData(null)">&#10006;</button>
-      <CrudForm
-        :model="schema"  
-        :data="data"  
-      />
+    <div class="modal fixed w-full h-full bg-black/20 left-0 top-0" v-if="data">
+      <button @click="e => setData(null)" class="absolute right-0">&#10006;</button>
+      <div class="absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2">
+        <CrudForm
+          :model="schema"  
+          :data="data"  
+           @saved="setData(null)"
+        />
+      </div>
     </div>
   </main>
 </template>

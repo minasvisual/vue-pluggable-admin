@@ -17,7 +17,7 @@ const features = (node) => {
   node.on('created', () => {  
     // Ensure our matches prop starts as an array.
     const upload = async (e) => { 
-      console.log('upload change')
+      console.debug('upload change')
       let file = e.target.files[0]
       let { model = {}, overwrite = {} } = node.props
       
@@ -50,7 +50,7 @@ const features = (node) => {
     const selectFile = (e) => {
       if (e && typeof e.preventDefault === 'function') e.preventDefault()
       
-      console.log('Select file clicked')
+      console.debug('Select file clicked')
       var input = document.createElement('input');
       input.type = 'file';
       input.name = 'upload';
@@ -79,71 +79,79 @@ const features = (node) => {
 
 const schema = [ 
   {
-    if: '$value',
-    then: [
+    $el: 'div',
+    attrs: {  
+      class: 'flex justify-between items-center gap-2 border-y border-1 ',  
+    },
+    children: [ 
       {
-        if: '$baseUrl',
-        then:[
+        if: '$value',
+        then: [
           {
-            $el: 'img',
-            attrs: {
-              id: '$id',
-              src: '$baseUrl + $value',
-              class: 'w-20',
-            },
-            children: ''
+            if: '$baseUrl',
+            then:[
+              {
+                $el: 'img',
+                attrs: {
+                  id: '$id',
+                  src: '$baseUrl + $value',
+                  class: 'w-12',
+                },
+                children: ''
+              }
+            ],
+            else:{
+                $el: 'img',
+                attrs: {
+                  id: '$id',
+                  src: '$value',
+                  class: 'w-14',
+                },
+                children: '',
+            } 
           }
         ],
-        else:{
-            $el: 'img',
-            attrs: {
-              id: '$id',
-              src: '$value',
-              class: 'w-20',
-            },
-            children: '',
-        } 
-      }
-    ],
-  }, 
-  {   
-    $el: 'input',
-    attrs: {
-      name: 'imageUrl',
-      onInput: '$handlers.DOMInput',
-      onBlur: '$handlers.blur',
-      value: '$_value',
-      class: 'formkit-input'
-    },
-  }, 
-  {
-    $el: 'a',
-    attrs: {
-      id: 'upload',
-      href: '#',
-      class: 'p-2',
-      onClick: '$handlers.selectFile',
-      title: 'Upload new'
-    },
-    children: [
-      {
-        $el:'svg',
-        attrs:{
-          xmlns:"http://www.w3.org/2000/svg",
-          viewBox:"0 0 512 512",
-          class: 'w-4'
+      }, 
+      {   
+        $el: 'input',
+        attrs: {
+          name: 'imageUrl',
+          onInput: '$handlers.DOMInput',
+          onBlur: '$handlers.blur',
+          value: '$_value',
+          class: 'formkit-input'
         },
-        children:[
+      }, 
+      {
+        $el: 'a',
+        attrs: {
+          id: 'upload',
+          href: '#',
+          class: 'p-2',
+          onClick: '$handlers.selectFile',
+          title: 'Upload new'
+        },
+        children: [
           {
-            $el: 'path',
+            $el:'svg',
             attrs:{
-              d:"M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24z"
-            }
+              xmlns:"http://www.w3.org/2000/svg",
+              viewBox:"0 0 512 512",
+              class: 'w-4'
+            },
+            children:[
+              {
+                $el: 'path',
+                attrs:{
+                  d:"M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24z"
+                }
+              }
+            ]
           }
         ]
-      }
+      }, 
     ]
-  }, 
+  }
 ]
  
 export const image = createInput(schema, {

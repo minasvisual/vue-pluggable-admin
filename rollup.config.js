@@ -16,10 +16,10 @@ export default [
       }
     ],
     plugins: [
-      vue(), 
+      vue({ css:true }), 
       peerDepsExternal(),
       scss({
-        output: "./dist/style.css",
+        fileName: "vue3-pluggable-admin.css",
         failOnError: true,
       }),
     ]

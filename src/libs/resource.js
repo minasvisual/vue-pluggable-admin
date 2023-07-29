@@ -16,6 +16,7 @@ export default ({ $axios,  }) => {
     model = JSON.parse(JSON.stringify(modelObj))
     schema = model.properties
   }
+
   const getModel = () => {
     return model
   }
@@ -101,6 +102,7 @@ export default ({ $axios,  }) => {
     console.log("called get data", data, config)
     let { api = {} } = model;
     if( api.resource && isEmpty(data.data) ) data.data = api.resource
+    let primaryKey = (model?.primaryKey || 'id')
 
     let url = ''
     let isRow = has(data, `[${model.primaryKey || 'id'}]`) || model.type == 'form'
@@ -115,7 +117,7 @@ export default ({ $axios,  }) => {
     let query = queryString(api.params, ( api.rootApi.includes('?') ? '&':'?'), data)
 
     if( isRow )
-      url = `${api.rootApi}${ isNil(api.urlGetById) ? '/{id}{query}': api.urlGetById }`
+      url = `${api.rootApi}${ isNil(api.urlGetById) ? '/{'+primaryKey+'}{query}': api.urlGetById }`
     else
       url = `${api.rootApi}${ isNil(api.urlGet) ? '{query}': api.urlGet }`
 
@@ -149,7 +151,7 @@ export default ({ $axios,  }) => {
   const getDataObject = async (data={}, config={}) => { 
     let { api = {} } = model;
     if( api.resource && isEmpty(data.data) ) data.data = api.resource
-
+ 
     let url = ''
     let options = {
       method:  isNil(api.methodGet) ? 'GET': api.methodGet,
@@ -170,7 +172,7 @@ export default ({ $axios,  }) => {
     
     console.debug('get data object', url, options, sessionConfig)
     return $axios(url, options, sessionConfig)
-        .then( data => {   
+        .then(({data}) => {   
           return ( !isNil(api.wrapData) ? get(data, api.wrapData, data): data) 
         })
   }

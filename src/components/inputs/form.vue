@@ -1,14 +1,10 @@
 <template>
   <div :data-type="context.type" :class="[props.outerClass ?? '']">
     <div class="flex flex-col py-2">
-      <CrudTable 
-        :resource="[]" 
+      <CrudForm 
+        :resource="{ [context.node.name]: context.value }" 
         :model="model" 
-        @selected="changed"
-        @create="hook"
-        @edit="hook"
-        @delete="hook" 
-        @refresh="hook" 
+        @saved="changed" 
       />  
       <p class="py-2">Selected: {{ selected.length }}</p>
     </div>
@@ -18,13 +14,12 @@
 
 <script setup>
   import { computed, onMounted, ref } from 'vue';
-  import CrudTable from '../Table.vue'    
- 
-  const emit = defineEmits(['create']) 
+  import CrudForm from '../Form.vue'    
+  
   const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})  
 
-  const model = ref(Object.assign(props.value?.model)) 
+  const model = ref( props.value?.model ) 
   const selected = ref([]) 
   
   function changed(rows) { 
@@ -43,8 +38,7 @@
       context.attrs.onRefresh({ target, ...data })
   }
 
-  onMounted(() => {
-    console.log('grid', context.attrs.onCreate)
+  onMounted(() => { 
     
   })
 </script>

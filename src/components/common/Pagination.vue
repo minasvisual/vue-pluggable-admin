@@ -1,7 +1,6 @@
-<template>
-<div class="flex justify-center">
-  <nav aria-label="Page navigation example">
-    <ul class="flex list-style-none">
+<template> 
+  <div aria-label="Page navigation">
+    <ul class="flex justify-center list-style-none">
 
       <li class="page-item" v-if="hasPrev">
         <a class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 focus:shadow-none cursor-pointer"
@@ -26,8 +25,7 @@
         </a>
       </li>
     </ul>
-  </nav>
-</div>
+  </div> 
 </template>
 
 <script>

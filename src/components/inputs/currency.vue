@@ -29,11 +29,7 @@
 </template>
 
 <script setup> 
-  import { ref } from 'vue';
-import { onMounted } from 'vue';
-import { watch } from 'vue';
-import { computed } from 'vue';
-import { } from 'vue'
+  import { ref, onMounted, watch, computed } from 'vue';
   const { context, slots } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})
   const field = ref()

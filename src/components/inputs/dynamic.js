@@ -6,9 +6,9 @@ import { mergeDeep, interpolate } from '../../libs/helpers'
  
 const features = (node) => {
   let loading = false; 
-  // const { $axios } = useNuxtApp()
+  const $axios = axios 
   // const schemaModel = inject('model')
-  const Instance = ResourceClass({ $axios: axios }) 
+  const Instance = ResourceClass({ $axios }) 
   node.props.arrOptions = []
 
   const getOptions = async ({ rootApi, fieldLabel, fieldValue, ...data }) => {
@@ -69,7 +69,7 @@ const schema = [
   { 
     $el: 'div',
     attrs: {    
-      class: 'formkit-inner flex',
+      class: 'formkit-inner flex border-2 border-black',
     },
     children:[
       {   
@@ -79,7 +79,7 @@ const schema = [
           id: '$context.id',
           oninput: '$handlers.DOMInput', 
           value: '$_value',
-          class: 'formkit-input',
+          class: 'formkit-input border-0',
         },
         children:[
           {
@@ -96,7 +96,8 @@ const schema = [
         $el: 'button', 
         attrs:{
           type: 'button',
-          onClick: '$handlers.refresh'
+          onClick: '$handlers.refresh',
+          title: "Refresh list"
         },
         children: [
           {

@@ -5,9 +5,12 @@
     </span> 
     <div class="formkit-wrapper flex items-center cursor-pointer cm-toggle-wrapper"  
           @click="setValue" :class="[props.wrapperClass ?? '']">
-      <label class="formkit-inner w-full" >
-        <input class="formkit-input w-full" placeholder='Start:0000-00-00' type="text" ref="init" v-model='model.init' maxlength="10" @input="setValue" /> 
-        <input class="formkit-input w-full" placeholder='End:0000-00-00' type="text" ref="end"  v-model='model.end'  maxlength="10" @input="setValue" />
+      <label class="formkit-inner" >
+        <div class="flex items-center formkit-input border-2 border-zinc-800">
+          <input class="border-0 text-xs text-center" placeholder='0000-00-00' type="text" ref="init" v-model='model.init' maxlength="10" @input="setValue" /> 
+          <span> - </span>
+          <input class="border-0 text-xs text-center" placeholder='0000-00-00' type="text" ref="end"  v-model='model.end'  maxlength="10" @input="setValue" />
+        </div>
       </label>
       </div>  
     <span class="formkit-help" :class="[props.helpClass ?? '']" v-if="context.help">
@@ -23,6 +26,7 @@
  
 <script setup> 
   import IMask from 'imask';
+  import { computed, ref, onMounted } from 'vue'
   const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})
   const model = ref({})

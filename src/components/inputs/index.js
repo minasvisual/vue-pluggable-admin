@@ -2,6 +2,8 @@
 // import CodeInput from './code.vue'
 // import JsonInput from './json.vue'
 // import EditorInput from './editor.vue'
+import GridInput from './grid.vue'
+import FormInput from './form.vue'
 import ToggleInput from './toggle.vue'
 import TagsInput from './tags.vue'
 import RepeaterInput from './repeater.vue' 
@@ -18,9 +20,11 @@ export default {
   ToggleInput,
   TagsInput,
   RepeaterInput,
-  // DateRange,
+  DateRangeInput: DateRange,
   CurrencyInput,
-  // AutocompleteInput: autocomplete,
+  GridInput,
+  FormInput,
+  AutocompleteInput: autocomplete,
   ImageInput: image,
   DynamicInput: dynamic,
   MultipleInput: multiple,

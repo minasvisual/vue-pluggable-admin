@@ -6,7 +6,7 @@
             v-model="row" 
             @submit="save" 
     >
-      <FormKitSchema :schema="schema" />
+      <FormKitSchema :schema="schema" class="py-2" />
     </FormKit> 
     <div v-else>
       schema nao encontrado
@@ -30,7 +30,7 @@
   // const Auth = useAuth()
   const schema = ref([]) 
 
-  const { model, data } = defineProps({
+  const { model, data, resource } = defineProps({
     model: {
       type: Object,
       default: () => ({ properties: [] })
@@ -38,11 +38,16 @@
     data: {
       type: Object,
       default: () => ({})
-    }, 
+    },
+    resource:{
+      type: Object,
+      default: () => ({})
+    },
   })
  
   const save = (payload) => {
     Instance.setModel(JSON.parse(JSON.stringify(model)))
+    payload = Object.assign(resource, payload)
 
     console.debug('Save', payload)
     let exclude = Object.keys(payload).filter(i => i.includes('__'))
@@ -61,7 +66,7 @@
   const getDatasource = async (payload={}, config={}) => {
     try { 
       console.debug("chamou to formDatasource", model)  
-      let api = filterParams({ ..._.get(model, 'api', {}) }, { data: row.value }) 
+      let api = filterParams({ ..._.get(model, 'api', {}) }, { data: payload }) 
 
       Instance.setModel({ ...model, api })
 
@@ -107,7 +112,7 @@
 
   onMounted(() => {
     if( model.type == 'form' )
-        getDatasource()
+        getDatasource(resource)
   })
 
   onUnmounted(() => { 
@@ -118,5 +123,8 @@
 <style lang="scss">
 .formkit-wrapper{
 	max-width: 100% !important;
+}
+.formkit-actions {
+  padding: 10px 0;
 }
 </style>

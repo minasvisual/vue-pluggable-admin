@@ -1,12 +1,15 @@
 import { createInput } from '@formkit/vue'
+import axios from 'axios'
 import _ from 'lodash'
 import ResourceClass from '../../libs/resource'
 import { mergeDeep, interpolate } from '../../libs/helpers' 
 
 let arrOptions = []
 const searchFeature = async (node) => {
-  const { $axios } = useNuxtApp()
-  const schemaModel = inject('model')
+  let loading = false; 
+  // const { $axios } = useNuxtApp()
+  // const schemaModel = inject('model')
+  const $axios = axios 
   const Instance = ResourceClass({ $axios })   
 
   const getOptions = async ({ rootApi, fieldLabel, fieldValue, ...data }) => {
@@ -32,6 +35,7 @@ const searchFeature = async (node) => {
   const init = async () => { 
     console.log('pre init', node.props)
     if( !node.props?.model ) return 'DISMISSED';
+    node.props.options = node.props.options ?? []
 
     let { model = {}, overwrite = {} } = node.props
     model = mergeDeep(model, overwrite)
@@ -144,8 +148,9 @@ const schema = [
         attrs: {
           id: '$id',
           href: '#',
-          class: '$classes.value',
+          class: 'block border-2 border-black p-2',
           onClick: '$handlers.setValue',
+          title: 'Click to change'
         },
         children: '$active',
       },
@@ -178,7 +183,7 @@ const schema = [
                 then: 'true',
                 else: 'false',
               },
-              class: '$classes.dropdownItem',
+              class: 'formkit-dropdown-item border-b border-2 cursor-pointer p-1',
               onClick: '$handlers.setValue',
               onMouseenter: '$handlers.hover',
               onMouseleave: '$handlers.unhover',
