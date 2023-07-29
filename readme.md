@@ -41,7 +41,7 @@ npm install vue3-pluggable-admin @formkit/vue
 
 main.ts
 ```ts 
-import 'vue3-pluggable-admin/vue3-pluggable-admin.css'
+import 'vue3-pluggable-admin/dist/vue3-pluggable-admin.css'
 import { CustomInputs, Pluggable } from 'vue3-pluggable-admin';
 import { plugin, defaultConfig } from '@formkit/vue'
 
