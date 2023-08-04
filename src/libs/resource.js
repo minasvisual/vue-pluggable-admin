@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _, { filter } from 'lodash'
 import { interpolate, queryString } from './helpers'
 const { get, set, has, isNil, isEmpty } = _
 
@@ -7,6 +7,7 @@ export default ({ $axios,  }) => {
   let model = {}
   let schema = []
   let row = {}
+  let sorter = null
   // table
   let rows = {}
   let total = 1
@@ -64,6 +65,9 @@ export default ({ $axios,  }) => {
     if( perm == 'local' ){
       return get(model, 'api.pagination.local', false)
     } 
+    if( perm == 'sorter' ){
+      return sorter
+    }
     return false
   }
 
@@ -72,7 +76,7 @@ export default ({ $axios,  }) => {
     console.log('setData', resource, filters)
     let data = resource
     let isRow = has(data, `[${model.primaryKey || 'id'}]`) || model.type == 'form'
-    let api = get(model, 'api', {})
+    let api = get(model, 'api', {}) 
 
     if( isRow ){
       return ( !isNil(api.wrapDataById) ? get(data, api.wrapDataById, data): data)
@@ -88,9 +92,11 @@ export default ({ $axios,  }) => {
         total = rows.length
       }
 
+      if( !filters?.sort )
+        filters.sort = getSchemaSort()
       if( filters?.sort )
         rows = sortLocal(filters.sort)
-
+ 
       return {
         rows,
         total
@@ -242,6 +248,15 @@ export default ({ $axios,  }) => {
   }
 
   // Fitlers
+  const getSchemaSort = () => {
+    return schema.reduce( (pv, i) => {
+      if( _.has(i, 'config.sorter') && typeof i.config.sorter == 'string' ){ 
+        pv = { prop:i.name, order:i.config.sorter }
+      }
+      return pv
+    }, ({}))
+  }
+
   const paginate = ({ local = false, perPage = 5, page = 1 }) => { 
     console.debug('paginate', rows.length, ((perPage * page) - perPage), (perPage * page))
     if( !local ) return rows
@@ -262,9 +277,11 @@ export default ({ $axios,  }) => {
   }
 
   const sortLocal = (filters) => { 
+    console.debug('sortLocal', filters)
     if( !filters || !filters.prop ) return rows
 
     let sorted = _.sortBy(rows, [filters.prop])
+    sorter = filters.prop
     if( filters.order === 'descending' ) sorted.reverse()
     return sorted
   }
@@ -285,5 +302,6 @@ export default ({ $axios,  }) => {
     deleteData,
     paginate,
     sorting,
+    getSchemaSort,
   }
 }

@@ -11,10 +11,11 @@ Inspired on :
   - Local
   - [X] Filtering
   - [X] LImit
-  - [X] Sorting
+  - [X] Sorting fields
   - [X] Delete local
   - [X] Get local
   - [X] Formkit custom input install
+  - [X] Schema Sorting rows local
 - Form
   - [X] CRUD 
   - [X] Formkit custom input install
@@ -33,12 +34,11 @@ https://stackblitz.com/edit/vitejs-vite-shfymz
 
 # Installation 
 
-## Vue 3
-
 ```shell
 npm install vue3-pluggable-admin @formkit/vue
 ```
 
+## Vue 3
 main.ts
 ```ts 
 import 'vue3-pluggable-admin/dist/vue3-pluggable-admin.css'
@@ -55,9 +55,31 @@ app.use(plugin, defaultConfig({
 app.use(Pluggable)
 ```
 
-# Nuxt 3
+## Nuxt 3
 - SOON
 
+## Astro + Vue
+1. Follow astro vue instructions
+2. Add app entrypoint: https://docs.astro.build/pt-br/guides/integrations-guide/vue/#appentrypoint\ 
+
+_app.ts
+```ts 
+import 'vue3-pluggable-admin/dist/vue3-pluggable-admin.css'
+import type { App } from 'vue';
+import { CustomInputs, Pluggable } from 'vue3-pluggable-admin';
+import { plugin, defaultConfig } from '@formkit/vue'
+
+export default (app: App) => { 
+  app.use(plugin, defaultConfig({
+    inputs:{
+      ...CustomInputs  
+    }
+  }))
+  app.use(Pluggable)
+};
+```
+
+# Basic usage
 app.vue
 ```vue
 <template>

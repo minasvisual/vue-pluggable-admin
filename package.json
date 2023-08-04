@@ -1,13 +1,30 @@
 {
   "name": "vue3-pluggable-admin",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "description": "Under construction",
-  "main": "dist/library.js",
+  "main": "dist/library.cjs",
   "module": "dist/library.mjs",
   "type": "module",
   "files": [
     "dist/*"
   ],
+  "keywords": [
+    "vue",
+    "admin",
+    "dashboard",
+    "crud",
+    "form",
+    "table"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minasvisual/vue-pluggable-admin",
+    "directory": "packages/rules"
+  },
+  "contributors": [
+    "Ulisses Mantovani <mantovaniarts@gmail.com>"
+  ],
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",

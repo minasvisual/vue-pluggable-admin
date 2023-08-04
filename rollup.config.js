@@ -13,6 +13,10 @@ export default [
       {
         format: 'cjs',
         file: 'dist/library.js'
+      },
+      {
+        format: 'cjs',
+        file: 'dist/library.cjs'
       }
     ],
     plugins: [

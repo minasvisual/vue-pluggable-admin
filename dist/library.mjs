@@ -492,7 +492,7 @@ const mergeDeep  = (a = {}, b = {}) => {
 const formatDate = function(value, format, from, utc=false) {
     if (value) {
       let date = moment(String(value), from);
-      console.log('formatDate', value, date);
+      // console.log('formatDate', value, date)
       if(utc) date = date.utc();
       return date.format(format)
     }
@@ -779,6 +779,8 @@ const { get: get$1, set, has, isNil, isEmpty } = _;
 var ResourceClass = ({ $axios,  }) => {
   let modelUrl = null;
   let model = {};
+  let schema = [];
+  let sorter = null;
   // table
   let rows = {};
   let total = 1;
@@ -786,7 +788,7 @@ var ResourceClass = ({ $axios,  }) => {
   // Schema 
   const setModel = (modelObj={}) => {
     model = JSON.parse(JSON.stringify(modelObj));
-    model.properties;
+    schema = model.properties;
   };
 
   const getModel = () => {
@@ -836,6 +838,9 @@ var ResourceClass = ({ $axios,  }) => {
     if( perm == 'local' ){
       return get$1(model, 'api.pagination.local', false)
     } 
+    if( perm == 'sorter' ){
+      return sorter
+    }
     return false
   };
 
@@ -844,7 +849,7 @@ var ResourceClass = ({ $axios,  }) => {
     console.log('setData', resource, filters);
     let data = resource;
     let isRow = has(data, `[${model.primaryKey || 'id'}]`) || model.type == 'form';
-    let api = get$1(model, 'api', {});
+    let api = get$1(model, 'api', {}); 
 
     if( isRow ){
       return ( !isNil(api.wrapDataById) ? get$1(data, api.wrapDataById, data): data)
@@ -860,9 +865,11 @@ var ResourceClass = ({ $axios,  }) => {
         total = rows.length;
       }
 
+      if( !filters?.sort )
+        filters.sort = getSchemaSort();
       if( filters?.sort )
         rows = sortLocal(filters.sort);
-
+ 
       return {
         rows,
         total
@@ -1014,6 +1021,15 @@ var ResourceClass = ({ $axios,  }) => {
   };
 
   // Fitlers
+  const getSchemaSort = () => {
+    return schema.reduce( (pv, i) => {
+      if( _.has(i, 'config.sorter') && typeof i.config.sorter == 'string' ){ 
+        pv = { prop:i.name, order:i.config.sorter };
+      }
+      return pv
+    }, ({}))
+  };
+
   const paginate = ({ local = false, perPage = 5, page = 1 }) => { 
     console.debug('paginate', rows.length, ((perPage * page) - perPage), (perPage * page));
     if( !local ) return rows
@@ -1034,9 +1050,11 @@ var ResourceClass = ({ $axios,  }) => {
   };
 
   const sortLocal = (filters) => { 
+    console.debug('sortLocal', filters);
     if( !filters || !filters.prop ) return rows
 
     let sorted = _.sortBy(rows, [filters.prop]);
+    sorter = filters.prop;
     if( filters.order === 'descending' ) sorted.reverse();
     return sorted
   };
@@ -1057,6 +1075,7 @@ var ResourceClass = ({ $axios,  }) => {
     deleteData,
     paginate,
     sorting,
+    getSchemaSort,
   }
 };
 
@@ -1428,7 +1447,7 @@ const { resource, model:defModel } = __props;
   let table = ref$1(resource);
   let perPage = ref$1(5);
   let tableCount = ref$1(1);
-  let config = reactive({});
+  reactive({});
   let queryInfo = reactive({});
   const gete = _.get;
 
@@ -1479,7 +1498,7 @@ const { resource, model:defModel } = __props;
   const toggleSort = (col = {}) => {
     nextTick(() => { 
       // let localPagination = _.get(model.value,'api.pagination.local', false)
-      config.sort = col.key;
+      // config.sort = col.key
       col._order = _.isNil(col._order) ? false : !col._order;
 
       queryInfo = { ...queryInfo, ...fetchQueryInfo('sort', { column: col.key, asc: col._order }) };
@@ -1590,7 +1609,7 @@ const { resource, model:defModel } = __props;
   onBeforeMount(async () => {
     schema.value = schemaColumns(model.value?.properties); 
     for(let idx in schema.value){
-      console.log('onBeforeMount', schema.value[idx]);
+      // console.debug('onBeforeMount', schema.value[idx])
       schema.value[idx] = await modifyColumn(schema.value[idx]);
     }
   });
@@ -1687,7 +1706,7 @@ return (_ctx, _cache) => {
                 }, [
                   createElementVNode("div", _hoisted_12, [
                     createTextVNode(toDisplayString(col.label) + " ", 1 /* TEXT */),
-                    (col.sorter && unref(config).sort == col.key)
+                    (col.sorter && unref(Instance).isIt('sorter') == col.key)
                       ? (openBlock(), createElementBlock("span", _hoisted_13, [
                           (col._order)
                             ? (openBlock(), createBlock(unref(script$o), {

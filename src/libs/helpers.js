@@ -76,7 +76,7 @@ export const getErrorMessage = (error) => {
 export const formatDate = function(value, format, from, utc=false) {
     if (value) {
       let date = moment(String(value), from)
-      console.log('formatDate', value, date)
+      // console.log('formatDate', value, date)
       if(utc) date = date.utc()
       return date.format(format)
     }

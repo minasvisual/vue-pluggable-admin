@@ -34,7 +34,7 @@
                 <th scope="col" class="px-2 py-1" v-for="col in schema" :key="col.key" @click="() => toggleSort(col)"> 
                   <div class="flex items-center gap-2">
                     {{ col.label }} 
-                    <span v-if="col.sorter && config.sort == col.key">
+                    <span v-if="col.sorter && Instance.isIt('sorter') == col.key">
                       <ArrowUpIcon class="h-4" v-if="col._order" />
                       <ArrowDownIcon class="h-4" v-else /> 
                     </span>
@@ -177,7 +177,7 @@
   const toggleSort = (col = {}) => {
     nextTick(() => { 
       // let localPagination = _.get(model.value,'api.pagination.local', false)
-      config.sort = col.key
+      // config.sort = col.key
       col._order = _.isNil(col._order) ? false : !col._order
 
       queryInfo = { ...queryInfo, ...fetchQueryInfo('sort', { column: col.key, asc: col._order }) }
@@ -288,7 +288,7 @@
   onBeforeMount(async () => {
     schema.value = schemaColumns(model.value?.properties) 
     for(let idx in schema.value){
-      console.log('onBeforeMount', schema.value[idx])
+      // console.debug('onBeforeMount', schema.value[idx])
       schema.value[idx] = await modifyColumn(schema.value[idx])
     }
   })
