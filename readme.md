@@ -16,11 +16,18 @@ Inspired on :
   - [X] Get local
   - [X] Formkit custom input install
   - [X] Schema Sorting rows local
+  - [X] Slots (toolbar|header|footer|row actions)
+    - Toolbar (toolbar-left, toolbar-center, toolbar-right)
+    - header (header-scope, header-actions)
+    - row (row-scope, row-actions)
+    - footer (footer-scope, footer-actions)
+    - pagination 
 - Form
   - [X] CRUD 
   - [X] Formkit custom input install
   - [X] Get local
   - [ ] Local
+  - [ ] Slots (toolbar|header|footer|actions)
 - Auth 
   - [ ] Login 
   - [ ] Logged

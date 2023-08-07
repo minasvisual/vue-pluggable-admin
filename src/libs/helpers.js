@@ -229,8 +229,8 @@ export const schemaColumns = (properties) => {
   return sortBy(columns, ['sort'])
 }
 
-export const can = (schema, attr) => {
-  return get(schema, attr, true)
+export const can = (schema, attr, def = true) => {
+  return get(schema, attr, def)
 }
 
 export const isSelected = (rows, row) => {

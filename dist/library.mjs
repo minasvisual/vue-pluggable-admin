@@ -1,4 +1,4 @@
-import { openBlock, createElementBlock, createElementVNode, createCommentVNode, ref as ref$1, watch, computed, resolveComponent, withModifiers, createVNode, Fragment, renderList, normalizeClass, toDisplayString, mergeProps, toHandlers, unref, createBlock, withCtx, inject, reactive, onBeforeMount, onMounted, onUnmounted, createTextVNode, renderSlot, isRef, nextTick, withKeys, withDirectives, vModelText, resolveDynamicComponent } from 'vue';
+import { openBlock, createElementBlock, createElementVNode, createCommentVNode, ref as ref$1, watch, computed, resolveComponent, withModifiers, createVNode, Fragment, renderList, normalizeClass, toDisplayString, mergeProps, toHandlers, unref, createBlock, withCtx, inject, reactive, onBeforeMount, onMounted, onUnmounted, createTextVNode, renderSlot, normalizeProps, guardReactiveProps, isRef, nextTick, withKeys, withDirectives, vModelText, resolveDynamicComponent } from 'vue';
 import _ from 'lodash';
 import axios from 'axios';
 import deepmerge from 'deepmerge';
@@ -645,8 +645,8 @@ const schemaColumns = (properties) => {
   return sortBy(columns, ['sort'])
 };
 
-const can = (schema, attr) => {
-  return get$2(schema, attr, true)
+const can = (schema, attr, def = true) => {
+  return get$2(schema, attr, def)
 };
 
 const isSelected = (rows, row) => {
@@ -1405,14 +1405,21 @@ const _hoisted_14 = { class: "pd-filters" };
 const _hoisted_15 = { class: "px-4 flex gap-2" };
 const _hoisted_16 = ["checked"];
 const _hoisted_17 = { class: "px-2 flex items-center justify-end" };
-const _hoisted_18 = /*#__PURE__*/createElementVNode("p", { class: "" }, "Limit", -1 /* HOISTED */);
-const _hoisted_19 = { class: "px-4 py-2" };
-const _hoisted_20 = ["checked", "onChange"];
-const _hoisted_21 = { class: "px-2 py-2 flex justify-end" };
-const _hoisted_22 = ["onClick"];
+const _hoisted_18 = { class: "flex items-center justify-end" };
+const _hoisted_19 = /*#__PURE__*/createElementVNode("p", { class: "" }, "Limit", -1 /* HOISTED */);
+const _hoisted_20 = { class: "px-4 py-2" };
+const _hoisted_21 = ["checked", "onChange"];
+const _hoisted_22 = { class: "px-2 py-2 flex justify-end" };
 const _hoisted_23 = ["onClick"];
-const _hoisted_24 = { class: "pd-footer" };
-const _hoisted_25 = ["colspan"];
+const _hoisted_24 = ["onClick"];
+const _hoisted_25 = {
+  key: 0,
+  class: "pd-subfooter"
+};
+const _hoisted_26 = /*#__PURE__*/createElementVNode("td", { class: "px-4 py-2" }, "   ", -1 /* HOISTED */);
+const _hoisted_27 = { class: "px-2 py-2 flex justify-end" };
+const _hoisted_28 = { class: "pd-footer" };
+const _hoisted_29 = ["colspan"];
   // import { useAppContext } from '~/store/global' 
   
   
@@ -1750,20 +1757,24 @@ return (_ctx, _cache) => {
                         options: unref(gete)(col, 'options', []),
                         onInput: e => setFilter(col, e)
                       }, null, 8 /* PROPS */, ["type", "model", "overwrite", "options", "onInput"]))
-                    : createCommentVNode("v-if", true)
+                    : createCommentVNode("v-if", true),
+                  renderSlot(_ctx.$slots, "header-scope", normalizeProps(guardReactiveProps({col, filters: unref(filters)})))
                 ]))
               }), 128 /* KEYED_FRAGMENT */)),
               createElementVNode("th", _hoisted_17, [
-                _hoisted_18,
-                createVNode(_component_FormKit, {
-                  "outer-class": "m-0 p-0 pl-2",
-                  "input-class": "text-xs",
-                  type: "select",
-                  modelValue: unref(perPage),
-                  "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => (isRef(perPage) ? (perPage).value = $event : perPage = $event)),
-                  options: [1,5,15,25,50,100,500],
-                  onInput: changeLimit
-                }, null, 8 /* PROPS */, ["modelValue"])
+                renderSlot(_ctx.$slots, "header-actions", normalizeProps(guardReactiveProps({schema: unref(schema), filters: unref(filters)}))),
+                createElementVNode("span", _hoisted_18, [
+                  _hoisted_19,
+                  createVNode(_component_FormKit, {
+                    "outer-class": "m-0 p-0 pl-2",
+                    "input-class": "text-xs",
+                    type: "select",
+                    modelValue: unref(perPage),
+                    "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => (isRef(perPage) ? (perPage).value = $event : perPage = $event)),
+                    options: [1,5,15,25,50,100,500],
+                    onInput: changeLimit
+                  }, null, 8 /* PROPS */, ["modelValue"])
+                ])
               ])
             ])
           ]),
@@ -1773,26 +1784,29 @@ return (_ctx, _cache) => {
                 class: "pd-rows bg-white border-b dark:bg-gray-800 dark:border-gray-700",
                 key: index
               }, [
-                createElementVNode("td", _hoisted_19, [
+                createElementVNode("td", _hoisted_20, [
                   createElementVNode("input", {
                     type: "checkbox",
                     value: false,
                     checked: unref(isSelected)(unref(selected), row),
                     onChange: $event => (unref(selectionChange)(unref(selected), row))
-                  }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_20)
+                  }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_21)
                 ]),
                 (openBlock(true), createElementBlock(Fragment, null, renderList(unref(schema), (col) => {
                   return (openBlock(), createElementBlock("td", {
                     class: "px-2 py-2",
                     key: col.key
                   }, [
-                    createVNode(script$9, {
-                      cell: col,
-                      data: row
-                    }, null, 8 /* PROPS */, ["cell", "data"])
+                    renderSlot(_ctx.$slots, "row-scope", normalizeProps(guardReactiveProps({col, row, index})), () => [
+                      createVNode(script$9, {
+                        cell: col,
+                        data: row
+                      }, null, 8 /* PROPS */, ["cell", "data"])
+                    ])
                   ]))
                 }), 128 /* KEYED_FRAGMENT */)),
-                createElementVNode("td", _hoisted_21, [
+                createElementVNode("td", _hoisted_22, [
+                  renderSlot(_ctx.$slots, "row-actions", normalizeProps(guardReactiveProps({row, index}))),
                   (unref(can)(unref(model), 'canEdit'))
                     ? (openBlock(), createElementBlock("a", {
                         key: 0,
@@ -1800,7 +1814,7 @@ return (_ctx, _cache) => {
                         onClick: () => emit('edit', { target: 'edit', row})
                       }, [
                         createVNode(unref(script$n), { class: "h-5" })
-                      ], 8 /* PROPS */, _hoisted_22))
+                      ], 8 /* PROPS */, _hoisted_23))
                     : createCommentVNode("v-if", true),
                   (unref(can)(unref(model), 'canDelete'))
                     ? (openBlock(), createElementBlock("a", {
@@ -1809,24 +1823,42 @@ return (_ctx, _cache) => {
                         onClick: () => deleteEmit(row)
                       }, [
                         createVNode(unref(script$k), { class: "h-5" })
-                      ], 8 /* PROPS */, _hoisted_23))
+                      ], 8 /* PROPS */, _hoisted_24))
                     : createCommentVNode("v-if", true)
                 ])
               ]))
             }), 128 /* KEYED_FRAGMENT */))
           ]),
           createElementVNode("tfoot", null, [
-            createElementVNode("tr", _hoisted_24, [
+            (unref(can)(unref(model), 'canFooter', false))
+              ? (openBlock(), createElementBlock("tr", _hoisted_25, [
+                  _hoisted_26,
+                  (openBlock(true), createElementBlock(Fragment, null, renderList(unref(schema), (col) => {
+                    return (openBlock(), createElementBlock("td", {
+                      class: "px-4 py-2",
+                      key: col.key
+                    }, [
+                      renderSlot(_ctx.$slots, "footer-scope", normalizeProps(guardReactiveProps({col, table: unref(table), filters: unref(filters)})))
+                    ]))
+                  }), 128 /* KEYED_FRAGMENT */)),
+                  createElementVNode("td", _hoisted_27, [
+                    renderSlot(_ctx.$slots, "footer-actions", normalizeProps(guardReactiveProps({table: unref(table), filters: unref(filters)})))
+                  ])
+                ]))
+              : createCommentVNode("v-if", true),
+            createElementVNode("tr", _hoisted_28, [
               createElementVNode("td", {
                 colspan: unref(totalCols),
                 class: "w-full pt-4"
               }, [
-                createVNode(script$h, {
-                  pages: unref(totalPages),
-                  actual: 1,
-                  onChange: changePage
-                }, null, 8 /* PROPS */, ["pages"])
-              ], 8 /* PROPS */, _hoisted_25)
+                renderSlot(_ctx.$slots, "pagination", normalizeProps(guardReactiveProps({totalPages: unref(totalPages), actual:1, changePage: changePage})), () => [
+                  createVNode(script$h, {
+                    pages: unref(totalPages),
+                    actual: 1,
+                    onChange: changePage
+                  }, null, 8 /* PROPS */, ["pages"])
+                ])
+              ], 8 /* PROPS */, _hoisted_29)
             ])
           ])
         ]))

@@ -1,6 +1,6 @@
 {
   "name": "vue3-pluggable-admin",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Under construction",
   "main": "dist/library.cjs",
   "module": "dist/library.mjs",

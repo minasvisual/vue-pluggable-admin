@@ -52,10 +52,14 @@
                           :options="gete(col, 'options', [])"
                           @input="e => setFilter(col, e)"  
                   ></FormKit>
+                  <slot name="header-scope" v-bind="{col, filters}"></slot>
                 </th>
                 <th class="px-2 flex items-center justify-end">
-                  <p class="">Limit</p> 
-                  <FormKit outer-class="m-0 p-0 pl-2" input-class="text-xs" type="select" v-model="perPage" :options="[1,5,15,25,50,100,500]" @input="changeLimit" />
+                  <slot name="header-actions" v-bind="{schema, filters}"></slot>
+                  <span class="flex items-center justify-end">
+                    <p class="">Limit</p> 
+                    <FormKit outer-class="m-0 p-0 pl-2" input-class="text-xs" type="select" v-model="perPage" :options="[1,5,15,25,50,100,500]" @input="changeLimit" />
+                  </span>
                 </th>
             </tr>
         </thead> 
@@ -65,9 +69,12 @@
                     <input type="checkbox" :value="false" :checked="isSelected(selected, row)" @change="selectionChange(selected, row)" />
                 </td> 
                 <td class="px-2 py-2" v-for="col in schema" :key="col.key">
-                  <TableInputs :cell="col" :data="row" /> 
+                  <slot name="row-scope" v-bind="{col, row, index}">
+                    <TableInputs :cell="col" :data="row" /> 
+                  </slot>
                 </td> 
                 <td class="px-2 py-2 flex justify-end" >
+                  <slot name="row-actions" v-bind="{row, index}"></slot>
                   <a class="cursor-pointer mr-3" v-if="can(model, 'canEdit')" @click="() => emit('edit', { target: 'edit', row})" >
                     <PencilIcon class="h-5" />
                   </a>
@@ -78,9 +85,22 @@
             </tr> 
         </tbody>
         <tfoot>
+          <tr class="pd-subfooter" v-if="can(model, 'canFooter', false)" >
+            <td class="px-4 py-2" >
+                &nbsp;
+            </td> 
+            <td class="px-4 py-2" v-for="col in schema" :key="col.key"> 
+              <slot name="footer-scope" v-bind="{col, table, filters}"></slot>
+            </td>
+            <td class="px-2 py-2 flex justify-end" >
+              <slot name="footer-actions" v-bind="{table, filters}"></slot>
+            </td>
+          </tr>
           <tr class="pd-footer">
             <td :colspan="totalCols" class="w-full pt-4">
-              <CommonPagination :pages="totalPages" :actual="1" @change="changePage" />
+              <slot name="pagination" v-bind="{totalPages, actual:1, changePage}">
+                <CommonPagination :pages="totalPages" :actual="1" @change="changePage" />
+              </slot>
             </td>
           </tr>
         </tfoot>

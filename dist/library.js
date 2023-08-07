@@ -647,8 +647,8 @@ const schemaColumns = (properties) => {
   return sortBy(columns, ['sort'])
 };
 
-const can = (schema, attr) => {
-  return get$2(schema, attr, true)
+const can = (schema, attr, def = true) => {
+  return get$2(schema, attr, def)
 };
 
 const isSelected = (rows, row) => {
@@ -1407,14 +1407,21 @@ const _hoisted_14 = { class: "pd-filters" };
 const _hoisted_15 = { class: "px-4 flex gap-2" };
 const _hoisted_16 = ["checked"];
 const _hoisted_17 = { class: "px-2 flex items-center justify-end" };
-const _hoisted_18 = /*#__PURE__*/vue.createElementVNode("p", { class: "" }, "Limit", -1 /* HOISTED */);
-const _hoisted_19 = { class: "px-4 py-2" };
-const _hoisted_20 = ["checked", "onChange"];
-const _hoisted_21 = { class: "px-2 py-2 flex justify-end" };
-const _hoisted_22 = ["onClick"];
+const _hoisted_18 = { class: "flex items-center justify-end" };
+const _hoisted_19 = /*#__PURE__*/vue.createElementVNode("p", { class: "" }, "Limit", -1 /* HOISTED */);
+const _hoisted_20 = { class: "px-4 py-2" };
+const _hoisted_21 = ["checked", "onChange"];
+const _hoisted_22 = { class: "px-2 py-2 flex justify-end" };
 const _hoisted_23 = ["onClick"];
-const _hoisted_24 = { class: "pd-footer" };
-const _hoisted_25 = ["colspan"];
+const _hoisted_24 = ["onClick"];
+const _hoisted_25 = {
+  key: 0,
+  class: "pd-subfooter"
+};
+const _hoisted_26 = /*#__PURE__*/vue.createElementVNode("td", { class: "px-4 py-2" }, "   ", -1 /* HOISTED */);
+const _hoisted_27 = { class: "px-2 py-2 flex justify-end" };
+const _hoisted_28 = { class: "pd-footer" };
+const _hoisted_29 = ["colspan"];
   // import { useAppContext } from '~/store/global' 
   
   
@@ -1752,20 +1759,24 @@ return (_ctx, _cache) => {
                         options: vue.unref(gete)(col, 'options', []),
                         onInput: e => setFilter(col, e)
                       }, null, 8 /* PROPS */, ["type", "model", "overwrite", "options", "onInput"]))
-                    : vue.createCommentVNode("v-if", true)
+                    : vue.createCommentVNode("v-if", true),
+                  vue.renderSlot(_ctx.$slots, "header-scope", vue.normalizeProps(vue.guardReactiveProps({col, filters: vue.unref(filters)})))
                 ]))
               }), 128 /* KEYED_FRAGMENT */)),
               vue.createElementVNode("th", _hoisted_17, [
-                _hoisted_18,
-                vue.createVNode(_component_FormKit, {
-                  "outer-class": "m-0 p-0 pl-2",
-                  "input-class": "text-xs",
-                  type: "select",
-                  modelValue: vue.unref(perPage),
-                  "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => (vue.isRef(perPage) ? (perPage).value = $event : perPage = $event)),
-                  options: [1,5,15,25,50,100,500],
-                  onInput: changeLimit
-                }, null, 8 /* PROPS */, ["modelValue"])
+                vue.renderSlot(_ctx.$slots, "header-actions", vue.normalizeProps(vue.guardReactiveProps({schema: vue.unref(schema), filters: vue.unref(filters)}))),
+                vue.createElementVNode("span", _hoisted_18, [
+                  _hoisted_19,
+                  vue.createVNode(_component_FormKit, {
+                    "outer-class": "m-0 p-0 pl-2",
+                    "input-class": "text-xs",
+                    type: "select",
+                    modelValue: vue.unref(perPage),
+                    "onUpdate:modelValue": _cache[1] || (_cache[1] = $event => (vue.isRef(perPage) ? (perPage).value = $event : perPage = $event)),
+                    options: [1,5,15,25,50,100,500],
+                    onInput: changeLimit
+                  }, null, 8 /* PROPS */, ["modelValue"])
+                ])
               ])
             ])
           ]),
@@ -1775,26 +1786,29 @@ return (_ctx, _cache) => {
                 class: "pd-rows bg-white border-b dark:bg-gray-800 dark:border-gray-700",
                 key: index
               }, [
-                vue.createElementVNode("td", _hoisted_19, [
+                vue.createElementVNode("td", _hoisted_20, [
                   vue.createElementVNode("input", {
                     type: "checkbox",
                     value: false,
                     checked: vue.unref(isSelected)(vue.unref(selected), row),
                     onChange: $event => (vue.unref(selectionChange)(vue.unref(selected), row))
-                  }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_20)
+                  }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_21)
                 ]),
                 (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(schema), (col) => {
                   return (vue.openBlock(), vue.createElementBlock("td", {
                     class: "px-2 py-2",
                     key: col.key
                   }, [
-                    vue.createVNode(script$9, {
-                      cell: col,
-                      data: row
-                    }, null, 8 /* PROPS */, ["cell", "data"])
+                    vue.renderSlot(_ctx.$slots, "row-scope", vue.normalizeProps(vue.guardReactiveProps({col, row, index})), () => [
+                      vue.createVNode(script$9, {
+                        cell: col,
+                        data: row
+                      }, null, 8 /* PROPS */, ["cell", "data"])
+                    ])
                   ]))
                 }), 128 /* KEYED_FRAGMENT */)),
-                vue.createElementVNode("td", _hoisted_21, [
+                vue.createElementVNode("td", _hoisted_22, [
+                  vue.renderSlot(_ctx.$slots, "row-actions", vue.normalizeProps(vue.guardReactiveProps({row, index}))),
                   (vue.unref(can)(vue.unref(model), 'canEdit'))
                     ? (vue.openBlock(), vue.createElementBlock("a", {
                         key: 0,
@@ -1802,7 +1816,7 @@ return (_ctx, _cache) => {
                         onClick: () => emit('edit', { target: 'edit', row})
                       }, [
                         vue.createVNode(vue.unref(script$n), { class: "h-5" })
-                      ], 8 /* PROPS */, _hoisted_22))
+                      ], 8 /* PROPS */, _hoisted_23))
                     : vue.createCommentVNode("v-if", true),
                   (vue.unref(can)(vue.unref(model), 'canDelete'))
                     ? (vue.openBlock(), vue.createElementBlock("a", {
@@ -1811,24 +1825,42 @@ return (_ctx, _cache) => {
                         onClick: () => deleteEmit(row)
                       }, [
                         vue.createVNode(vue.unref(script$k), { class: "h-5" })
-                      ], 8 /* PROPS */, _hoisted_23))
+                      ], 8 /* PROPS */, _hoisted_24))
                     : vue.createCommentVNode("v-if", true)
                 ])
               ]))
             }), 128 /* KEYED_FRAGMENT */))
           ]),
           vue.createElementVNode("tfoot", null, [
-            vue.createElementVNode("tr", _hoisted_24, [
+            (vue.unref(can)(vue.unref(model), 'canFooter', false))
+              ? (vue.openBlock(), vue.createElementBlock("tr", _hoisted_25, [
+                  _hoisted_26,
+                  (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(vue.unref(schema), (col) => {
+                    return (vue.openBlock(), vue.createElementBlock("td", {
+                      class: "px-4 py-2",
+                      key: col.key
+                    }, [
+                      vue.renderSlot(_ctx.$slots, "footer-scope", vue.normalizeProps(vue.guardReactiveProps({col, table: vue.unref(table), filters: vue.unref(filters)})))
+                    ]))
+                  }), 128 /* KEYED_FRAGMENT */)),
+                  vue.createElementVNode("td", _hoisted_27, [
+                    vue.renderSlot(_ctx.$slots, "footer-actions", vue.normalizeProps(vue.guardReactiveProps({table: vue.unref(table), filters: vue.unref(filters)})))
+                  ])
+                ]))
+              : vue.createCommentVNode("v-if", true),
+            vue.createElementVNode("tr", _hoisted_28, [
               vue.createElementVNode("td", {
                 colspan: vue.unref(totalCols),
                 class: "w-full pt-4"
               }, [
-                vue.createVNode(script$h, {
-                  pages: vue.unref(totalPages),
-                  actual: 1,
-                  onChange: changePage
-                }, null, 8 /* PROPS */, ["pages"])
-              ], 8 /* PROPS */, _hoisted_25)
+                vue.renderSlot(_ctx.$slots, "pagination", vue.normalizeProps(vue.guardReactiveProps({totalPages: vue.unref(totalPages), actual:1, changePage: changePage})), () => [
+                  vue.createVNode(script$h, {
+                    pages: vue.unref(totalPages),
+                    actual: 1,
+                    onChange: changePage
+                  }, null, 8 /* PROPS */, ["pages"])
+                ])
+              ], 8 /* PROPS */, _hoisted_29)
             ])
           ])
         ]))

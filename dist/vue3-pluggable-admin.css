@@ -1,13 +1,13 @@
-.crud-table .pd-filters .formkit-outer {
-  margin: 0;
-}
-
 .formkit-wrapper {
   max-width: 100% !important;
 }
 
 .formkit-actions {
   padding: 10px 0;
+}
+
+.crud-table .pd-filters .formkit-outer {
+  margin: 0;
 }
 
 .tag-input[data-v-342edb1f] {
