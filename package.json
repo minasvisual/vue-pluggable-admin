@@ -1,9 +1,10 @@
 {
   "name": "vue3-pluggable-admin",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Under construction",
   "main": "dist/library.cjs",
   "module": "dist/library.mjs",
+  "types": "dist/types/env.d.ts",
   "type": "module",
   "files": [
     "dist/*"
@@ -28,18 +29,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
-    "publish": "npm publish"
+    "publish": "npm publish",
+    "compile": "npx -p typescript tsc src/index.js --declaration --allowJs --emitDeclarationOnly --outDir dist/types"
   },
   "peerDependencies": {
     "@formkit/vue": "latest",
     "vue": "^3.2.21"
   },
   "devDependencies": {
+    "@babel/types": "^7.22.10",
     "rollup": "^3.23.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-vue": "^6.0.0",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "axios": "^1.4.0",

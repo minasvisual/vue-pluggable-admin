@@ -1,6 +1,6 @@
 import vue from 'rollup-plugin-vue'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-import scss from "rollup-plugin-scss";
+import scss from "rollup-plugin-scss"; 
 
 export default [
   {
@@ -17,7 +17,7 @@ export default [
       {
         format: 'cjs',
         file: 'dist/library.cjs'
-      }
+      }, 
     ],
     plugins: [
       vue({ css:true }), 
@@ -25,7 +25,7 @@ export default [
       scss({
         fileName: "vue3-pluggable-admin.css",
         failOnError: true,
-      }),
+      }), 
     ]
   }
 ]
