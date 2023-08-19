@@ -7,8 +7,10 @@ Inspired on :
 - Md-crud angular: https://github.com/ClassHP/md-crud
 
 # Pluggable module roadmap 
+- General
+  - [X] Nested CRUD
 - Table
-  - Local
+  - [X] Local
   - [X] Filtering
   - [X] LImit
   - [X] Sorting fields
@@ -16,6 +18,7 @@ Inspired on :
   - [X] Get local
   - [X] Formkit custom input install
   - [X] Schema Sorting rows local
+  - [X] Default Action permissions 
   - [X] Slots (toolbar|header|footer|row actions)
     - Toolbar (toolbar-left, toolbar-center, toolbar-right)
     - header (header-scope, header-actions)
@@ -26,8 +29,9 @@ Inspired on :
   - [X] CRUD 
   - [X] Formkit custom input install
   - [X] Get local
-  - [ ] Local
-  - [ ] Slots (toolbar|header|footer|actions)
+  - [X] Tabs
+  - [X] Local
+  - [X] Slots (alert|prefix|suffix|error)
 - Auth 
   - [ ] Login 
   - [ ] Logged
@@ -43,6 +47,14 @@ https://stackblitz.com/edit/vitejs-vite-shfymz
 
 ```shell
 npm install vue3-pluggable-admin @formkit/vue
+```
+
+index.html (Tailwind CSS basic styles)
+```html
+<head>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  ...
+</head>
 ```
 
 ## Vue 3
@@ -95,7 +107,7 @@ app.vue
 
     <div class="modal fixed w-full h-full bg-black/20 left-0 top-0" v-if="data">
       <button @click="e => setData(null)" class="absolute right-0">&#10006;</button>
-      <div class="absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2">
+      <div class="absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto">
         <CrudForm
           :model="schema"  
           :data="data"  
@@ -135,12 +147,4 @@ app.vue
     })
   }
 </script>
-```
-
-index.html (Tailwind CSS basic styles)
-```html
-<head>
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  ...
-</head>
 ```

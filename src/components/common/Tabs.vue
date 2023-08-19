@@ -12,54 +12,44 @@
 </template>
 
 
-<script>
-export default {
-	name: "Tabs",
-  props: {
-    context: {
-      type: Object,
-      default: () => ({ value:{}, options:[] })
-    },
-  }, 
-  computed:{
-		tabs() {
-			return this.$attrs?.tabs || []
-		}
-  },
-	data(){return{
-		active: ''
-	}},
-	mounted(){
-		if( this.tabs?.length === 0 ) return ;
+<script setup>  
+  import { computed, onMounted, onBeforeUnmount, ref, reactive } from "vue"
 
-		this.changeTab(this.tabs[0])
-		this.active = this.tabs[0].name
-	},
-  destroyed() {
-    this.styleTag.remove();
-  },
-	methods:{
-		changeTab(tb){
-			if( this.tabs?.length === 0 ) return ;
+  const { tabs:tabes , tab } = defineProps(['tab', 'tabs'])  
+  const tabs = ref(tabes) 
+  const active = ref('') 
+  let styleTag = reactive() 
+		
+  function changeTab(tb){
+    if( tabs.value?.length === 0 ) return ;
 
-			this.active = tb.name
+    active.value = tb.name
 
-			if( this.styleTag ) this.styleTag.remove();
+    if( styleTag ) styleTag.remove();
 
-			const css = `
-				${ this.tabs.map(i => i.name).join(',') }{
-					display: none;
-				} 
-			    ${tb.name}{
-				  ${ tb.enabledStyle ? `${ tb.enabledStyle } ${ tb.enabledStyle.includes('important') ?'':'!important' }` : 'display: flex !important; flex-direction: column;' }
-				}
-			`;
-			this.styleTag = document.createElement('style');
-			this.styleTag.appendChild(document.createTextNode(css));
-			document.head.appendChild(this.styleTag);
-		}
-	}
-}
+    const css = `
+      ${ tabs.value.map(i => i.name).join(',') }{
+        display: none;
+      } 
+      ${tb.name}{
+        ${ tb.enabledStyle ? `${ tb.enabledStyle } ${ tb.enabledStyle.includes('important') ?'':'!important' }` : 'display: flex; flex-direction: column;' }
+      }
+    `;
+    styleTag = document.createElement('style');
+    styleTag.appendChild(document.createTextNode(css));
+    document.head.appendChild(styleTag);
+  }  
+  
+  onMounted(() => {
+		if( tabs.value?.length === 0 ) return ;
+
+		changeTab(tabs.value[0])
+		active.value = tabs.value[0].name
+  })
+
+  onBeforeUnmount(() => {
+    styleTag.remove();
+  }) 
 </script>
 
 <style lang="scss">

@@ -1,15 +1,23 @@
 <template>
   <div class="form" v-if="!!row">
-    <div v-if="res.message" class="text-red">{{ res.message }}</div>
-    <FormKit v-if="schema" type="form" method="post" submit-label="Submit" form-class="w-full"
+    <div v-if="res.message" class="text-red"> 
+      <slot name="alert" v-bind="{ row, res, model }" >
+        {{ res.message }}
+      </slot>
+    </div>
+    <FormKit v-if="schema" type="form" method="post" submit-label="Submit" :form-class="`w-full ${ model?.formClasses || '' }`"
             :actions="can(model, 'submit')"
             v-model="row" 
             @submit="save" 
     >
+      <slot name="prefix" v-bind="{ row, res, model }" />
       <FormKitSchema :schema="schema" class="py-2" />
+      <slot name="suffix" v-bind="{ row, res, model }" />
     </FormKit> 
     <div v-else>
-      schema nao encontrado
+      <slot name="error" v-bind="{ row, res, model }" >
+        Schema not found
+      </slot>
     </div> 
   </div>
 </template>
@@ -80,7 +88,7 @@
   }
 
   watch(model, (newVal) => {
-    console.log('form wathc', newVal)
+    console.debug('form wathc', newVal)
     Instance.setModel(JSON.parse(JSON.stringify(newVal))) 
   })
   

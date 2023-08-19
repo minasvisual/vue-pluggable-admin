@@ -3,86 +3,91 @@
     <div v-if="alert && alert.message" :class="`alert w-full text-center ${ alert?.type || '' }`" >
       <span>{{ alert.message }}</span>
     </div>
-    <table v-if="ready" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <table v-if="ready" class="w-full text-sm text-left text-gray-500 dark:text-gray-400" :class="`${ model.tableClasses || '' }`">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-           <tr class="pd-toolbar">
-                <th scope="col" :colspan="totalCols" class="py-2">
-                  <div class="headers flex">
-                    <div class="lelf-col flex items-center justify-left w-1/2">
-                      <button class="px-4 flex items-center whitespace-nowrap" type="button" v-if="selected.length" @click="deleteSelected">
-                        <TrashIcon class="h-5" /> {{ selected.length }} Selected
-                      </button>
-                      <button class="px-4" type="button" @click="getDatasource">
-                        <RefreshIcon class="h-5" />
-                      </button>
-                      <button class="px-4" type="button" v-if="can(model, 'canCreate')" @click="() => emit('create', {target: 'create', row: {}})">
-                        <PlusIcon class="h-5" />
-                      </button>
-                      <slot name="toolbar-left" />
-                    </div>
-                    <div class="right-col flex items-center justify-center w-1/2">
-                      <slot name="toolbar-center" />
-                    </div>
-                    <div class="right-col flex items-center justify-end w-1/2">
-                      <slot name="toolbar-right" />
-                    </div>
-                  </div>
-                </th> 
-            </tr>
-            <tr>
-                <th> </th>
-                <th scope="col" class="px-2 py-1" v-for="col in schema" :key="col.key" @click="() => toggleSort(col)"> 
-                  <div class="flex items-center gap-2">
-                    {{ col.label }} 
-                    <span v-if="col.sorter && Instance.isIt('sorter') == col.key">
-                      <ArrowUpIcon class="h-4" v-if="col._order" />
-                      <ArrowDownIcon class="h-4" v-else /> 
-                    </span>
-                  </div>
-                </th> 
-            </tr>
-            <tr class="pd-filters">
-                <th class="px-4 flex gap-2">
-                  <input type="checkbox" :checked="(selected.length == table.length)" @change="selectAll" /> All
-                </th>
-                <th scope="col" class="px-2" v-for="col in schema" :key="col.key">
-                  <FormKit v-if="col.filter" :type="gete(col, 'filter.type', 'search')" :delay="500" outer-class="m-0 p-0" input-class="w-full p-1"
-                          :model="gete(col, 'model', {})"
-                          :overwrite="gete(col, 'overwrite', {})"
-                          :options="gete(col, 'options', [])"
-                          @input="e => setFilter(col, e)"  
-                  ></FormKit>
-                  <slot name="header-scope" v-bind="{col, filters}"></slot>
-                </th>
-                <th class="px-2 flex items-center justify-end">
-                  <slot name="header-actions" v-bind="{schema, filters}"></slot>
-                  <span class="flex items-center justify-end">
-                    <p class="">Limit</p> 
-                    <FormKit outer-class="m-0 p-0 pl-2" input-class="text-xs" type="select" v-model="perPage" :options="[1,5,15,25,50,100,500]" @input="changeLimit" />
-                  </span>
-                </th>
-            </tr>
+          <tr class="pd-toolbar py-1">
+            <th scope="col" :colspan="totalCols" class="py-2">
+              <div class="headers flex">
+                <div class="lelf-col flex items-center justify-left w-1/2">
+                  <button class="px-4 flex items-center whitespace-nowrap" type="button" v-if="selected.length" @click="deleteSelected">
+                    <TrashIcon class="h-5" /> {{ selected.length }} Selected
+                  </button>
+                  <button class="px-4" type="button" @click="getDatasource">
+                    <RefreshIcon class="h-5" />
+                  </button>
+                  <button class="px-4" type="button" v-if="can(model, 'canCreate')" @click="() => emit('create', {target: 'create', row: {}})">
+                    <PlusIcon class="h-5" />
+                  </button>
+                  <slot name="toolbar-left" />
+                </div>
+                <div class="right-col flex items-center justify-center w-1/2">
+                  <slot name="toolbar-center" />
+                </div>
+                <div class="right-col flex items-center justify-end w-1/2">
+                  <slot name="toolbar-right" />
+                </div>
+              </div>
+            </th> 
+          </tr>
+          <tr>
+            <th class="px-4 flex gap-2"> 
+              <input type="checkbox" :checked="(selected.length == table.length)" @change="selectAll" /> All
+            </th>
+            <th scope="col" class="px-2 py-1" v-for="col in schema" :key="col.key" @click="() => toggleSort(col)"> 
+              <div class="flex items-center gap-2">
+                {{ col.label }} 
+                <span v-if="col.sorter && Instance.isIt('sorter') == col.key">
+                  <ArrowUpIcon class="h-4" v-if="col._order" />
+                  <ArrowDownIcon class="h-4" v-else /> 
+                </span>
+              </div>
+            </th> 
+            <th class="">
+                &nbsp;
+            </th>
+          </tr>
+          <tr class="pd-filters" v-if="can(model, 'api.pagination.limitField', false) && can(model, 'api.pagination.filterExp', false)">
+              <th class="px-4 flex gap-2">
+                &nbsp;
+              </th>
+              <th scope="col" class="px-2" v-for="col in schema" :key="col.key">
+                <FormKit v-if="can(model, 'api.pagination.filterExp', false) && col.filter" :type="gete(col, 'filter.type', 'search')" :delay="500" outer-class="m-0 p-0" input-class="w-full p-1"
+                        :model="gete(col, 'model', {})"
+                        :overwrite="gete(col, 'overwrite', {})"
+                        :options="gete(col, 'options', [])"
+                        @input="e => setFilter(col, e)"  
+                ></FormKit>
+                <slot name="header-scope" v-bind="{col, filters}"></slot>
+              </th>
+              <th class="px-2 flex items-center justify-end">
+                <slot name="header-actions" v-bind="{schema, filters}"></slot>
+                <span class="flex items-center justify-end" v-if="can(model, 'api.pagination.limitField', false)">
+                  <p class="">Limit</p> 
+                  <FormKit outer-class="m-0 p-0 pl-2" input-class="text-xs" type="select" v-model="perPage" :options="[1,5,15,25,50,100,500]" @input="changeLimit" />
+                </span>
+              </th>
+          </tr>
         </thead> 
         <tbody>
-            <tr class="pd-rows bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="(row, index) in table" :key="index"> 
-                <td class="px-4 py-2" >
-                    <input type="checkbox" :value="false" :checked="isSelected(selected, row)" @change="selectionChange(selected, row)" />
-                </td> 
-                <td class="px-2 py-2" v-for="col in schema" :key="col.key">
-                  <slot name="row-scope" v-bind="{col, row, index}">
-                    <TableInputs :cell="col" :data="row" /> 
-                  </slot>
-                </td> 
-                <td class="px-2 py-2 flex justify-end" >
-                  <slot name="row-actions" v-bind="{row, index}"></slot>
-                  <a class="cursor-pointer mr-3" v-if="can(model, 'canEdit')" @click="() => emit('edit', { target: 'edit', row})" >
-                    <PencilIcon class="h-5" />
-                  </a>
-                  <a class="cursor-pointer" v-if="can(model, 'canDelete')" @click="() => deleteEmit(row)" >
-                    <TrashIcon class="h-5" />
-                  </a>
-                </td> 
-            </tr> 
+          <tr class="pd-rows bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="(row, index) in table" :key="index"> 
+              <td class="px-4 py-2" >
+                  <input type="checkbox" :value="false" :checked="isSelected(selected, row)" @change="selectionChange(selected, row)" />
+              </td> 
+              <td class="px-2 py-2" v-for="col in schema" :key="col.key">
+                <slot name="row-scope" v-bind="{col, row, index}">
+                  <TableInputs :cell="col" :data="row" /> 
+                </slot>
+              </td> 
+              <td class="px-2 py-2 flex justify-end" >
+                <slot name="row-actions" v-bind="{row, index}"></slot>
+                <a class="cursor-pointer mr-3" v-if="can(model, 'canEdit')" @click="() => emit('edit', { target: 'edit', row})" >
+                  <PencilIcon class="h-5" />
+                </a>
+                <a class="cursor-pointer" v-if="can(model, 'canDelete')" @click="() => deleteEmit(row)" >
+                  <TrashIcon class="h-5" />
+                </a>
+              </td> 
+          </tr> 
         </tbody>
         <tfoot>
           <tr class="pd-subfooter" v-if="can(model, 'canFooter', false)" >
@@ -99,7 +104,8 @@
           <tr class="pd-footer">
             <td :colspan="totalCols" class="w-full pt-4">
               <slot name="pagination" v-bind="{totalPages, actual:1, changePage}">
-                <CommonPagination :pages="totalPages" :actual="1" @change="changePage" />
+                <CommonPagination v-if="can(model, 'api.pagination.pageField', false) || can(model, 'api.pagination.local', false)" 
+                                  :pages="totalPages" :actual="1" @change="changePage" />
               </slot>
             </td>
           </tr>

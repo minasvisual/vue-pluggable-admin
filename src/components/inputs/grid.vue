@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+  import _ from 'lodash'
   import { computed, onMounted, ref } from 'vue';
   import CrudTable from '../Table.vue'    
  
@@ -24,10 +25,16 @@
   const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})  
 
-  const model = ref(Object.assign(props.value?.model)) 
+  const model = ref({
+    ..._.get(props.value, 'model', {}),
+    canCreate: _.get(props.value, 'model.canEdit', false),
+    canEdit: _.get(props.value, 'model.canEdit', false),
+    canDelete: _.get(props.value, 'model.canEdit', false),
+  }) 
   const selected = ref([]) 
   
-  function changed(rows) { 
+  function changed({rows}) { 
+    console.log('change', rows)
     selected.value = rows
     context.node.input(rows)
   }

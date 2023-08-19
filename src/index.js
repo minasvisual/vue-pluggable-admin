@@ -23,6 +23,7 @@ const plugin = {
     for (const prop in components) {
       if (components.hasOwnProperty(prop)) {
         const component = components[prop]
+        console.log(`Crud${component.__name}`)
         Vue.component(`Crud${component.__name}`, component)
       }
     }
