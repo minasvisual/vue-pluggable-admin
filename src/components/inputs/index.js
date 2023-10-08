@@ -7,7 +7,7 @@ import FormInput from './form.vue'
 import ToggleInput from './toggle.vue'
 import TagsInput from './tags.vue'
 import RepeaterInput from './repeater.vue' 
-import DateRange from './daterange.vue' 
+// import DateRange from './daterange.vue' 
 import CurrencyInput from './currency.vue' 
 import { autocomplete } from './autocomplete'
 import { image } from './image'
@@ -20,7 +20,7 @@ export default {
   ToggleInput,
   TagsInput,
   RepeaterInput,
-  DateRangeInput: DateRange,
+  // DateRangeInput: DateRange,
   CurrencyInput,
   GridInput,
   FormInput,
