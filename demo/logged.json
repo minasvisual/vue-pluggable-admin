@@ -1,0 +1,7 @@
+{ 
+  "id": 1,
+  "fullname": "john M Doe", 
+  "email": "john@gmail.com",
+  "level": ["admin","user"],
+  "created_at": "2023-01-01T00:00:00"
+}

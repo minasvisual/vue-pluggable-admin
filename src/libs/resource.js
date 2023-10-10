@@ -4,15 +4,21 @@ const { get, set, has, isNil, isEmpty } = _
 
 export default ({ $axios,  }) => {
   let modelUrl = null
+  let config = {}
   let model = {}
   let schema = []
   let row = {}
+  let session = {}
   let sorter = null
   // table
   let rows = {}
   let total = 1
  
   // Schema 
+  const setConfig = (input) =>{
+    config = input
+  }
+
   const setModel = (modelObj={}) => {
     model = JSON.parse(JSON.stringify(modelObj))
     schema = model.properties
@@ -56,7 +62,7 @@ export default ({ $axios,  }) => {
     } 
     if( perm == 'deleteDataById' ){
       return get(model, 'api.deleteDataById', true)
-    }
+    } 
 
     return true
   }
@@ -67,6 +73,9 @@ export default ({ $axios,  }) => {
     } 
     if( perm == 'sorter' ){
       return sorter
+    }
+    if( perm == 'logged' ){
+      return get(model, 'auth', false)
     }
     return false
   }
@@ -286,6 +295,156 @@ export default ({ $axios,  }) => {
     return sorted
   }
 
+  // AUTH
+  const getSession = () => {
+    return session
+  }
+
+  const authenticate = ({username, secret, remember}) => {
+    try{  
+      console.debug('store login') 
+
+      if( !has(config, 'auth.url_login') ) 
+        throw new Error('url login doest exist');
+
+      return $axios({
+              url: get(config, 'auth.url_login'),
+              method: get(config, 'auth.url_method', 'post'),
+              data: {
+                [get(config, 'auth.field_username', 'email')]: username,
+                [get(config, 'auth.field_secret', 'password')]: secret,
+                [get(config, 'auth.field_remember', 'remember')]: remember,
+              },
+              headers: get(config, 'api.headers', {})
+              //{
+                //[get(cfg, 'request_token', 'access-token')]: ''
+              //}
+            }, { wrap: false } )
+      .then((res) => {
+          let token = setToken(res)
+          let reqAuthData = authRequest(token)
+          let user = setUser(res.data)
+
+          session = { request: reqAuthData, logged: true, token, user }
+          return { token, request: reqAuthData, user, logged: true  }
+      })
+    }catch(e){ 
+      console.error('Resource > authenticate error', e)
+      return Promise.reject(e)
+    }
+  }
+
+  const checkAuth = () => {
+    try{   
+      let cfg = _.get(config, 'auth', {})
+      let token = getToken() 
+      //Check active session
+      if( !token )
+        return Promise.reject({message: 'Token not exits'})
+
+      if( _.get(session,'logged') )
+        return Promise.resolve(session)
+
+      if( !_.has(cfg, 'logged_url') ){
+        return Promise.reject({message: 'Logged url not found'})
+      }
+      
+      let reqAuthData = authRequest(token)
+      
+      let options = { 
+        url: _.get(cfg, 'logged_url'), 
+        method: _.get(cfg, 'logged_method', 'get'), 
+        ...reqAuthData  
+      }
+
+      return $axios(options).then((data) => {
+          let user = setUser(data)
+          
+          session = { user, request: reqAuthData, logged: true, token }
+          return { token, user, request: reqAuthData, logged: true }
+      })
+    }catch(e){
+      logout()
+      console.error('Resource > checkAuth error', e)
+      return Promise.reject({message: e.message})
+    }
+  }
+
+  const getToken = () => { 
+    return sessionStorage.getItem(`${config.domain}_session`)
+  }
+
+  const removeToken = () => { 
+    return sessionStorage.removeItem(`${config.domain}_session`)
+  }
+
+  const setToken = ({data, headers}) => {
+    let token = null 
+
+    let cfg = _.get(config, 'auth', {})
+    if( _.get(cfg, 'response_mode', 'body') === 'header' ){
+      token = headers[ _.get(cfg, 'response_token', 'access-token') ];
+    }else{
+      token = _.get(data, _.get(cfg, 'response_token', 'access_token'), null)
+    } 
+
+    if( !token ) {
+      return new Error ({message: 'token not found', config: cfg, data, headers})
+    }
+
+    sessionStorage.setItem(`${config.domain}_session`, token)
+    return token
+  }
+
+  const authRequest = (token) => { 
+    let cfg = _.get(config, 'auth', {})
+
+    let tokenRequest = get(cfg, 'request_token_expression', '{token}')
+    if( _.get(cfg, 'request_mode', 'header') == 'query' )
+      return { 
+        headers: _.get(config, 'api.headers', {}),
+        params:{
+          [_.get(cfg, 'request_token', 'access-token')] : interpolate(tokenRequest, {token})
+        }
+      } 
+    else 
+      return {
+        headers:{
+          ..._.get(config, 'api.headers', {}),
+          [_.get(cfg, 'request_token', 'access-token')] : interpolate(tokenRequest, {token})
+        }
+      }
+  }
+  
+  const setUser = (data) => { 
+    let cfg = _.get(config, 'auth', {})
+    if( !_.has(cfg, 'logged_model') ) return {};
+
+    let { id, name, username, role } = _.get(cfg, 'logged_model')
+    let content = _.get(data, _.get(cfg, 'logged_wrap'), data)
+    let user = {
+      "id": _.get(content, id, "id"),
+      "name": _.get(content, name, "name"),
+      "username": _.get(content, username, "email"),
+      "role": _.get(content, role, "level")
+    }
+
+    return user;
+  }
+
+  const logout = async (ctx) => {
+    let cfg = _.get(config, 'auth', {})
+
+    let auth = { logged: false }
+    let token = getToken()
+    console.log("dispatched logout", token)
+    if( token ){   
+      removeToken()
+    }
+    session = auth 
+    return auth
+  }
+
   return {
     // Schema
     loadModel,
@@ -295,6 +454,7 @@ export default ({ $axios,  }) => {
     can,
     isIt,
     // Data
+    setConfig,
     getData,
     setData,
     getDataObject,
@@ -303,5 +463,12 @@ export default ({ $axios,  }) => {
     paginate,
     sorting,
     getSchemaSort,
+    // Auth
+    getSession,
+    getToken,
+    setToken,
+    authenticate,
+    checkAuth,
+    logout,
   }
 }

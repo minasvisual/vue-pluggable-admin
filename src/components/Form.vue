@@ -5,7 +5,7 @@
         {{ res.message }}
       </slot>
     </div>
-    <FormKit v-if="schema" type="form" method="post" submit-label="Submit" :form-class="`w-full ${ model?.formClasses || '' }`"
+    <FormKit v-if="ready && schema" type="form" method="post" submit-label="Submit" :form-class="`w-full ${ model?.formClasses || '' }`"
             :actions="can(model, 'submit')"
             v-model="row" 
             @submit="save" 
@@ -14,6 +14,9 @@
       <FormKitSchema :schema="schema" class="py-2" />
       <slot name="suffix" v-bind="{ row, res, model }" />
     </FormKit> 
+    <div v-else-if="!ready">
+      <Spinner />
+    </div>
     <div v-else>
       <slot name="error" v-bind="{ row, res, model }" >
         Schema not found
@@ -25,6 +28,8 @@
 <script setup>
   import _ from 'lodash' 
   import axios from 'axios' 
+  
+  import Spinner from './common/Spinner.vue' 
   import Resource from '../libs/resource'
   import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
   // import { useAppContext } from '~/store/global'; 
@@ -70,6 +75,7 @@
 
   let row = ref(data)
   let res = ref({})
+  let ready = ref(false)
  
   const getDatasource = async (payload={}, config={}) => {
     try { 
@@ -118,13 +124,15 @@
     }
   })
 
-  onMounted(() => {
+  onMounted(async () => {
     if( model.type == 'form' )
-        getDatasource(resource)
+        await getDatasource(resource)
+    
+    ready.value = true
   })
 
   onUnmounted(() => { 
-    console.log("onmounted")
+    console.debug("onmounted")
   })
 </script>
 

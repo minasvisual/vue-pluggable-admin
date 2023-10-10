@@ -111,23 +111,27 @@
           </tr>
         </tfoot>
     </table>
+    <div v-else class="text-center h-20">
+      <Spinner />
+    </div>
   </div>
 </template>
 
 <script setup>
   import _ from 'lodash' 
   import axios from 'axios' 
-
+  
+  import { RefreshIcon, TrashIcon, PlusIcon, PencilIcon, ArrowDownIcon, ArrowUpIcon } from './icons/index'
   import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
   import CommonPagination from './common/Pagination.vue'
   import TableInputs from './tables/index.vue'
-  import { RefreshIcon, TrashIcon, PlusIcon, PencilIcon, ArrowDownIcon, ArrowUpIcon } from './icons/index'
+  import Spinner from './common/Spinner.vue' 
   
   import ResourceClass from '../libs/resource'
-  import { schemaColumns, can, isSelected, selectionChange, selectionAll, fetchQueryInfo, filterParams, validateQueryInfo, 
-           calcPages, mergeDeep,  } 
-  from '../libs/helpers' 
-  // import { useAppContext } from '~/store/global' 
+  import { 
+    schemaColumns, can, isSelected, selectionChange, selectionAll, fetchQueryInfo, filterParams, validateQueryInfo, 
+    calcPages, mergeDeep,  
+  } from '../libs/helpers'  
   
   let { resource, model:defModel } = defineProps({  
     model:{

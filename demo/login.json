@@ -1,0 +1,9 @@
+{
+  "token":"123456789",
+  "user": {
+    "id": 1,
+    "fullname": "john M Doe", 
+    "email": "john@gmail.com",
+    "level": ["admin","user"]
+  }
+}
