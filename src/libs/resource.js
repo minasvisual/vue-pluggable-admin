@@ -306,26 +306,24 @@ export default ({ $axios,  }) => {
 
       if( !has(config, 'auth.url_login') ) 
         throw new Error('url login doest exist');
+      let input = {
+        [get(config, 'auth.field_username', 'email')]: username,
+        [get(config, 'auth.field_secret', 'password')]: secret, 
+      }
+      if( has(config, 'auth.field_remember') )
+        input[get(config, 'auth.field_remember', 'remember')] = remember
 
       return $axios({
               url: get(config, 'auth.url_login'),
               method: get(config, 'auth.url_method', 'post'),
-              data: {
-                [get(config, 'auth.field_username', 'email')]: username,
-                [get(config, 'auth.field_secret', 'password')]: secret,
-                [get(config, 'auth.field_remember', 'remember')]: remember,
-              },
-              headers: get(config, 'api.headers', {})
-              //{
-                //[get(cfg, 'request_token', 'access-token')]: ''
-              //}
-            }, { wrap: false } )
-      .then((res) => {
+              data: input,
+              headers: get(config, 'api.headers', {}) 
+            })
+      .then(async (res) => {
           let token = setToken(res)
           let reqAuthData = authRequest(token)
           let user = setUser(res.data)
-
-          session = { request: reqAuthData, logged: true, token, user }
+          session = { request: reqAuthData, logged: true, token, user } 
           return { token, request: reqAuthData, user, logged: true  }
       })
     }catch(e){ 
@@ -334,15 +332,16 @@ export default ({ $axios,  }) => {
     }
   }
 
-  const checkAuth = () => {
+  const checkAuth = (force = false) => {
     try{   
+      console.debug('Resource > checkAuth start')
       let cfg = _.get(config, 'auth', {})
       let token = getToken() 
       //Check active session
       if( !token )
         return Promise.reject({message: 'Token not exits'})
 
-      if( _.get(session,'logged') )
+      if( _.get(session,'logged') && !force )
         return Promise.resolve(session)
 
       if( !_.has(cfg, 'logged_url') ){
@@ -350,15 +349,16 @@ export default ({ $axios,  }) => {
       }
       
       let reqAuthData = authRequest(token)
+      let url = interpolate( _.get(cfg, 'logged_url'), session)
       
       let options = { 
-        url: _.get(cfg, 'logged_url'), 
+        url, 
         method: _.get(cfg, 'logged_method', 'get'), 
         ...reqAuthData  
       }
 
-      return $axios(options).then((data) => {
-          let user = setUser(data)
+      return $axios(options).then((res) => {
+          let user = setUser(res.data)
           
           session = { user, request: reqAuthData, logged: true, token }
           return { token, user, request: reqAuthData, logged: true }
@@ -371,11 +371,11 @@ export default ({ $axios,  }) => {
   }
 
   const getToken = () => { 
-    return sessionStorage.getItem(`${config.domain}_session`)
+    return sessionStorage.getItem(`${_.get(config, 'domain', 'default')}_session`)
   }
 
   const removeToken = () => { 
-    return sessionStorage.removeItem(`${config.domain}_session`)
+    return sessionStorage.removeItem(`${_.get(config, 'domain', 'default')}_session`)
   }
 
   const setToken = ({data, headers}) => {
@@ -392,7 +392,7 @@ export default ({ $axios,  }) => {
       return new Error ({message: 'token not found', config: cfg, data, headers})
     }
 
-    sessionStorage.setItem(`${config.domain}_session`, token)
+    sessionStorage.setItem(`${_.get(config, 'domain', 'default')}_session`, token)
     return token
   }
 

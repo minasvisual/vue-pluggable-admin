@@ -9,6 +9,8 @@ Inspired on :
 # Pluggable module roadmap 
 - General
   - [X] Nested CRUD
+  - [ ] Group package
+
 - Table
   - [X] Local
   - [X] Filtering
@@ -32,10 +34,18 @@ Inspired on :
   - [X] Tabs
   - [X] Local
   - [X] Slots (alert|prefix|suffix|error)
+  - Custom inputs 
+    - [x] HasOne 
+    - [x] hasMany
+    - [ ] Collection
+    - [ ] Json
+    - [ ] Editor
 - Auth 
-  - [ ] Login 
-  - [ ] Logged
-  - [ ] Logout
+  - [X] Login 
+  - [X] Logged
+  - [X] Logout
+- Events 
+  - [ ] Global event bus
 
 # Demo
 https://stackblitz.com/edit/vitejs-vite-shfymz
@@ -98,15 +108,53 @@ export default (app: App) => {
 };
 ```
 
+
 # Basic usage
+app.vue
+```
+<template> 
+    <CrudFlow :schema="{
+        properties:[
+          {
+            'name': 'name',
+            'label': 'Name',
+            'config': {
+              'grid': true
+            }
+          }
+        ],
+        api:{
+          'rootApi': 'https://jsonplaceholder.typicode.com/users',
+          'pagination':{
+            'local': true
+          }
+        }
+      }" 
+    /> 
+</template>
+ 
+```
+- Properties: Grid and form fields/columns
+- Api: Json source http config
+
+
+# Advanced usage
 app.vue
 ```vue
 <template>
   <main class="w-full m-auto">
-    <CrudTable :model="schema" @create="e => setData(e.row)" @edit="e => setData(e.row)" />
+    <CrudTable 
+      :model="schema" 
+      @create="e => setData(e.row)" 
+      @edit="e => setData(e.row)" 
+    />
 
     <div class="modal fixed w-full h-full bg-black/20 left-0 top-0" v-if="data">
-      <button @click="e => setData(null)" class="absolute right-0">&#10006;</button>
+      <button class="absolute right-0"
+          @click="e => setData(null)"
+       >
+        &#10006;
+      </button>
       <div class="absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto">
         <CrudForm
           :model="schema"  
@@ -146,5 +194,58 @@ app.vue
       data.value = newVal
     })
   }
+</script>
+```
+
+
+# Auth usage
+app.vue
+Login test (https://fakestoreapi.com/docs):
+- username: mor_2314
+- password: 83r5^_
+```vue
+<template>
+  <CrudAuth 
+    v-model:schema="schema" 
+    :config="schema"
+    #default="{ methods:{logout}, session:{user, logged} }"
+  >     
+    <button v-if="logged" @click="logout">{{ user.name }} - Logout</button>
+
+    <CrudFlow :schema="schema" /> 
+  </CrudAuth>    
+</template>
+
+<script setup lang="ts">  
+import { ref } from 'vue'   
+ const schema = ref({  
+    "auth":{ 
+      "url_login": "https://fakestoreapi.com/auth/login", 
+      "field_username": "username",
+      "field_secret": "password",  
+      "response_token": "token",                              // {"token":"xyz"}
+      "request_mode": "header",                               // logged requests method
+      "request_token": "Authorization",                       // header field
+      "request_token_expression": "Bearer {token}",           // header value
+      "logged_url": "https://fakestoreapi.com/users/1",       // get user data
+      "logged_model": {                                       // user response data map { id:1, username:'', email:'' }
+        "id": "id",
+        "name": "username",
+        "username": "email",
+        "role": "level"
+      }
+    },
+    "properties":[
+      { "name":"id", "config":{ "grid":true } }, 
+      { "name":"email", "config":{ "grid":true } }, 
+      { "name":"username", "config":{ "grid":true } }, 
+    ],
+    "api":{
+      "rootApi": "https://fakestoreapi.com/users",
+      "pagination":{
+        "local": true
+      }
+    }
+  })
 </script>
 ```

@@ -12,12 +12,12 @@ const _hoisted_1$u = {
   viewBox: "0 0 320 512"
 };
 const _hoisted_2$r = /*#__PURE__*/vue.createElementVNode("path", { d: "M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" }, null, -1 /* HOISTED */);
-const _hoisted_3$f = [
+const _hoisted_3$e = [
   _hoisted_2$r
 ];
 
 function render$h(_ctx, _cache) {
-  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$u, _hoisted_3$f))
+  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$u, _hoisted_3$e))
 }
 
 const script$v = {};
@@ -165,12 +165,12 @@ const _hoisted_1$m = {
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$j = /*#__PURE__*/vue.createElementVNode("path", { d: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" }, null, -1 /* HOISTED */);
-const _hoisted_3$e = [
+const _hoisted_3$d = [
   _hoisted_2$j
 ];
 
 function render$9(_ctx, _cache) {
-  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$m, _hoisted_3$e))
+  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$m, _hoisted_3$d))
 }
 
 const script$n = {};
@@ -185,12 +185,12 @@ const _hoisted_1$l = {
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$i = /*#__PURE__*/vue.createElementVNode("path", { d: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" }, null, -1 /* HOISTED */);
-const _hoisted_3$d = [
+const _hoisted_3$c = [
   _hoisted_2$i
 ];
 
 function render$8(_ctx, _cache) {
-  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$l, _hoisted_3$d))
+  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$l, _hoisted_3$c))
 }
 
 const script$m = {};
@@ -271,7 +271,7 @@ var script$l = {
 
 const _hoisted_1$k = { "aria-label": "Page navigation" };
 const _hoisted_2$h = { class: "flex justify-center list-style-none" };
-const _hoisted_3$c = {
+const _hoisted_3$b = {
   key: 0,
   class: "page-item"
 };
@@ -293,7 +293,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$k, [
     vue.createElementVNode("ul", _hoisted_2$h, [
       ($setup.hasPrev)
-        ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_3$c, [
+        ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_3$b, [
             vue.createElementVNode("a", {
               class: "page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 focus:shadow-none cursor-pointer",
               "aria-label": "Previous",
@@ -365,7 +365,7 @@ const _hoisted_2$g = {
   key: 0,
   class: "modal fixed w-full h-full bg-black/20 left-0 top-0"
 };
-const _hoisted_3$b = { class: "absolute -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 text center" };
+const _hoisted_3$a = { class: "absolute -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 text center" };
 const _hoisted_4$8 = ["src"];
 
 function render$6(_ctx, _cache, $props, $setup, $data, $options) {
@@ -378,7 +378,7 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$j),
     ($data.formopen)
       ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_2$g, [
-          vue.createElementVNode("div", _hoisted_3$b, [
+          vue.createElementVNode("div", _hoisted_3$a, [
             vue.createElementVNode("button", {
               onClick: _cache[2] || (_cache[2] = e => $data.formopen = false),
               class: "absolute right-0 top-0"
@@ -1098,26 +1098,24 @@ var ResourceClass = ({ $axios,  }) => {
 
       if( !has(config, 'auth.url_login') ) 
         throw new Error('url login doest exist');
+      let input = {
+        [get$1(config, 'auth.field_username', 'email')]: username,
+        [get$1(config, 'auth.field_secret', 'password')]: secret, 
+      };
+      if( has(config, 'auth.field_remember') )
+        input[get$1(config, 'auth.field_remember', 'remember')] = remember;
 
       return $axios({
               url: get$1(config, 'auth.url_login'),
               method: get$1(config, 'auth.url_method', 'post'),
-              data: {
-                [get$1(config, 'auth.field_username', 'email')]: username,
-                [get$1(config, 'auth.field_secret', 'password')]: secret,
-                [get$1(config, 'auth.field_remember', 'remember')]: remember,
-              },
-              headers: get$1(config, 'api.headers', {})
-              //{
-                //[get(cfg, 'request_token', 'access-token')]: ''
-              //}
-            }, { wrap: false } )
-      .then((res) => {
+              data: input,
+              headers: get$1(config, 'api.headers', {}) 
+            })
+      .then(async (res) => {
           let token = setToken(res);
           let reqAuthData = authRequest(token);
           let user = setUser(res.data);
-
-          session = { request: reqAuthData, logged: true, token, user };
+          session = { request: reqAuthData, logged: true, token, user }; 
           return { token, request: reqAuthData, user, logged: true  }
       })
     }catch(e){ 
@@ -1126,15 +1124,16 @@ var ResourceClass = ({ $axios,  }) => {
     }
   };
 
-  const checkAuth = () => {
+  const checkAuth = (force = false) => {
     try{   
+      console.debug('Resource > checkAuth start');
       let cfg = _.get(config, 'auth', {});
       let token = getToken(); 
       //Check active session
       if( !token )
         return Promise.reject({message: 'Token not exits'})
 
-      if( _.get(session,'logged') )
+      if( _.get(session,'logged') && !force )
         return Promise.resolve(session)
 
       if( !_.has(cfg, 'logged_url') ){
@@ -1142,15 +1141,16 @@ var ResourceClass = ({ $axios,  }) => {
       }
       
       let reqAuthData = authRequest(token);
+      let url = interpolate( _.get(cfg, 'logged_url'), session);
       
       let options = { 
-        url: _.get(cfg, 'logged_url'), 
+        url, 
         method: _.get(cfg, 'logged_method', 'get'), 
         ...reqAuthData  
       };
 
-      return $axios(options).then((data) => {
-          let user = setUser(data);
+      return $axios(options).then((res) => {
+          let user = setUser(res.data);
           
           session = { user, request: reqAuthData, logged: true, token };
           return { token, user, request: reqAuthData, logged: true }
@@ -1163,11 +1163,11 @@ var ResourceClass = ({ $axios,  }) => {
   };
 
   const getToken = () => { 
-    return sessionStorage.getItem(`${config.domain}_session`)
+    return sessionStorage.getItem(`${_.get(config, 'domain', 'default')}_session`)
   };
 
   const removeToken = () => { 
-    return sessionStorage.removeItem(`${config.domain}_session`)
+    return sessionStorage.removeItem(`${_.get(config, 'domain', 'default')}_session`)
   };
 
   const setToken = ({data, headers}) => {
@@ -1184,7 +1184,7 @@ var ResourceClass = ({ $axios,  }) => {
       return new Error ({message: 'token not found', config: cfg, data, headers})
     }
 
-    sessionStorage.setItem(`${config.domain}_session`, token);
+    sessionStorage.setItem(`${_.get(config, 'domain', 'default')}_session`, token);
     return token
   };
 
@@ -1427,7 +1427,7 @@ script$e.__file = "src/components/tables/dates.vue";
 
 const _hoisted_1$c = ["textContent"];
 const _hoisted_2$c = ["innerHTML"];
-const _hoisted_3$a = ["textContent"];
+const _hoisted_3$9 = ["textContent"];
 // import Actions from './action'
 // import BelongsTo from './belongsTo'
 
@@ -1563,7 +1563,7 @@ return (_ctx, _cache) => {
                         key: 9,
                         textContent: vue.toDisplayString(__props.data[__props.cell.key]),
                         onClick: emitAction
-                      }, null, 8 /* PROPS */, _hoisted_3$a))
+                      }, null, 8 /* PROPS */, _hoisted_3$9))
 }
 }
 
@@ -1583,12 +1583,12 @@ const _hoisted_2$b = /*#__PURE__*/vue.createElementVNode("circle", {
   fill: "none",
   "stroke-width": "5"
 }, null, -1 /* HOISTED */);
-const _hoisted_3$9 = [
-  _hoisted_2$b
-];
 
 function render$1(_ctx, _cache) {
-  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$b, _hoisted_3$9))
+  return (vue.openBlock(), vue.createElementBlock("svg", _hoisted_1$b, [
+    _hoisted_2$b,
+    vue.renderSlot(_ctx.$slots, "default")
+  ]))
 }
 
 const script$c = {};
@@ -2388,12 +2388,12 @@ const { schema, config = {} } = __props;
     return _.has(config, 'auth')
   }); 
   
-  const doAuth = (form) => {
+  const doAuth = async (form) => {
     try{
       loading.value = true;
-      return Instance.authenticate(form)
-                .then(success) 
-                .catch(error)
+      let res = await Instance.authenticate(form);
+      
+      return await Instance.checkAuth(true).then(success).catch(error)
     }catch(e){
       console.error( getErrorMessage(e) ); 
       loading.value = false;
@@ -2411,7 +2411,7 @@ const { schema, config = {} } = __props;
      
     emit(
       'update:schema', 
-      mergeDeep(schema, { api: _.pick(session.value, ['request']) })
+      mergeDeep(schema, { api: _.get(session.value, 'request', {}) })
     );
     emit('auth:logged', _.pick(session.value, ['token','user','logged']));
 
@@ -2489,8 +2489,12 @@ return (_ctx, _cache) => {
         : (vue.openBlock(), vue.createElementBlock("section", _hoisted_2$7, [
             (vue.unref(loading))
               ? (vue.openBlock(), vue.createElementBlock("h3", _hoisted_3$6, [
-                  vue.createTextVNode("Authenticating... "),
-                  vue.createVNode(script$c)
+                  vue.createVNode(script$c, null, {
+                    default: vue.withCtx(() => [
+                      vue.createTextVNode(">Authenticating...")
+                    ]),
+                    _: 1 /* STABLE */
+                  })
                 ]))
               : (vue.openBlock(), vue.createBlock(_component_FormKit, {
                   key: 1,

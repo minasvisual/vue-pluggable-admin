@@ -6,8 +6,8 @@
       </slot>
     </section>
     <section v-else class="auth-form w-1/3 mx-auto"> 
-        <h3 v-if="loading" class="text-center">Authenticating...
-          <Spinner />  
+        <h3 v-if="loading" class="text-center">
+          <Spinner>>Authenticating...</Spinner>  
         </h3>
         <FormKit 
           v-else
@@ -75,12 +75,12 @@
     return _.has(config, 'auth')
   }) 
   
-  const doAuth = (form) => {
+  const doAuth = async (form) => {
     try{
       loading.value = true;
-      return Instance.authenticate(form)
-                .then(success) 
-                .catch(error)
+      let res = await Instance.authenticate(form)
+      
+      return await Instance.checkAuth(true).then(success).catch(error)
     }catch(e){
       console.error( getErrorMessage(e) ) 
       loading.value = false;
@@ -98,7 +98,7 @@
      
     emit(
       'update:schema', 
-      mergeDeep(schema, { api: _.pick(session.value, ['request']) })
+      mergeDeep(schema, { api: _.get(session.value, 'request', {}) })
     )
     emit('auth:logged', _.pick(session.value, ['token','user','logged']))
 
