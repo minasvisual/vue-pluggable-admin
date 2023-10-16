@@ -125,7 +125,7 @@
   })
 
   onMounted(async () => {
-    if( model.type == 'form' )
+    if( model.type == 'form' && Instance.can('getDataById') )
         await getDatasource(resource)
     
     ready.value = true

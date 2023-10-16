@@ -61,6 +61,20 @@
   max-width: 120px;
 }
 
+.cell select {
+  background: transparent !important;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.cell .form-group {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .spinner {
   animation: rotate 2s linear infinite;
   z-index: 2;
@@ -96,20 +110,6 @@
     stroke-dashoffset: -124;
   }
 }
-.cell select {
-  background: transparent !important;
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: "";
-}
-
-.cell .form-group {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
 .table-select {
   -webkit-appearance: none;
   -moz-appearance: none;

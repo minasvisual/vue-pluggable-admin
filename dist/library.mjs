@@ -5,7 +5,7 @@ import deepmerge from 'deepmerge';
 import moment from 'moment';
 import { createInput } from '@formkit/vue';
 
-const _hoisted_1$u = {
+const _hoisted_1$v = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 320 512"
 };
@@ -15,149 +15,149 @@ const _hoisted_3$e = [
 ];
 
 function render$h(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_3$e))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$e))
 }
 
-const script$v = {};
+const script$x = {};
 
 
-script$v.render = render$h;
-script$v.__file = "src/components/icons/ChevronLeft.vue";
+script$x.render = render$h;
+script$x.__file = "src/components/icons/ChevronLeft.vue";
 
-const _hoisted_1$t = {
+const _hoisted_1$u = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 320 512"
 };
 const _hoisted_2$q = /*#__PURE__*/createElementVNode("path", { d: "M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" }, null, -1 /* HOISTED */);
 
 function render$g(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$t, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$u, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$q
   ]))
 }
 
-const script$u = {};
+const script$w = {};
 
 
-script$u.render = render$g;
-script$u.__file = "src/components/icons/ChevronRight.vue";
+script$w.render = render$g;
+script$w.__file = "src/components/icons/ChevronRight.vue";
 
-const _hoisted_1$s = {
+const _hoisted_1$t = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 384 512"
 };
 const _hoisted_2$p = /*#__PURE__*/createElementVNode("path", { d: "M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" }, null, -1 /* HOISTED */);
 
 function render$f(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$s, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$t, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$p
   ]))
 }
 
-const script$t = {};
+const script$v = {};
 
 
-script$t.render = render$f;
-script$t.__file = "src/components/icons/ArrowDown.vue";
+script$v.render = render$f;
+script$v.__file = "src/components/icons/ArrowDown.vue";
 
-const _hoisted_1$r = {
+const _hoisted_1$s = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 384 512"
 };
 const _hoisted_2$o = /*#__PURE__*/createElementVNode("path", { d: "M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" }, null, -1 /* HOISTED */);
 
 function render$e(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$r, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$s, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$o
   ]))
 }
 
-const script$s = {};
+const script$u = {};
 
 
-script$s.render = render$e;
-script$s.__file = "src/components/icons/ArrowUp.vue";
+script$u.render = render$e;
+script$u.__file = "src/components/icons/ArrowUp.vue";
 
-const _hoisted_1$q = {
+const _hoisted_1$r = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$n = /*#__PURE__*/createElementVNode("path", { d: "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" }, null, -1 /* HOISTED */);
 
 function render$d(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$q, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$r, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$n
   ]))
 }
 
-const script$r = {};
+const script$t = {};
 
 
-script$r.render = render$d;
-script$r.__file = "src/components/icons/Pencil.vue";
+script$t.render = render$d;
+script$t.__file = "src/components/icons/Pencil.vue";
 
-const _hoisted_1$p = {
+const _hoisted_1$q = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 448 512"
 };
 const _hoisted_2$m = /*#__PURE__*/createElementVNode("path", { d: "M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" }, null, -1 /* HOISTED */);
 
 function render$c(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$p, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$q, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$m
   ]))
 }
 
-const script$q = {};
+const script$s = {};
 
 
-script$q.render = render$c;
-script$q.__file = "src/components/icons/Plus.vue";
+script$s.render = render$c;
+script$s.__file = "src/components/icons/Plus.vue";
 
-const _hoisted_1$o = {
+const _hoisted_1$p = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$l = /*#__PURE__*/createElementVNode("path", { d: "M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z" }, null, -1 /* HOISTED */);
 
 function render$b(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$o, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$p, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$l
   ]))
 }
 
-const script$p = {};
+const script$r = {};
 
 
-script$p.render = render$b;
-script$p.__file = "src/components/icons/Refresh.vue";
+script$r.render = render$b;
+script$r.__file = "src/components/icons/Refresh.vue";
 
-const _hoisted_1$n = {
+const _hoisted_1$o = {
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 448 512"
 };
 const _hoisted_2$k = /*#__PURE__*/createElementVNode("path", { d: "M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" }, null, -1 /* HOISTED */);
 
 function render$a(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$n, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$o, [
     createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
     _hoisted_2$k
   ]))
 }
 
-const script$o = {};
+const script$q = {};
 
 
-script$o.render = render$a;
-script$o.__file = "src/components/icons/Trash.vue";
+script$q.render = render$a;
+script$q.__file = "src/components/icons/Trash.vue";
 
-const _hoisted_1$m = {
+const _hoisted_1$n = {
   xmlns: "http://www.w3.org/2000/svg",
   height: "1em",
   viewBox: "0 0 512 512"
@@ -168,16 +168,16 @@ const _hoisted_3$d = [
 ];
 
 function render$9(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$d))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$d))
 }
 
-const script$n = {};
+const script$p = {};
 
 
-script$n.render = render$9;
-script$n.__file = "src/components/icons/MinusCircle.vue";
+script$p.render = render$9;
+script$p.__file = "src/components/icons/MinusCircle.vue";
 
-const _hoisted_1$l = {
+const _hoisted_1$m = {
   xmlns: "http://www.w3.org/2000/svg",
   height: "1em",
   viewBox: "0 0 512 512"
@@ -188,17 +188,17 @@ const _hoisted_3$c = [
 ];
 
 function render$8(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$l, _hoisted_3$c))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$c))
 }
 
-const script$m = {};
+const script$o = {};
 
 
-script$m.render = render$8;
-script$m.__file = "src/components/icons/PlusCircle.vue";
+script$o.render = render$8;
+script$o.__file = "src/components/icons/PlusCircle.vue";
 
-var script$l = { 
-    components: {  ChevronRightIcon: script$u, ChevronLeftIcon: script$v },
+var script$n = { 
+    components: {  ChevronRightIcon: script$w, ChevronLeftIcon: script$x },
     props:{
       pages: {
         type: Number
@@ -267,7 +267,7 @@ var script$l = {
     }
   };
 
-const _hoisted_1$k = { "aria-label": "Page navigation" };
+const _hoisted_1$l = { "aria-label": "Page navigation" };
 const _hoisted_2$h = { class: "flex justify-center list-style-none" };
 const _hoisted_3$b = {
   key: 0,
@@ -288,7 +288,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronLeftIcon = resolveComponent("ChevronLeftIcon");
   const _component_ChevronRightIcon = resolveComponent("ChevronRightIcon");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1$k, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$l, [
     createElementVNode("ul", _hoisted_2$h, [
       ($setup.hasPrev)
         ? (openBlock(), createElementBlock("li", _hoisted_3$b, [
@@ -337,10 +337,10 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 
-script$l.render = render$7;
-script$l.__file = "src/components/common/Pagination.vue";
+script$n.render = render$7;
+script$n.__file = "src/components/common/Pagination.vue";
 
-var script$k = {
+var script$m = {
     props:['data', 'cell'],
     data(){ return {
         formopen: false,
@@ -358,7 +358,7 @@ var script$k = {
     }
 };
 
-const _hoisted_1$j = ["src"];
+const _hoisted_1$k = ["src"];
 const _hoisted_2$g = {
   key: 0,
   class: "modal fixed w-full h-full bg-black/20 left-0 top-0"
@@ -373,7 +373,7 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
       src: $props.data,
       style: {"height":"30px","width":"auto"},
       onError: _cache[1] || (_cache[1] = (...args) => ($options.replaceByDefault && $options.replaceByDefault(...args)))
-    }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$j),
+    }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$k),
     ($data.formopen)
       ? (openBlock(), createElementBlock("div", _hoisted_2$g, [
           createElementVNode("div", _hoisted_3$a, [
@@ -388,10 +388,10 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 
-script$k.render = render$6;
-script$k.__file = "src/components/tables/image.vue";
+script$m.render = render$6;
+script$m.__file = "src/components/tables/image.vue";
 
-var script$j = {
+var script$l = {
     props:['data', 'cell'],
     data(){ return {
         valid: true,
@@ -421,19 +421,19 @@ var script$j = {
     }
 };
 
-const _hoisted_1$i = { key: 0 };
+const _hoisted_1$j = { key: 0 };
 const _hoisted_2$f = { key: 1 };
 
 function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("span", null, [
     ($data.valid)
-      ? (openBlock(), createElementBlock("span", _hoisted_1$i, toDisplayString($data.model && $data.model.join(', ')), 1 /* TEXT */))
+      ? (openBlock(), createElementBlock("span", _hoisted_1$j, toDisplayString($data.model && $data.model.join(', ')), 1 /* TEXT */))
       : (openBlock(), createElementBlock("span", _hoisted_2$f, "Invalid data array"))
   ]))
 }
 
-script$j.render = render$5;
-script$j.__file = "src/components/tables/tags.vue";
+script$l.render = render$5;
+script$l.__file = "src/components/tables/tags.vue";
 
 const { has: has$1, sortBy, get: get$2, isNil: isNil$1, isObject, omit, isEqual, capitalize, round } = _;
  
@@ -747,7 +747,7 @@ const normalizeInput = async (row, modifier) => {
   return input
 };
 
-var script$i = {
+var script$k = {
     props:['data', 'cell', 'row'],
     methods: {
         replaceContent() {
@@ -759,20 +759,20 @@ var script$i = {
     }
 };
 
-const _hoisted_1$h = ["href", "target", "innerHTML"];
+const _hoisted_1$i = ["href", "target", "innerHTML"];
 
 function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("a", {
     href: $props.cell?.action?.handler,
     target: ($props.cell?.action?.target ?? '_self'),
     innerHTML: $options.replaceContent()
-  }, null, 8 /* PROPS */, _hoisted_1$h))
+  }, null, 8 /* PROPS */, _hoisted_1$i))
 }
 
-script$i.render = render$4;
-script$i.__file = "src/components/tables/link.vue";
+script$k.render = render$4;
+script$k.__file = "src/components/tables/link.vue";
 
-var script$h = {
+var script$j = {
     props:['data', 'cell', 'row'],
     computed:{ 
         expression(){ 
@@ -782,14 +782,14 @@ var script$h = {
     }
 };
 
-const _hoisted_1$g = ["innerHTML"];
+const _hoisted_1$h = ["innerHTML"];
 
 function render$3(_ctx, _cache, $props, $setup, $data, $options) {
-  return (openBlock(), createElementBlock("span", mergeProps({ innerHTML: $options.expression }, toHandlers(_ctx.$listeners, true)), null, 16 /* FULL_PROPS */, _hoisted_1$g))
+  return (openBlock(), createElementBlock("span", mergeProps({ innerHTML: $options.expression }, toHandlers(_ctx.$listeners, true)), null, 16 /* FULL_PROPS */, _hoisted_1$h))
 }
 
-script$h.render = render$3;
-script$h.__file = "src/components/tables/expression.vue";
+script$j.render = render$3;
+script$j.__file = "src/components/tables/expression.vue";
 
 const { get: get$1, set, has, isNil, isEmpty } = _;
 
@@ -818,12 +818,14 @@ var ResourceClass = ({ $axios,  }) => {
     return model
   };
 
-  const loadModel = async (url, options) => {
-    return await $axios.get(url, options).then( res => {
-        console.log("loadModel "+url, res);
-        if( !res.api ) throw { message: "Model Load error" }
+  const loadModel = (url, options = {}) => {
+    return $axios.get(url, options).then(({data}) => {
+        console.debug("loadModel "+url, data);
+        if( !data ) throw { message: "Model Load error" }
 
-        return res
+        model = JSON.parse(JSON.stringify(data));
+        schema = model.properties;
+        return model
     })
   };
 
@@ -903,7 +905,7 @@ var ResourceClass = ({ $axios,  }) => {
     }
   };
 
-  const getData = async (data={}, config={}) => {
+  const getData = (data={}, config={}) => {
     console.log("called get data", data, config);
     let { api = {} } = model;
     if( api.resource && isEmpty(data.data) ) data.data = api.resource;
@@ -953,7 +955,7 @@ var ResourceClass = ({ $axios,  }) => {
     })
   };
   
-  const getDataObject = async (data={}, config={}) => { 
+  const getDataObject = (data={}, config={}) => { 
     let { api = {} } = model;
     if( api.resource && isEmpty(data.data) ) data.data = api.resource;
  
@@ -1263,7 +1265,7 @@ var ResourceClass = ({ $axios,  }) => {
   }
 };
 
-var script$g = {
+var script$i = {
   props:['data', 'cell'],
   // mixins: [InputMixin],
   data(){return { 
@@ -1333,7 +1335,7 @@ var script$g = {
   }
 };
 
-const _hoisted_1$f = ["value"];
+const _hoisted_1$g = ["value"];
 const _hoisted_2$e = ["value"];
 
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
@@ -1352,14 +1354,14 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
             value: opt.value
           }, toDisplayString(opt.label), 9 /* TEXT, PROPS */, _hoisted_2$e))
         }), 128 /* KEYED_FRAGMENT */))
-      ], 8 /* PROPS */, _hoisted_1$f))
+      ], 8 /* PROPS */, _hoisted_1$g))
     : createCommentVNode("v-if", true)
 }
 
-script$g.render = render$2;
-script$g.__file = "src/components/tables/select.vue";
+script$i.render = render$2;
+script$i.__file = "src/components/tables/select.vue";
 
-const _hoisted_1$e = {
+const _hoisted_1$f = {
   key: 0,
   class: "font-semibold text-xs mr-1"
 };
@@ -1369,7 +1371,7 @@ const _hoisted_2$d = {
 };
 
 
-var script$f = {
+var script$h = {
   __name: 'toggle',
   props: ['data', 'cell', 'row'],
   setup(__props) {
@@ -1384,7 +1386,7 @@ return (_ctx, _cache) => {
     class: normalizeClass(["flex items-center cursor-pointer py-2", ['cursor-not-allowed']])
   }, [
     (!unref(model))
-      ? (openBlock(), createElementBlock("span", _hoisted_1$e, " Off "))
+      ? (openBlock(), createElementBlock("span", _hoisted_1$f, " Off "))
       : createCommentVNode("v-if", true),
     createElementVNode("div", {
       class: normalizeClass(["rounded-full w-10 h-6 p-0.5 bg-gray-300", {'bg-red-500': !unref(model),'bg-green-500': unref(model)}])
@@ -1402,11 +1404,11 @@ return (_ctx, _cache) => {
 
 };
 
-script$f.__file = "src/components/tables/toggle.vue";
+script$h.__file = "src/components/tables/toggle.vue";
 
-const _hoisted_1$d = { class: "whitespace-nowrap" };
+const _hoisted_1$e = { class: "whitespace-nowrap" };
   
-var script$e = {
+var script$g = {
   __name: 'dates',
   props: ['data', 'cell', 'row'],
   setup(__props) {
@@ -1415,21 +1417,21 @@ var script$e = {
     
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", _hoisted_1$d, toDisplayString(unref(formatDate)(__props.data, __props.cell?.action?.format || 'MM/DD/YYYY hh:mm', __props.cell?.action?.from || null, __props.cell?.action?.utc || false)), 1 /* TEXT */))
+  return (openBlock(), createElementBlock("div", _hoisted_1$e, toDisplayString(unref(formatDate)(__props.data, __props.cell?.action?.format || 'MM/DD/YYYY hh:mm', __props.cell?.action?.from || null, __props.cell?.action?.utc || false)), 1 /* TEXT */))
 }
 }
 
 };
 
-script$e.__file = "src/components/tables/dates.vue";
+script$g.__file = "src/components/tables/dates.vue";
 
-const _hoisted_1$c = ["textContent"];
+const _hoisted_1$d = ["textContent"];
 const _hoisted_2$c = ["innerHTML"];
 const _hoisted_3$9 = ["textContent"];
 // import Actions from './action'
 // import BelongsTo from './belongsTo'
 
-var script$d = {
+var script$f = {
   __name: 'index',
   props: ['data','cell'],
   setup(__props) {
@@ -1456,7 +1458,7 @@ return (_ctx, _cache) => {
   return (__props.cell.type == 'tags')
     ? (openBlock(), createBlock(_component_CommonsFragment, { key: 0 }, {
         default: withCtx(() => [
-          createVNode(script$j, {
+          createVNode(script$l, {
             data: __props.data[__props.cell.key],
             cell: __props.cell,
             row: __props.data,
@@ -1468,7 +1470,7 @@ return (_ctx, _cache) => {
     : (__props.cell.type == 'image')
       ? (openBlock(), createBlock(_component_CommonsFragment, { key: 1 }, {
           default: withCtx(() => [
-            createVNode(script$k, {
+            createVNode(script$m, {
               data: __props.data[__props.cell.key],
               cell: __props.cell,
               row: __props.data,
@@ -1480,7 +1482,7 @@ return (_ctx, _cache) => {
       : (__props.cell.type == 'switch' || __props.cell.type == 'toggle')
         ? (openBlock(), createBlock(_component_CommonsFragment, { key: 2 }, {
             default: withCtx(() => [
-              createVNode(script$f, {
+              createVNode(script$h, {
                 data: __props.data[__props.cell.key],
                 cell: __props.cell,
                 row: __props.data,
@@ -1495,7 +1497,7 @@ return (_ctx, _cache) => {
               onClick: emitAction
             }, {
               default: withCtx(() => [
-                createVNode(script$g, {
+                createVNode(script$i, {
                   data: __props.data[__props.cell.key],
                   cell: __props.cell,
                   row: __props.data,
@@ -1509,7 +1511,7 @@ return (_ctx, _cache) => {
                 createCommentVNode(" <span v-else-if=\"cell.type == 'belongsTo'\">\r\n        <BelongsTo :data=\"data[cell.key]\" :cell=\"cell\" :row=\"data\" v-on:click=\"emitAction\"   />\r\n    </span>  "),
                 createVNode(_component_CommonsFragment, null, {
                   default: withCtx(() => [
-                    createVNode(script$i, {
+                    createVNode(script$k, {
                       data: __props.data[__props.cell.key],
                       cell: __props.cell,
                       row: __props.data,
@@ -1522,7 +1524,7 @@ return (_ctx, _cache) => {
             : (__props.cell.type == 'expression')
               ? (openBlock(), createBlock(_component_CommonsFragment, { key: 5 }, {
                   default: withCtx(() => [
-                    createVNode(script$h, {
+                    createVNode(script$j, {
                       data: __props.data[__props.cell.key],
                       cell: __props.cell,
                       row: __props.data,
@@ -1536,7 +1538,7 @@ return (_ctx, _cache) => {
                     key: 6,
                     onClick: emitAction
                   }, [
-                    createVNode(script$e, {
+                    createVNode(script$g, {
                       data: __props.data[__props.cell.key],
                       cell: __props.cell,
                       row: __props.data,
@@ -1549,7 +1551,7 @@ return (_ctx, _cache) => {
                       createElementVNode("span", {
                         textContent: toDisplayString(unref(get)(__props.data, `row.${__props.cell.action.name}`, __props.data[__props.cell.key])),
                         onClick: emitAction
-                      }, null, 8 /* PROPS */, _hoisted_1$c)
+                      }, null, 8 /* PROPS */, _hoisted_1$d)
                     ], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */))
                   : (__props.cell.type == 'html')
                     ? (openBlock(), createElementBlock("span", {
@@ -1567,9 +1569,9 @@ return (_ctx, _cache) => {
 
 };
 
-script$d.__file = "src/components/tables/index.vue";
+script$f.__file = "src/components/tables/index.vue";
 
-const _hoisted_1$b = {
+const _hoisted_1$c = {
   class: "spinner",
   viewBox: "0 0 50 50"
 };
@@ -1583,18 +1585,18 @@ const _hoisted_2$b = /*#__PURE__*/createElementVNode("circle", {
 }, null, -1 /* HOISTED */);
 
 function render$1(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$b, [
+  return (openBlock(), createElementBlock("svg", _hoisted_1$c, [
     _hoisted_2$b,
     renderSlot(_ctx.$slots, "default")
   ]))
 }
 
-const script$c = {};
+const script$e = {};
 
-script$c.render = render$1;
-script$c.__file = "src/components/common/Spinner.vue";
+script$e.render = render$1;
+script$e.__file = "src/components/common/Spinner.vue";
 
-const _hoisted_1$a = { class: "relative shadow-md sm:rounded-lg crud-table overflow-x-auto w-full" };
+const _hoisted_1$b = { class: "relative shadow-md sm:rounded-lg crud-table overflow-x-auto w-full" };
 const _hoisted_2$a = { class: "text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" };
 const _hoisted_3$8 = { class: "pd-toolbar py-1" };
 const _hoisted_4$7 = ["colspan"];
@@ -1638,7 +1640,7 @@ const _hoisted_30 = {
 };
   
   
-var script$b = {
+var script$d = {
   __name: 'Table',
   props: {  
     model:{
@@ -1858,7 +1860,7 @@ const { resource, model:defModel } = __props;
 return (_ctx, _cache) => {
   const _component_FormKit = resolveComponent("FormKit");
 
-  return (openBlock(), createElementBlock("div", _hoisted_1$a, [
+  return (openBlock(), createElementBlock("div", _hoisted_1$b, [
     (unref(alert) && unref(alert).message)
       ? (openBlock(), createElementBlock("div", {
           key: 0,
@@ -1888,7 +1890,7 @@ return (_ctx, _cache) => {
                           type: "button",
                           onClick: deleteSelected
                         }, [
-                          createVNode(unref(script$o), { class: "h-5" }),
+                          createVNode(unref(script$q), { class: "h-5" }),
                           createTextVNode(" " + toDisplayString(unref(selected).length) + " Selected ", 1 /* TEXT */)
                         ]))
                       : createCommentVNode("v-if", true),
@@ -1897,7 +1899,7 @@ return (_ctx, _cache) => {
                       type: "button",
                       onClick: getDatasource
                     }, [
-                      createVNode(unref(script$p), { class: "h-5" })
+                      createVNode(unref(script$r), { class: "h-5" })
                     ]),
                     (unref(can)(unref(model), 'canCreate'))
                       ? (openBlock(), createElementBlock("button", {
@@ -1906,7 +1908,7 @@ return (_ctx, _cache) => {
                           type: "button",
                           onClick: _cache[0] || (_cache[0] = () => emit('create', {target: 'create', row: {}}))
                         }, [
-                          createVNode(unref(script$q), { class: "h-5" })
+                          createVNode(unref(script$s), { class: "h-5" })
                         ]))
                       : createCommentVNode("v-if", true),
                     renderSlot(_ctx.$slots, "toolbar-left")
@@ -1941,11 +1943,11 @@ return (_ctx, _cache) => {
                     (col.sorter && unref(Instance).isIt('sorter') == col.key)
                       ? (openBlock(), createElementBlock("span", _hoisted_13, [
                           (col._order)
-                            ? (openBlock(), createBlock(unref(script$s), {
+                            ? (openBlock(), createBlock(unref(script$u), {
                                 key: 0,
                                 class: "h-4"
                               }))
-                            : (openBlock(), createBlock(unref(script$t), {
+                            : (openBlock(), createBlock(unref(script$v), {
                                 key: 1,
                                 class: "h-4"
                               }))
@@ -2021,7 +2023,7 @@ return (_ctx, _cache) => {
                     key: col.key
                   }, [
                     renderSlot(_ctx.$slots, "row-scope", normalizeProps(guardReactiveProps({col, row, index})), () => [
-                      createVNode(script$d, {
+                      createVNode(script$f, {
                         cell: col,
                         data: row
                       }, null, 8 /* PROPS */, ["cell", "data"])
@@ -2036,7 +2038,7 @@ return (_ctx, _cache) => {
                         class: "cursor-pointer mr-3",
                         onClick: () => emit('edit', { target: 'edit', row})
                       }, [
-                        createVNode(unref(script$r), { class: "h-5" })
+                        createVNode(unref(script$t), { class: "h-5" })
                       ], 8 /* PROPS */, _hoisted_23))
                     : createCommentVNode("v-if", true),
                   (unref(can)(unref(model), 'canDelete'))
@@ -2045,7 +2047,7 @@ return (_ctx, _cache) => {
                         class: "cursor-pointer",
                         onClick: () => deleteEmit(row)
                       }, [
-                        createVNode(unref(script$o), { class: "h-5" })
+                        createVNode(unref(script$q), { class: "h-5" })
                       ], 8 /* PROPS */, _hoisted_24))
                     : createCommentVNode("v-if", true)
                 ])
@@ -2076,7 +2078,7 @@ return (_ctx, _cache) => {
               }, [
                 renderSlot(_ctx.$slots, "pagination", normalizeProps(guardReactiveProps({totalPages: unref(totalPages), actual:1, changePage: changePage})), () => [
                   (unref(can)(unref(model), 'api.pagination.pageField', false) || unref(can)(unref(model), 'api.pagination.local', false))
-                    ? (openBlock(), createBlock(script$l, {
+                    ? (openBlock(), createBlock(script$n, {
                         key: 0,
                         pages: unref(totalPages),
                         actual: 1,
@@ -2089,7 +2091,7 @@ return (_ctx, _cache) => {
           ])
         ], 2 /* CLASS */))
       : (openBlock(), createElementBlock("div", _hoisted_30, [
-          createVNode(script$c)
+          createVNode(script$e)
         ]))
   ]))
 }
@@ -2097,9 +2099,9 @@ return (_ctx, _cache) => {
 
 };
 
-script$b.__file = "src/components/Table.vue";
+script$d.__file = "src/components/Table.vue";
 
-const _hoisted_1$9 = {
+const _hoisted_1$a = {
   key: 0,
   class: "form"
 };
@@ -2112,7 +2114,7 @@ const _hoisted_4$6 = { key: 3 };
 
   // let { $axios, $bus, $message } = useNuxtApp() 
   
-var script$a = {
+var script$c = {
   __name: 'Form',
   props: {
     model: {
@@ -2208,7 +2210,7 @@ const { model, data, resource } = __props;
   });
 
   onMounted(async () => {
-    if( model.type == 'form' )
+    if( model.type == 'form' && Instance.can('getDataById') )
         await getDatasource(resource);
     
     ready.value = true;
@@ -2223,7 +2225,7 @@ return (_ctx, _cache) => {
   const _component_FormKit = resolveComponent("FormKit");
 
   return (!!unref(row))
-    ? (openBlock(), createElementBlock("div", _hoisted_1$9, [
+    ? (openBlock(), createElementBlock("div", _hoisted_1$a, [
         (unref(res).message)
           ? (openBlock(), createElementBlock("div", _hoisted_2$9, [
               renderSlot(_ctx.$slots, "alert", normalizeProps(guardReactiveProps({ row: unref(row), res: unref(res), model: __props.model })), () => [
@@ -2255,7 +2257,7 @@ return (_ctx, _cache) => {
             }, 8 /* PROPS */, ["form-class", "actions", "modelValue"]))
           : (!unref(ready))
             ? (openBlock(), createElementBlock("div", _hoisted_3$7, [
-                createVNode(script$c)
+                createVNode(script$e)
               ]))
             : (openBlock(), createElementBlock("div", _hoisted_4$6, [
                 renderSlot(_ctx.$slots, "error", normalizeProps(guardReactiveProps({ row: unref(row), res: unref(res), model: __props.model })), () => [
@@ -2269,16 +2271,16 @@ return (_ctx, _cache) => {
 
 };
 
-script$a.__file = "src/components/Form.vue";
+script$c.__file = "src/components/Form.vue";
 
-const _hoisted_1$8 = {
+const _hoisted_1$9 = {
   key: 0,
   class: "modal fixed w-full h-full bg-black/20 left-0 top-0"
 };
 const _hoisted_2$8 = { class: "absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto" };
 
 
-var script$9 = {
+var script$b = {
   __name: 'Flow',
   props: ['schema'],
   setup(__props) {
@@ -2308,7 +2310,7 @@ return (_ctx, _cache) => {
   return (openBlock(), createElementBlock("main", {
     class: normalizeClass(`w-full relative ${ _ctx.$attrs.class || ''}`)
   }, [
-    createVNode(script$b, {
+    createVNode(script$d, {
       model: __props.schema,
       onCreate: doEvent,
       onEdit: doEvent,
@@ -2317,13 +2319,13 @@ return (_ctx, _cache) => {
       onRefresh: doEvent
     }, null, 8 /* PROPS */, ["model"]),
     (data.value)
-      ? (openBlock(), createElementBlock("div", _hoisted_1$8, [
+      ? (openBlock(), createElementBlock("div", _hoisted_1$9, [
           createElementVNode("button", {
             onClick: _cache[0] || (_cache[0] = e => setData(null)),
             class: "absolute right-0"
           }, "✖"),
           createElementVNode("div", _hoisted_2$8, [
-            createVNode(script$a, {
+            createVNode(script$c, {
               model: __props.schema,
               data: data.value,
               onSaved: _cache[1] || (_cache[1] = $event => (setData(null)))
@@ -2337,19 +2339,19 @@ return (_ctx, _cache) => {
 
 };
 
-script$9.__file = "src/components/Flow.vue";
+script$b.__file = "src/components/Flow.vue";
 
 function render(_ctx, _cache) {
   return renderSlot(_ctx.$slots, "default")
 }
 
-const script$8 = {};
+const script$a = {};
 
 
-script$8.render = render;
-script$8.__file = "src/components/common/Fragment.vue";
+script$a.render = render;
+script$a.__file = "src/components/common/Fragment.vue";
 
-const _hoisted_1$7 = { key: 0 };
+const _hoisted_1$8 = { key: 0 };
 const _hoisted_2$7 = {
   key: 1,
   class: "auth-form w-1/3 mx-auto"
@@ -2363,7 +2365,7 @@ const _hoisted_5$2 = { class: "action-buttons mt-3 flex gap-4" };
 const _hoisted_6$2 = ["disabled"];
 
   
-var script$7 = {
+var script$9 = {
   __name: 'Auth',
   props: ['schema', 'config'],
   emits: ['auth:failed','auth:logged','update:schema'],
@@ -2472,10 +2474,10 @@ const { schema, config = {} } = __props;
 return (_ctx, _cache) => {
   const _component_FormKit = resolveComponent("FormKit");
 
-  return (openBlock(), createBlock(script$8, null, {
+  return (openBlock(), createBlock(script$a, null, {
     default: withCtx(() => [
       (unref(login))
-        ? (openBlock(), createElementBlock("section", _hoisted_1$7, [
+        ? (openBlock(), createElementBlock("section", _hoisted_1$8, [
             renderSlot(_ctx.$slots, "default", {
               schema: __props.schema,
               methods: { logout: logout },
@@ -2487,7 +2489,7 @@ return (_ctx, _cache) => {
         : (openBlock(), createElementBlock("section", _hoisted_2$7, [
             (unref(loading))
               ? (openBlock(), createElementBlock("h3", _hoisted_3$6, [
-                  createVNode(script$c, null, {
+                  createVNode(script$e, null, {
                     default: withCtx(() => [
                       createTextVNode(">Authenticating...")
                     ]),
@@ -2551,14 +2553,14 @@ return (_ctx, _cache) => {
 
 };
 
-script$7.__file = "src/components/Auth.vue";
+script$9.__file = "src/components/Auth.vue";
 
-const _hoisted_1$6 = { class: "tabs" };
+const _hoisted_1$7 = { class: "tabs" };
 const _hoisted_2$6 = { class: "flex my-2 w-full border-b" };
 const _hoisted_3$5 = ["onClick"];
 
   
-var script$6 = {
+var script$8 = {
   __name: 'Tabs',
   props: ['tab', 'tabs'],
   setup(__props) {
@@ -2602,7 +2604,7 @@ const { tabs:tabes , tab } = __props;
   }); 
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("section", _hoisted_1$6, [
+  return (openBlock(), createElementBlock("section", _hoisted_1$7, [
     createElementVNode("ul", _hoisted_2$6, [
       (openBlock(true), createElementBlock(Fragment, null, renderList(tabs.value, (tb, ky) => {
         return (openBlock(), createElementBlock("li", {
@@ -2623,14 +2625,141 @@ return (_ctx, _cache) => {
 
 };
 
-script$6.__file = "src/components/common/Tabs.vue";
+script$8.__file = "src/components/common/Tabs.vue";
+
+var script$7 = {
+  __name: 'Section',
+  props: ['model','resource'],
+  setup(__props) {
+
+const { model, resource:res = [] } = __props;
+  
+  let Instance = ResourceClass({ $axios:axios });
+
+  
+  const ready = ref$1(false);
+  const schema = ref$1([{'$el':'h1', 'children':'Hello World'}]);
+  let resource = reactive(res);
+  
+  async function loadData () { 
+    let res = await Instance.getData().catch(console.error);
+    resource = JSON.parse(JSON.stringify(res));
+  }
+
+  onBeforeMount(async () => { 
+    try{
+      if( typeof model === 'string' ){
+        let data = await Instance.loadModel(model); 
+        if( data.api?.rootApi )
+          await loadData();
+        schema.value = data; 
+      }else {
+        Instance.setModel(model);
+        if( model?.api?.rootApi )
+          await loadData();
+        schema.value = model;
+      } 
+      ready.value = true;
+    } catch(e) {
+      console.error('before mont', e);
+    }
+  });
+ 
+  onMounted(async () => { 
+    console.log('mounted section', typeof model); 
+  });
+
+return (_ctx, _cache) => {
+  const _component_FormKitSchema = resolveComponent("FormKitSchema");
+
+  return (ready.value)
+    ? (openBlock(), createBlock(script$a, { key: 0 }, {
+        default: withCtx(() => [
+          createVNode(_component_FormKitSchema, {
+            schema: schema.value?.properties || schema.value,
+            data: unref(resource)
+          }, null, 8 /* PROPS */, ["schema", "data"])
+        ]),
+        _: 1 /* STABLE */
+      }))
+    : createCommentVNode("v-if", true)
+}
+}
+
+};
+
+script$7.__file = "src/components/layouts/Section.vue";
+
+const _hoisted_1$6 = { key: 1 };
+  
+  
+var script$6 = {
+  __name: 'Forms',
+  props: ['model','resource'],
+  setup(__props) {
+
+const { model, resource:res = {} } = __props;
+   
+   
+
+  const ready = ref$1(false);
+  let schema = ref$1({ });
+  let resource = reactive(res);
+  let Instance = ResourceClass({ $axios:axios });
+  
+  onBeforeMount(async () => { 
+    try{
+      if( typeof model === 'string' ){
+        let data = await Instance.loadModel(model);  
+        schema.value = data; 
+      }else {
+        Instance.setModel(model); 
+        schema.value = model;
+      } 
+      ready.value = true;
+    } catch(e) {
+      console.error('before mont', e);
+    }
+  });
+ 
+ 
+  onMounted(async () => { 
+    // ready.value = true
+  });
+
+return (_ctx, _cache) => {
+  const _component_CrudForm = resolveComponent("CrudForm");
+
+  return (ready.value)
+    ? (openBlock(), createBlock(script$a, { key: 0 }, {
+        default: withCtx(() => [
+          (unref(schema).properties)
+            ? (openBlock(), createBlock(_component_CrudForm, {
+                key: 0,
+                model: unref(schema),
+                data: unref(resource),
+                onSaved: _cache[0] || (_cache[0] = e =>_ctx.$emit('saved', e))
+              }, null, 8 /* PROPS */, ["model", "data"]))
+            : (openBlock(), createElementBlock("span", _hoisted_1$6, "Properties required"))
+        ]),
+        _: 1 /* STABLE */
+      }))
+    : createCommentVNode("v-if", true)
+}
+}
+
+};
+
+script$6.__file = "src/components/layouts/Forms.vue";
 
 var components = {
-  Table: script$b,
-  Form: script$a,
-  Flow: script$9,
-  Tabs: script$6,
-  Auth: script$7,
+  Table: script$d,
+  Form: script$c,
+  Flow: script$b,
+  Tabs: script$8,
+  Auth: script$9,
+  Section: script$7,
+  Forms: script$6,
 };
 
 const _hoisted_1$5 = ["data-type"];
@@ -2687,7 +2816,7 @@ return (_ctx, _cache) => {
     class: normalizeClass([props.value.outerClass ?? ''])
   }, [
     createElementVNode("div", _hoisted_2$5, [
-      createVNode(script$b, {
+      createVNode(script$d, {
         resource: [],
         model: model.value,
         onSelected: changed,
@@ -2741,7 +2870,7 @@ return (_ctx, _cache) => {
     class: normalizeClass([props.value.outerClass ?? ''])
   }, [
     createElementVNode("div", _hoisted_2$4, [
-      createVNode(script$a, {
+      createVNode(script$c, {
         resource: { [__props.context.node.name]: __props.context.value },
         model: model.value,
         onSaved: changed
@@ -3024,7 +3153,7 @@ const { context = {} } = __props;
                   "attrs":{ "type":"button", "class":"p-2", "onclick":() => removeTag(k) },
                   "children": [
                     {
-                      "$cmp": script$n,
+                      "$cmp": script$p,
                       "props": { "class": "h-5", "title":"Remove item" }
                     } 
                   ]
@@ -3097,7 +3226,7 @@ return (_ctx, _cache) => {
                     onClick: $event => (removeTag(i)),
                     title: "Remove item"
                   }, [
-                    createVNode(unref(script$n), { class: "h-5" })
+                    createVNode(unref(script$p), { class: "h-5" })
                   ], 8 /* PROPS */, _hoisted_4)
                 ]),
                 _hoisted_5
@@ -3116,7 +3245,7 @@ return (_ctx, _cache) => {
       onClick: addTag,
       title: "Add new item"
     }, [
-      createVNode(unref(script$m), { class: "h-5" }),
+      createVNode(unref(script$o), { class: "h-5" }),
       createTextVNode(" Add ")
     ]),
     (__props.context.help)
