@@ -2,11 +2,12 @@
   <div :data-type="context.type" :class="[props.outerClass ?? '']">
     <div class="flex flex-col py-2">
       <CrudForm 
-        :resource="{ [context.node.name]: context.value }" 
+        :key="context.node.name"
+        :data="context.value" 
+        :resource="resource" 
         :model="model" 
         @saved="changed" 
-      />  
-      <p class="py-2">Selected: {{ selected.length }}</p>
+      />   
     </div>
     <hr />
   </div>
@@ -21,6 +22,7 @@
 
   const model = ref( props.value?.model ) 
   const selected = ref([]) 
+  const resource = computed(() => model.value.api?.resource || {})  
   
   function changed(rows) { 
     selected.value = rows

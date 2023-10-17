@@ -1,4 +1,4 @@
-import { openBlock, createElementBlock, createElementVNode, createCommentVNode, ref as ref$1, watch, computed, resolveComponent, withModifiers, createVNode, Fragment, renderList, normalizeClass, toDisplayString, mergeProps, toHandlers, unref, createBlock, withCtx, renderSlot, inject, reactive, onBeforeMount, onMounted, onUnmounted, createTextVNode, normalizeProps, guardReactiveProps, isRef, nextTick, onBeforeUnmount, withKeys, resolveDynamicComponent, withDirectives, vModelText } from 'vue';
+import { openBlock, createElementBlock, createElementVNode, ref as ref$1, watch, computed, resolveComponent, withModifiers, createVNode, createCommentVNode, Fragment, renderList, normalizeClass, toDisplayString, mergeProps, toHandlers, unref, createBlock, withCtx, renderSlot, inject, reactive, onBeforeMount, onMounted, onUnmounted, createTextVNode, normalizeProps, guardReactiveProps, isRef, nextTick, onBeforeUnmount, withKeys, resolveDynamicComponent, withDirectives, vModelText } from 'vue';
 import _ from 'lodash';
 import axios from 'axios';
 import deepmerge from 'deepmerge';
@@ -10,12 +10,12 @@ const _hoisted_1$v = {
   viewBox: "0 0 320 512"
 };
 const _hoisted_2$r = /*#__PURE__*/createElementVNode("path", { d: "M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" }, null, -1 /* HOISTED */);
-const _hoisted_3$e = [
+const _hoisted_3$m = [
   _hoisted_2$r
 ];
 
 function render$h(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$e))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$m))
 }
 
 const script$x = {};
@@ -29,12 +29,12 @@ const _hoisted_1$u = {
   viewBox: "0 0 320 512"
 };
 const _hoisted_2$q = /*#__PURE__*/createElementVNode("path", { d: "M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" }, null, -1 /* HOISTED */);
+const _hoisted_3$l = [
+  _hoisted_2$q
+];
 
 function render$g(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$u, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$q
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_3$l))
 }
 
 const script$w = {};
@@ -48,12 +48,12 @@ const _hoisted_1$t = {
   viewBox: "0 0 384 512"
 };
 const _hoisted_2$p = /*#__PURE__*/createElementVNode("path", { d: "M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" }, null, -1 /* HOISTED */);
+const _hoisted_3$k = [
+  _hoisted_2$p
+];
 
 function render$f(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$t, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$p
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_3$k))
 }
 
 const script$v = {};
@@ -67,12 +67,12 @@ const _hoisted_1$s = {
   viewBox: "0 0 384 512"
 };
 const _hoisted_2$o = /*#__PURE__*/createElementVNode("path", { d: "M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" }, null, -1 /* HOISTED */);
+const _hoisted_3$j = [
+  _hoisted_2$o
+];
 
 function render$e(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$s, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$o
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$s, _hoisted_3$j))
 }
 
 const script$u = {};
@@ -86,12 +86,12 @@ const _hoisted_1$r = {
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$n = /*#__PURE__*/createElementVNode("path", { d: "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z" }, null, -1 /* HOISTED */);
+const _hoisted_3$i = [
+  _hoisted_2$n
+];
 
 function render$d(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$r, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$n
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$r, _hoisted_3$i))
 }
 
 const script$t = {};
@@ -105,12 +105,12 @@ const _hoisted_1$q = {
   viewBox: "0 0 448 512"
 };
 const _hoisted_2$m = /*#__PURE__*/createElementVNode("path", { d: "M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" }, null, -1 /* HOISTED */);
+const _hoisted_3$h = [
+  _hoisted_2$m
+];
 
 function render$c(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$q, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$m
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_3$h))
 }
 
 const script$s = {};
@@ -124,12 +124,12 @@ const _hoisted_1$p = {
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$l = /*#__PURE__*/createElementVNode("path", { d: "M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z" }, null, -1 /* HOISTED */);
+const _hoisted_3$g = [
+  _hoisted_2$l
+];
 
 function render$b(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$p, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$l
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_3$g))
 }
 
 const script$r = {};
@@ -143,12 +143,12 @@ const _hoisted_1$o = {
   viewBox: "0 0 448 512"
 };
 const _hoisted_2$k = /*#__PURE__*/createElementVNode("path", { d: "M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" }, null, -1 /* HOISTED */);
+const _hoisted_3$f = [
+  _hoisted_2$k
+];
 
 function render$a(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$o, [
-    createCommentVNode("! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. "),
-    _hoisted_2$k
-  ]))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_3$f))
 }
 
 const script$q = {};
@@ -163,12 +163,12 @@ const _hoisted_1$n = {
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$j = /*#__PURE__*/createElementVNode("path", { d: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232H328c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-13.3 0-24-10.7-24-24s10.7-24 24-24z" }, null, -1 /* HOISTED */);
-const _hoisted_3$d = [
+const _hoisted_3$e = [
   _hoisted_2$j
 ];
 
 function render$9(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$d))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$e))
 }
 
 const script$p = {};
@@ -183,12 +183,12 @@ const _hoisted_1$m = {
   viewBox: "0 0 512 512"
 };
 const _hoisted_2$i = /*#__PURE__*/createElementVNode("path", { d: "M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" }, null, -1 /* HOISTED */);
-const _hoisted_3$c = [
+const _hoisted_3$d = [
   _hoisted_2$i
 ];
 
 function render$8(_ctx, _cache) {
-  return (openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$c))
+  return (openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$d))
 }
 
 const script$o = {};
@@ -269,7 +269,7 @@ var script$n = {
 
 const _hoisted_1$l = { "aria-label": "Page navigation" };
 const _hoisted_2$h = { class: "flex justify-center list-style-none" };
-const _hoisted_3$b = {
+const _hoisted_3$c = {
   key: 0,
   class: "page-item"
 };
@@ -291,7 +291,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("div", _hoisted_1$l, [
     createElementVNode("ul", _hoisted_2$h, [
       ($setup.hasPrev)
-        ? (openBlock(), createElementBlock("li", _hoisted_3$b, [
+        ? (openBlock(), createElementBlock("li", _hoisted_3$c, [
             createElementVNode("a", {
               class: "page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 focus:shadow-none cursor-pointer",
               "aria-label": "Previous",
@@ -363,7 +363,7 @@ const _hoisted_2$g = {
   key: 0,
   class: "modal fixed w-full h-full bg-black/20 left-0 top-0"
 };
-const _hoisted_3$a = { class: "absolute -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 text center" };
+const _hoisted_3$b = { class: "absolute -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 text center" };
 const _hoisted_4$8 = ["src"];
 
 function render$6(_ctx, _cache, $props, $setup, $data, $options) {
@@ -376,7 +376,7 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$k),
     ($data.formopen)
       ? (openBlock(), createElementBlock("div", _hoisted_2$g, [
-          createElementVNode("div", _hoisted_3$a, [
+          createElementVNode("div", _hoisted_3$b, [
             createElementVNode("button", {
               onClick: _cache[2] || (_cache[2] = e => $data.formopen = false),
               class: "absolute right-0 top-0"
@@ -437,20 +437,6 @@ script$l.__file = "src/components/tables/tags.vue";
 
 const { has: has$1, sortBy, get: get$2, isNil: isNil$1, isObject, omit, isEqual, capitalize, round } = _;
  
-// const sendType = (cell, row, data) => {
-//     if( cell?.action?.source == 'cell')
-//         return cell
-//     else if( cell?.action?.source == 'row')
-//         return { ...row, [cell.key]: data }
-//     else if( cell?.action?.source == 'field')
-//         return { [cell.key]: data }
-//     else if( cell?.action?.source == 'context')
-//         return mergeDeep(cell?.action?.data, { overwrite: {api:{ resource:row }}, row: get(row, cell?.action?.id, data) })
-//     else if( cell?.action?.source == 'custom')
-//         return cell?.action?.data
-//     else    
-//         return data
-// }
 
 const mergeDeep  = (a = {}, b = {}) => {
     return deepmerge(a, b, {
@@ -477,35 +463,7 @@ const getErrorMessage = (error) => {
     }
     return ""
 };
-
-// const formatModel = (columns=[], data) => {
-//     columns.map(i => {
-//         if( data[i.prop] && ['date'].includes(i.type) ){ 
-//             let format = ( i.type == 'date' ? 'YYYY-MM-DD': 'YYYY-MM-DD\\Thh:mm:ss' )
-//             data[i.prop] = formatDate(data[i.prop], format, null, true)
-//         } 
-//     })
-//     return data
-// }
-
-// const formatOutput = (columns=[], data) => {
-//     console.debug('formatOutput', data)
-//     let extractdata = (col = {}, k) =>  {
-//         if( col.children && Array.isArray(col.children) )  col.children.map( i => extractdata(i, k))
-//         if( get(col, 'name', false) ){
-//             if( col.ignored && data[col.name] ) {
-//                 console.debug('formatOutput ignored', col)
-//                 data = omit(data, [col.name]) 
-//             }
-//         }
-//     }
-//     columns.map((col, k) => {
-//             extractdata(col, k)
-//     })
-//     console.debug('formatOutput out', data)
-//     return data
-// }
-
+ 
 const formatDate = function(value, format, from, utc=false) {
     if (value) {
       let date = moment(String(value), from);
@@ -570,51 +528,7 @@ const filterParams = (api, queryInfo) => {
     console.log('filter params', params);
     return {...api, params};
 };
-
-// const getLocalStorage = (key, json=true) => {
-//     try{
-//         let ls = window.localStorage.getItem(key)
-//         if( ls ){
-//             if( json ) ls = JSON.parse(ls)
-//             return ls
-//         }
-//         return null
-//     }catch(e){
-//         console.log('getLocalStorage', e)
-//         return null
-//     }
-// }
-
-// const setLocalStorage = (key, data, json=true) => {
-//     try{
-//         if( key ){
-//             if( json ) data = JSON.stringify(data)
-            
-//             let ls = window.localStorage.setItem(key, data)
-//             return ls
-//         }
-//         return true
-//     }catch(e){
-//         console.log('setLocalStorage', e)
-//         return false
-//     }
-// }
-
-// const saveSettings = (data) => {
-//     try{
-//         let settings = getLocalStorage('settings') || {}
-
-//         settings = { ...settings, ...data }
-
-//         setLocalStorage('settings', settings)
-
-//         return settings
-//     }catch(e){
-        
-//         console.log('saveSettings', e)
-//     }
-// }
-
+  
 // const isRegex = (data, reg, custom=false) => {
 //     let rgs ={
 //         url: "^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.)"
@@ -656,8 +570,7 @@ const schemaColumns = (properties) => {
   properties.map((col, k) => {
           extractdata(col, k);
   });
-
-  // columns.push({ label: '', key: 'actions', filter: false, sorter: false })
+ 
 
   return sortBy(columns, ['sort'])
 };
@@ -745,6 +658,38 @@ const normalizeInput = async (row, modifier) => {
   if( modifier && typeof modifier == 'function') input = await modifier(input);
 
   return input
+};
+
+// FORMS
+
+const schemaFields = (properties) => {
+  // let columns = [ { label: '', key: "_selected", filter: false, sorter:false, sort: -1 } ]
+  let columns = [  ];
+  let extractdata = (col = {}, k) =>  {
+      if( col.children && Array.isArray(col.children) )  col.children.map( i => extractdata(i, k));
+      if( get$2(col, 'name', false) )
+          columns.push({
+              sort: get$2(col, 'config.sort', k+1),
+              key: get$2(col, 'name', col.id),
+              label: get$2(col, 'config.label', capitalize((col.label || col.name))),
+              type: get$2(col, 'config.type', (col.type || 'text')),
+              action: Object.assign( get$2(col, 'config.action',{}), get$2(col, 'attributes', {}) ),
+              options: get$2(col, 'options', {}),
+              model: get$2(col, 'model', {}),
+              overwrite: get$2(col, 'overwrite', {}),
+              sorter: get$2(col, 'config.sorter', true),
+              filter: get$2(col, 'config.filter', true),
+              _classes: get$2(col, 'config.classes'),
+              _style: get$2(col, 'config.styles'),
+          });
+  };
+  properties.map((col, k) => {
+          extractdata(col, k);
+  });
+
+  // columns.push({ label: '', key: 'actions', filter: false, sorter: false })
+
+  return sortBy(columns, ['sort'])
 };
 
 var script$k = {
@@ -1427,7 +1372,7 @@ script$g.__file = "src/components/tables/dates.vue";
 
 const _hoisted_1$d = ["textContent"];
 const _hoisted_2$c = ["innerHTML"];
-const _hoisted_3$9 = ["textContent"];
+const _hoisted_3$a = ["textContent"];
 // import Actions from './action'
 // import BelongsTo from './belongsTo'
 
@@ -1563,7 +1508,7 @@ return (_ctx, _cache) => {
                         key: 9,
                         textContent: toDisplayString(__props.data[__props.cell.key]),
                         onClick: emitAction
-                      }, null, 8 /* PROPS */, _hoisted_3$9))
+                      }, null, 8 /* PROPS */, _hoisted_3$a))
 }
 }
 
@@ -1598,7 +1543,7 @@ script$e.__file = "src/components/common/Spinner.vue";
 
 const _hoisted_1$b = { class: "relative shadow-md sm:rounded-lg crud-table overflow-x-auto w-full" };
 const _hoisted_2$a = { class: "text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400" };
-const _hoisted_3$8 = { class: "pd-toolbar py-1" };
+const _hoisted_3$9 = { class: "pd-toolbar py-1" };
 const _hoisted_4$7 = ["colspan"];
 const _hoisted_5$3 = { class: "headers flex" };
 const _hoisted_6$3 = { class: "lelf-col flex items-center justify-left w-1/2" };
@@ -1653,12 +1598,12 @@ var script$d = {
     }
   },
   emits: ['create','edit','delete','selected','refresh'],
-  setup(__props, { emit }) {
+  setup(__props, { expose: __expose, emit }) {
 
 const { resource, model:defModel } = __props;
 
   
-  
+   
   let model = defModel ? ref$1(defModel) : inject('model');  
   inject('session');  
   // const App = useAppContext() 
@@ -1830,6 +1775,10 @@ const { resource, model:defModel } = __props;
     emit('selected', { target:'selected', rows:dd.value });
   }, { deep: true });
 
+  __expose({
+    getDatasource,
+  });
+
   onBeforeMount(async () => {
     schema.value = schemaColumns(model.value?.properties); 
     for(let idx in schema.value){
@@ -1875,7 +1824,7 @@ return (_ctx, _cache) => {
           class: normalizeClass(["w-full text-sm text-left text-gray-500 dark:text-gray-400", `${ unref(model).tableClasses || '' }`])
         }, [
           createElementVNode("thead", _hoisted_2$a, [
-            createElementVNode("tr", _hoisted_3$8, [
+            createElementVNode("tr", _hoisted_3$9, [
               createElementVNode("th", {
                 scope: "col",
                 colspan: unref(totalCols),
@@ -2109,7 +2058,7 @@ const _hoisted_2$9 = {
   key: 0,
   class: "text-red"
 };
-const _hoisted_3$7 = { key: 2 };
+const _hoisted_3$8 = { key: 2 };
 const _hoisted_4$6 = { key: 3 };
 
   // let { $axios, $bus, $message } = useNuxtApp() 
@@ -2145,11 +2094,11 @@ const { model, data, resource } = __props;
  
   const save = (payload) => {
     Instance.setModel(JSON.parse(JSON.stringify(model)));
-    payload = Object.assign(resource, payload);
+    // payload = Object.assign(resource, payload)
 
-    console.debug('Save', payload);
-    let exclude = Object.keys(payload).filter(i => i.includes('__'));
-    Instance.saveData(_.omit(payload, exclude)).then((rs) => {
+    let formFields = fields.value.map(i => i.key);
+    console.debug('Save', formFields, payload);  
+    Instance.saveData(_.pick(payload, formFields)).then((rs) => {
       // $message("Saved ")
       res.value = rs;
       emit('saved', rs);
@@ -2161,6 +2110,7 @@ const { model, data, resource } = __props;
   let row = ref$1(data);
   let res = ref$1({});
   let ready = ref$1(false);
+  let fields = ref$1(schemaFields(model?.properties)); 
  
   const getDatasource = async (payload={}, config={}) => {
     try { 
@@ -2185,22 +2135,24 @@ const { model, data, resource } = __props;
   
   const modifyInput = async (input) => {
     if( input.model && typeof input.model == 'string' ) 
-      input.model = await App.loadModel(input.model);
-    
-    // if( Auth?.session?.request )
-    // 	input.model = mergeDeep((input.model || {}), { api:Auth?.session?.request })
+      input.model = await Instance.loadModel(input.model);
+     
+    _.set(input.model, 'api.resource', row.value);
 
     return input
   };
  
   onBeforeMount(async () => {
     try {  
-      Instance.setModel(JSON.parse(JSON.stringify(model)));
+      let modelRaw = JSON.parse(JSON.stringify(model));
+      Instance.setModel(modelRaw);
+      fields.value = schemaFields(modelRaw.properties);
       // row.value = await Instance.getData(row.value)
  
       // Instance.setModel(model.value)
       // resource.value = await Instance.getData() 
 
+      console.debug('fields', fields.value);
       for(let row of model.properties){ 
         schema.value.push( await normalizeInput(row, modifyInput) );
       } 
@@ -2256,7 +2208,7 @@ return (_ctx, _cache) => {
               _: 3 /* FORWARDED */
             }, 8 /* PROPS */, ["form-class", "actions", "modelValue"]))
           : (!unref(ready))
-            ? (openBlock(), createElementBlock("div", _hoisted_3$7, [
+            ? (openBlock(), createElementBlock("div", _hoisted_3$8, [
                 createVNode(script$e)
               ]))
             : (openBlock(), createElementBlock("div", _hoisted_4$6, [
@@ -2356,7 +2308,7 @@ const _hoisted_2$7 = {
   key: 1,
   class: "auth-form w-1/3 mx-auto"
 };
-const _hoisted_3$6 = {
+const _hoisted_3$7 = {
   key: 0,
   class: "text-center"
 };
@@ -2488,7 +2440,7 @@ return (_ctx, _cache) => {
           ]))
         : (openBlock(), createElementBlock("section", _hoisted_2$7, [
             (unref(loading))
-              ? (openBlock(), createElementBlock("h3", _hoisted_3$6, [
+              ? (openBlock(), createElementBlock("h3", _hoisted_3$7, [
                   createVNode(script$e, null, {
                     default: withCtx(() => [
                       createTextVNode(">Authenticating...")
@@ -2557,7 +2509,7 @@ script$9.__file = "src/components/Auth.vue";
 
 const _hoisted_1$7 = { class: "tabs" };
 const _hoisted_2$6 = { class: "flex my-2 w-full border-b" };
-const _hoisted_3$5 = ["onClick"];
+const _hoisted_3$6 = ["onClick"];
 
   
 var script$8 = {
@@ -2615,7 +2567,7 @@ return (_ctx, _cache) => {
             onClick: $event => (changeTab(tb)),
             href: "#",
             class: normalizeClass([{'active': active.value == tb.name }, "inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"])
-          }, toDisplayString(tb.label), 11 /* TEXT, CLASS, PROPS */, _hoisted_3$5)
+          }, toDisplayString(tb.label), 11 /* TEXT, CLASS, PROPS */, _hoisted_3$6)
         ]))
       }), 128 /* KEYED_FRAGMENT */))
     ])
@@ -2764,7 +2716,7 @@ var components = {
 
 const _hoisted_1$5 = ["data-type"];
 const _hoisted_2$5 = { class: "flex flex-col py-2" };
-const _hoisted_3$4 = { class: "py-2" };
+const _hoisted_3$5 = { class: "py-2" };
 const _hoisted_4$4 = /*#__PURE__*/createElementVNode("hr", null, null, -1 /* HOISTED */);
  
   
@@ -2825,7 +2777,7 @@ return (_ctx, _cache) => {
         onDelete: hook,
         onRefresh: hook
       }, null, 8 /* PROPS */, ["model"]),
-      createElementVNode("p", _hoisted_3$4, "Selected: " + toDisplayString(selected.value.length), 1 /* TEXT */)
+      createElementVNode("p", _hoisted_3$5, "Selected: " + toDisplayString(selected.value.length), 1 /* TEXT */)
     ]),
     _hoisted_4$4
   ], 10 /* CLASS, PROPS */, _hoisted_1$5))
@@ -2838,12 +2790,11 @@ script$5.__file = "src/components/inputs/grid.vue";
 
 const _hoisted_1$4 = ["data-type"];
 const _hoisted_2$4 = { class: "flex flex-col py-2" };
-const _hoisted_3$3 = { class: "py-2" };
-const _hoisted_4$3 = /*#__PURE__*/createElementVNode("hr", null, null, -1 /* HOISTED */);
+const _hoisted_3$4 = /*#__PURE__*/createElementVNode("hr", null, null, -1 /* HOISTED */);
   
   
 var script$4 = {
-  __name: 'form',
+  __name: 'subform',
   props: ['context'],
   setup(__props) {
 
@@ -2854,6 +2805,7 @@ const { context } = __props;
 
   const model = ref$1( props.value?.model ); 
   const selected = ref$1([]); 
+  const resource = computed(() => model.value.api?.resource || {});  
   
   function changed(rows) { 
     selected.value = rows;
@@ -2870,26 +2822,27 @@ return (_ctx, _cache) => {
     class: normalizeClass([props.value.outerClass ?? ''])
   }, [
     createElementVNode("div", _hoisted_2$4, [
-      createVNode(script$c, {
-        resource: { [__props.context.node.name]: __props.context.value },
+      (openBlock(), createBlock(script$c, {
+        key: __props.context.node.name,
+        data: __props.context.value,
+        resource: resource.value,
         model: model.value,
         onSaved: changed
-      }, null, 8 /* PROPS */, ["resource", "model"]),
-      createElementVNode("p", _hoisted_3$3, "Selected: " + toDisplayString(selected.value.length), 1 /* TEXT */)
+      }, null, 8 /* PROPS */, ["data", "resource", "model"]))
     ]),
-    _hoisted_4$3
+    _hoisted_3$4
   ], 10 /* CLASS, PROPS */, _hoisted_1$4))
 }
 }
 
 };
 
-script$4.__file = "src/components/inputs/form.vue";
+script$4.__file = "src/components/inputs/subform.vue";
 
 const _hoisted_1$3 = ["data-type"];
 const _hoisted_2$3 = /*#__PURE__*/createElementVNode("span", { class: "font-semibold text-xs mr-1" }, " Off ", -1 /* HOISTED */);
-const _hoisted_3$2 = /*#__PURE__*/createElementVNode("span", { class: "font-semibold text-xs ml-1" }, " On ", -1 /* HOISTED */);
-const _hoisted_4$2 = {
+const _hoisted_3$3 = /*#__PURE__*/createElementVNode("span", { class: "font-semibold text-xs ml-1" }, " On ", -1 /* HOISTED */);
+const _hoisted_4$3 = {
   key: 2,
   class: "formkit-messages"
 };
@@ -2935,7 +2888,7 @@ return (_ctx, _cache) => {
           class: normalizeClass(["rounded-full w-5 h-5 bg-white transform mx-auto duration-300 ease-in-out", {'-translate-x-2': !model.value,'translate-x-2': model.value}])
         }, null, 2 /* CLASS */)
       ], 2 /* CLASS */),
-      _hoisted_3$2
+      _hoisted_3$3
     ], 2 /* CLASS */),
     (__props.context.help)
       ? (openBlock(), createElementBlock("span", {
@@ -2944,7 +2897,7 @@ return (_ctx, _cache) => {
         }, toDisplayString(__props.context.help), 3 /* TEXT, CLASS */))
       : createCommentVNode("v-if", true),
     (_ctx.hasMessages)
-      ? (openBlock(), createElementBlock("ul", _hoisted_4$2, [
+      ? (openBlock(), createElementBlock("ul", _hoisted_4$3, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(__props.context.messages, (msg) => {
             return (openBlock(), createElementBlock("li", {
               class: "formkit-message",
@@ -2966,8 +2919,8 @@ const _hoisted_2$2 = {
   key: 0,
   class: "tag-input"
 };
-const _hoisted_3$1 = ["onClick"];
-const _hoisted_4$1 = ["onKeydown"];
+const _hoisted_3$2 = ["onClick"];
+const _hoisted_4$2 = ["onKeydown"];
 const _hoisted_5$1 = { key: 1 };
 const _hoisted_6$1 = {
   key: 2,
@@ -2991,10 +2944,9 @@ const { context } = __props;
       model.value = [];  
       valid.value = true;
     } else if( typeof data == 'string' ) {
-        try {
-          console.log('chec', typeof data);
-            model.value = JSON.parse(data);
-            valid.value = true;
+        try { 
+          model.value = JSON.parse(data);
+          valid.value = true;
         } catch (e) {
             valid.value = false;
         }
@@ -3056,7 +3008,7 @@ return (_ctx, _cache) => {
               }, [
                 createElementVNode("span", {
                   onClick: $event => (removeTag(index))
-                }, "x", 8 /* PROPS */, _hoisted_3$1),
+                }, "x", 8 /* PROPS */, _hoisted_3$2),
                 createTextVNode(" " + toDisplayString(tag), 1 /* TEXT */)
               ]))
             }), 128 /* KEYED_FRAGMENT */)),
@@ -3068,7 +3020,7 @@ return (_ctx, _cache) => {
                 withKeys(addTag, ["188"]),
                 withKeys(removeLastTag, ["delete"])
               ]
-            }), null, 16 /* FULL_PROPS */, _hoisted_4$1)
+            }), null, 16 /* FULL_PROPS */, _hoisted_4$2)
           ]))
         : createCommentVNode("v-if", true),
       (!valid.value)
@@ -3105,8 +3057,8 @@ const _hoisted_2$1 = {
   key: 0,
   class: "relative"
 };
-const _hoisted_3 = { class: "flex py-2 gap-2" };
-const _hoisted_4 = ["onClick"];
+const _hoisted_3$1 = { class: "flex py-2 gap-2" };
+const _hoisted_4$1 = ["onClick"];
 const _hoisted_5 = /*#__PURE__*/createElementVNode("hr", null, null, -1 /* HOISTED */);
 const _hoisted_6 = {
   key: 1,
@@ -3213,7 +3165,7 @@ return (_ctx, _cache) => {
         ? (openBlock(), createElementBlock("div", _hoisted_2$1, [
             (openBlock(true), createElementBlock(Fragment, null, renderList(__props.context.value, (row, i) => {
               return (openBlock(), createElementBlock(Fragment, { key: i }, [
-                createElementVNode("div", _hoisted_3, [
+                createElementVNode("div", _hoisted_3$1, [
                   (![null,undefined].includes(model.value[i]))
                     ? (openBlock(), createBlock(_component_FormKit, mergeProps({ key: 0 }, unref(_).omit(schema.value[0], ['$formkit']), {
                         modelValue: model.value[i],
@@ -3227,7 +3179,7 @@ return (_ctx, _cache) => {
                     title: "Remove item"
                   }, [
                     createVNode(unref(script$p), { class: "h-5" })
-                  ], 8 /* PROPS */, _hoisted_4)
+                  ], 8 /* PROPS */, _hoisted_4$1)
                 ]),
                 _hoisted_5
               ], 64 /* STABLE_FRAGMENT */))
@@ -3274,6 +3226,14 @@ script$1.__file = "src/components/inputs/repeater.vue";
 
 const _hoisted_1 = ["data-type"];
 const _hoisted_2 = {
+  key: 0,
+  class: "prefix p-2"
+};
+const _hoisted_3 = {
+  key: 1,
+  class: "suffix p-2"
+};
+const _hoisted_4 = {
   key: 2,
   class: "formkit-messages"
 };
@@ -3283,10 +3243,11 @@ var script = {
   props: ['context'],
   setup(__props) {
 
-const { context, slots } = __props;
+const { context } = __props;
  
    
   const props = computed(() => context.node?.props || {});
+  const slots = computed(() => props.value?.slots || {});
   const field = ref$1();
   ref$1([]);
   
@@ -3341,9 +3302,7 @@ const { context, slots } = __props;
   });
   
   onMounted(() => {
-    field.value = parseNumber(context.value);
-
-    console.log(slots);
+    field.value = parseNumber(context.value); 
   });
 
 return (_ctx, _cache) => {
@@ -3360,6 +3319,9 @@ return (_ctx, _cache) => {
     createElementVNode("div", {
       class: normalizeClass(["formkit-wrapper flex items-center", [props.value.wrapperClass ?? '']])
     }, [
+      (slots.value.prefix)
+        ? (openBlock(), createElementBlock("span", _hoisted_2, toDisplayString(slots.value.prefix), 1 /* TEXT */))
+        : createCommentVNode("v-if", true),
       (openBlock(), createBlock(resolveDynamicComponent(_ctx.$slots.prefix))),
       withDirectives(createElementVNode("input", mergeProps({ type: "text" }, __props.context.attributes, {
         class: "formkit-input",
@@ -3371,7 +3333,10 @@ return (_ctx, _cache) => {
       }), null, 16 /* FULL_PROPS */), [
         [vModelText, field.value]
       ]),
-      (openBlock(), createBlock(resolveDynamicComponent(_ctx.$slots.suffix)))
+      (openBlock(), createBlock(resolveDynamicComponent(_ctx.$slots.suffix))),
+      (slots.value.suffix)
+        ? (openBlock(), createElementBlock("span", _hoisted_3, toDisplayString(slots.value.suffix), 1 /* TEXT */))
+        : createCommentVNode("v-if", true)
     ], 2 /* CLASS */),
     (__props.context.help)
       ? (openBlock(), createElementBlock("span", {
@@ -3383,7 +3348,7 @@ return (_ctx, _cache) => {
         ], 2 /* CLASS */))
       : createCommentVNode("v-if", true),
     (_ctx.hasMessages)
-      ? (openBlock(), createElementBlock("ul", _hoisted_2, [
+      ? (openBlock(), createElementBlock("ul", _hoisted_4, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(__props.context.messages, (msg) => {
             return (openBlock(), createElementBlock("li", {
               class: "formkit-message",
@@ -3625,7 +3590,7 @@ const features$2 = (node) => {
         if( data )
           node.input( _.get(data, _.get(model, 'api.wrapData', '[0].src'), JSON.stringify(data)) ); 
         else {
-            alert('Erro ao fazer upload');
+            alert('Upload error');
             console.error(data);
         }
       })
@@ -3711,33 +3676,38 @@ const schema$2 = [
         },
       }, 
       {
-        $el: 'a',
-        attrs: {
-          id: 'upload',
-          href: '#',
-          class: 'p-2',
-          onClick: '$handlers.selectFile',
-          title: 'Upload new'
-        },
-        children: [
+        if: '$model.api.rootApi',
+        then: [
           {
-            $el:'svg',
-            attrs:{
-              xmlns:"http://www.w3.org/2000/svg",
-              viewBox:"0 0 512 512",
-              class: 'w-4'
+            $el: 'a',
+            attrs: {
+              id: 'upload',
+              href: '#',
+              class: 'p-2',
+              onClick: '$handlers.selectFile',
+              title: 'Upload new'
             },
-            children:[
+            children: [
               {
-                $el: 'path',
+                $el:'svg',
                 attrs:{
-                  d:"M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24z"
-                }
+                  xmlns:"http://www.w3.org/2000/svg",
+                  viewBox:"0 0 512 512",
+                  class: 'w-4'
+                },
+                children:[
+                  {
+                    $el: 'path',
+                    attrs:{
+                      d:"M288 109.3V352c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3l-73.4 73.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l128-128c12.5-12.5 32.8-12.5 45.3 0l128 128c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L288 109.3zM64 352H192c0 35.3 28.7 64 64 64s64-28.7 64-64H448c35.3 0 64 28.7 64 64v32c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V416c0-35.3 28.7-64 64-64zM432 456c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24z"
+                    }
+                  }
+                ]
               }
             ]
-          }
+          }, 
         ]
-      }, 
+      }
     ]
   }
 ];
@@ -4079,7 +4049,7 @@ const {
   ToggleInput,
   TagsInput,
   RepeaterInput,
-  DateRangeInput,
+  // DateRangeInput,
   CurrencyInput,
   AutocompleteInput,
   ImageInput,
@@ -4098,8 +4068,8 @@ const CustomInputs = {
   'hasMany': inputByComponent(RepeaterInput, 'list', ['schema','inline']),
   'grid': inputByComponent(GridInput, 'input', ['model','overwrite']), 
   'subform': inputByComponent(FormInput, 'input', ['model','overwrite','resource']), 
-  'daterange': inputByComponent(DateRangeInput, 'input', ['format']), 
-  'currency': inputByComponent(CurrencyInput, 'input',), 
+  // 'daterange': inputByComponent(DateRangeInput, 'input', ['format']), 
+  'currency': inputByComponent(CurrencyInput, 'input', ['slots']), 
   'image': ImageInput,
   'dynamic': DynamicInput,
   'multiple': MultipleInput,

@@ -143,7 +143,7 @@
       default: []
     }
   })
-  
+   
   let model = defModel ? ref(defModel) : inject('model')  
   let session = inject('session')  
   // const App = useAppContext() 
@@ -314,6 +314,10 @@
   watch(() => selected, (dd) => {  
     emit('selected', { target:'selected', rows:dd.value })
   }, { deep: true })
+
+  defineExpose({
+    getDatasource,
+  })
 
   onBeforeMount(async () => {
     schema.value = schemaColumns(model.value?.properties) 

@@ -42,10 +42,9 @@
       model.value = []  
       valid.value = true
     } else if( typeof data == 'string' ) {
-        try {
-          console.log('chec', typeof data)
-            model.value = JSON.parse(data)
-            valid.value = true
+        try { 
+          model.value = JSON.parse(data)
+          valid.value = true
         } catch (e) {
             valid.value = false;
         }

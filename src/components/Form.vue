@@ -34,7 +34,7 @@
   import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
   // import { useAppContext } from '~/store/global'; 
   // import { useAuth } from '~/store/auth'; 
-  import { normalizeInput, can, mergeDeep, filterParams } from '../libs/helpers'; 
+  import { normalizeInput, can, schemaFields, filterParams } from '../libs/helpers'; 
 
   // let { $axios, $bus, $message } = useNuxtApp() 
   let Instance = Resource({ $axios: axios })
@@ -60,11 +60,11 @@
  
   const save = (payload) => {
     Instance.setModel(JSON.parse(JSON.stringify(model)))
-    payload = Object.assign(resource, payload)
+    // payload = Object.assign(resource, payload)
 
-    console.debug('Save', payload)
-    let exclude = Object.keys(payload).filter(i => i.includes('__'))
-    Instance.saveData(_.omit(payload, exclude)).then((rs) => {
+    let formFields = fields.value.filter(i => !i.ignored).map(i => i.key)
+    console.debug('Save', formFields, payload)  
+    Instance.saveData(_.pick(payload, formFields)).then((rs) => {
       // $message("Saved ")
       res.value = rs
       emit('saved', rs)
@@ -76,6 +76,7 @@
   let row = ref(data)
   let res = ref({})
   let ready = ref(false)
+  let fields = ref(schemaFields(model?.properties)) 
  
   const getDatasource = async (payload={}, config={}) => {
     try { 
@@ -100,22 +101,24 @@
   
   const modifyInput = async (input) => {
     if( input.model && typeof input.model == 'string' ) 
-      input.model = await App.loadModel(input.model)
-    
-    // if( Auth?.session?.request )
-    // 	input.model = mergeDeep((input.model || {}), { api:Auth?.session?.request })
+      input.model = await Instance.loadModel(input.model)
+     
+    _.set(input.model, 'api.resource', row.value)
 
     return input
   }
  
   onBeforeMount(async () => {
     try {  
-      Instance.setModel(JSON.parse(JSON.stringify(model)))
+      let modelRaw = JSON.parse(JSON.stringify(model))
+      Instance.setModel(modelRaw)
+      fields.value = schemaFields(modelRaw.properties)
       // row.value = await Instance.getData(row.value)
  
       // Instance.setModel(model.value)
       // resource.value = await Instance.getData() 
 
+      console.debug('fields', fields.value)
       for(let row of model.properties){ 
         schema.value.push( await normalizeInput(row, modifyInput) )
       } 

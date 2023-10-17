@@ -4,6 +4,7 @@
       {{ context.label }}
     </span> 
     <div class="formkit-wrapper flex items-center" :class="[props.wrapperClass ?? '']">  
+        <span v-if="slots.prefix" class="prefix p-2">{{ slots.prefix }}</span>
         <component :is="$slots.prefix" />
         <input type='text' 
               v-bind="context.attributes"  
@@ -15,6 +16,7 @@
               maxlength=16
         /> 
         <component :is="$slots.suffix" />
+        <span v-if="slots.suffix" class="suffix p-2">{{ slots.suffix }}</span>
     </div>
     <span class="formkit-help" :class="[props.helpClass ?? '']" v-if="context.help">
       {{ context.help }} 
@@ -30,8 +32,9 @@
 
 <script setup> 
   import { ref, onMounted, watch, computed } from 'vue';
-  const { context, slots } = defineProps(['context']) 
+  const { context } = defineProps(['context']) 
   const props = computed(() => context.node?.props || {})
+  const slots = computed(() => props.value?.slots || {})
   const field = ref()
   const model = ref([])
   
@@ -90,8 +93,6 @@
   })
   
   onMounted(() => {
-    field.value = parseNumber(context.value)
-
-    console.log(slots)
+    field.value = parseNumber(context.value) 
   })
 </script> 

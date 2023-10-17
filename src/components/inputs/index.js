@@ -3,7 +3,7 @@
 // import JsonInput from './json.vue'
 // import EditorInput from './editor.vue'
 import GridInput from './grid.vue'
-import FormInput from './form.vue'
+import FormInput from './subform.vue'
 import ToggleInput from './toggle.vue'
 import TagsInput from './tags.vue'
 import RepeaterInput from './repeater.vue' 

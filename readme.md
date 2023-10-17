@@ -18,6 +18,7 @@ Inspired on :
   - [X] Sorting fields
   - [X] Delete local
   - [X] Get local
+  - [ ] Refresh public method
   - [X] Formkit custom input install
   - [X] Schema Sorting rows local
   - [X] Default Action permissions 
@@ -38,6 +39,8 @@ Inspired on :
     - [x] HasOne 
     - [x] hasMany
     - [ ] Collection
+    - [ ] Subform
+    - [ ] Grid
     - [ ] Json
     - [ ] Editor
 - Auth 
