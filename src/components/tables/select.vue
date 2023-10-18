@@ -13,22 +13,22 @@
 
 
 <script> 
-import { filterParams, mergeDeep, interpolate, } from '../../libs/helpers'
-import Resource from '../../libs/resource'
 import axios  from 'axios' 
+import { get }  from 'lodash' 
+import { filterParams, mergeDeep, interpolate, } from '../../libs/helpers'
+import ResourceClass from '../../libs/resource'
+const Instance = ResourceClass({ $axios:axios })
 
 export default {
   props:['data', 'cell'],
-  // mixins: [InputMixin],
-  data(){return{ 
-    Instance: Resource({ $axios: axios }),  
-  }},
+  // mixins: [InputMixin], 
   computed:{
 
   },
   async mounted(){
     let { action, model } = this.cell
-    this.Instance = Resource
+    Instance.setModel(model)
+    // this.Instance = Resource
     // if( schema )
     //   schema = await this.loadNestedSchema(schema)
       
@@ -63,10 +63,10 @@ export default {
 
           rootApi = interpolate(rootApi, { data: model })
  
-          this.Instance.setModel({ api: { ...data, rootApi, resource: this.formValues } })
+          Instance.setModel({ api: { ...data, rootApi, resource: this.formValues } })
 
           // console.log("getOoptions", this.Instance.getModel())
-          let { rows } = await this.Instance.getData({ data: model }) 
+          let { rows } = await Instance.getData({ data: model }) 
 
          this.options = rows && rows.map((i, k) => ({ 
               label: get(i, fieldLabel, i.toString()), 

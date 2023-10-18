@@ -18,16 +18,24 @@ Inspired on :
   - [X] Sorting fields
   - [X] Delete local
   - [X] Get local
-  - [ ] Refresh public method
+  - [X] Refresh public method
   - [X] Formkit custom input install
   - [X] Schema Sorting rows local
   - [X] Default Action permissions 
+  - [ ] Errors alerts
   - [X] Slots (toolbar|header|footer|row actions)
     - Toolbar (toolbar-left, toolbar-center, toolbar-right)
     - header (header-scope, header-actions)
     - row (row-scope, row-actions)
     - footer (footer-scope, footer-actions)
     - pagination 
+  - Custom views 
+    - [ ] currency 
+    - [ ] toggle 
+    - [ ] autocomplete
+    - [ ] dynamic
+    - [ ] Subform
+    - [ ] Grid 
 - Form
   - [X] CRUD 
   - [X] Formkit custom input install
@@ -35,6 +43,7 @@ Inspired on :
   - [X] Tabs
   - [X] Local
   - [X] Slots (alert|prefix|suffix|error)
+  - [ ] Errors alerts
   - Custom inputs 
     - [x] HasOne 
     - [x] hasMany

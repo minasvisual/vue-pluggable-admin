@@ -14,56 +14,53 @@
      <FormulateInput 
         v-else
         input-class="p-1"
-        :placeholder="( inputType == 'select' ? 'select..':'empty' )"
+        :placeholder="( inputType == 'select' && 'select..' || 'empty' )"
         @blur-context="emitClick"
         v-model="data"
         v-bind="{ ...cell, type: inputType, name: cell.key, label: false }"
     />
 </template>
-<script>
-import _ from 'lodash'
-import { interpolate,  } from '../../libs/helpers'
-const { get, mergeDeep } = _
-export default {
-    props:['data', 'cell', 'row'],
-    computed:{
-        inputType(){
-            return get(this.cell, 'action.type', 'button')
-        },
-        sendType(){
-            if( this.cell?.action?.source == 'cell')
-                return this.cell
-            else if( this.cell?.action?.source == 'row')
-                return { ...this.row, [this.cell.key]: this.data }
-            else if( this.cell?.action?.source == 'field')
-                return { [this.cell.key]: this.data }
-            else if( this.cell?.action?.source == 'context')
-                return mergeDeep(this.cell?.action?.data, { overwrite: {api:{ resource:this.row }}, row: get(this.row, this.cell?.action?.id, this.data) })
-            else if( this.cell?.action?.source == 'custom')
-                return this.cell?.action?.data
-            else    
-                return this.data
-        }
-    },
-    methods: {
-        replaceContent() {
-            if( !['button','link'].includes(this.inputType) )
-                return false
 
-            if( this.cell?.action?.label ) 
-                return interpolate(this.cell.action.label, {data: this.data, action: this.cell.action, row: this.row  }).toString()
-            else
-                return this.data && this.data.toString()
-        },
-        emitClick(){
-            if( !this.cell?.action?.handler || (!['custom','context'].includes(this.cell?.action?.source) && this.data == this.row[this.cell.key]) ) return;
+<script setup>
+  import _ from 'lodash'
+  import { interpolate,  } from '../../libs/helpers'
+  import { computed } from 'vue'
+  const { get, mergeDeep } = _
 
-            this.row[this.cell.key] = this.data
-            this.$bus.$emit(this.cell?.action?.handler, this.sendType)
-            console.debug("table/Actions emitclick called", this.cell?.action?.handler, this.sendType)
-        }
-    }
-}
+  const { data, cell, row } = defineProps(['data','cell','row'])
+  const inputType = computed(e => get(cell, 'action.type', 'button'))
+  const sendType = computed(e => {
+    if( cell?.action?.source == 'cell')
+      return cell
+    else if( cell?.action?.source === 'row')
+      return { ...row, [cell?.key]: data }
+    else if( cell?.action?.source == 'field')
+      return { [cell.key]: data }
+    else if( cell?.action?.source == 'context')
+      return mergeDeep(cell?.action?.data, { overwrite: {api:{ resource:row }}, row: get(row, cell?.action?.id, data) })
+    else if( cell?.action?.source == 'custom')
+      return cell?.action?.data
+    else    
+      return data
+  })
+
+  function replaceContent() {
+      if( !['button','link'].includes(inputType.value) )
+          return false
+
+      if( cell?.action?.label ) 
+          return interpolate(cell.action.label, {data: data, action: cell.action, row: row  }).toString()
+      else
+          return data && data.toString()
+  }
+
+  function emitClick(){
+      if( !cell?.action?.handler || (!['custom','context'].includes(cell?.action?.source) && data == row[cell.key]) ) return;
+
+      row[cell.key] = data
+      // $bus.$emit(cell?.action?.handler, sendType.value)
+      console.debug("table/Actions emitclick called", cell?.action?.handler, sendType.value)
+  } 
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
-import { openBlock, createElementBlock, createElementVNode, ref as ref$1, watch, computed, resolveComponent, withModifiers, createVNode, createCommentVNode, Fragment, renderList, normalizeClass, toDisplayString, mergeProps, toHandlers, unref, createBlock, withCtx, renderSlot, inject, reactive, onBeforeMount, onMounted, onUnmounted, createTextVNode, normalizeProps, guardReactiveProps, isRef, nextTick, onBeforeUnmount, withKeys, resolveDynamicComponent, withDirectives, vModelText } from 'vue';
-import _ from 'lodash';
+import { openBlock, createElementBlock, createElementVNode, ref, watch, computed, resolveComponent, withModifiers, createVNode, createCommentVNode, Fragment, renderList, normalizeClass, toDisplayString, mergeProps, toHandlers, unref, createBlock, withCtx, renderSlot, inject, reactive, onBeforeMount, onMounted, onUnmounted, createTextVNode, normalizeProps, guardReactiveProps, isRef, nextTick, onBeforeUnmount, withKeys, resolveDynamicComponent, withDirectives, vModelText } from 'vue';
+import _, { template, get as get$2 } from 'lodash';
 import axios from 'axios';
 import deepmerge from 'deepmerge';
 import moment from 'moment';
@@ -14,14 +14,14 @@ const _hoisted_3$m = [
   _hoisted_2$r
 ];
 
-function render$h(_ctx, _cache) {
+function render$g(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$v, _hoisted_3$m))
 }
 
 const script$x = {};
 
 
-script$x.render = render$h;
+script$x.render = render$g;
 script$x.__file = "src/components/icons/ChevronLeft.vue";
 
 const _hoisted_1$u = {
@@ -33,14 +33,14 @@ const _hoisted_3$l = [
   _hoisted_2$q
 ];
 
-function render$g(_ctx, _cache) {
+function render$f(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$u, _hoisted_3$l))
 }
 
 const script$w = {};
 
 
-script$w.render = render$g;
+script$w.render = render$f;
 script$w.__file = "src/components/icons/ChevronRight.vue";
 
 const _hoisted_1$t = {
@@ -52,14 +52,14 @@ const _hoisted_3$k = [
   _hoisted_2$p
 ];
 
-function render$f(_ctx, _cache) {
+function render$e(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$t, _hoisted_3$k))
 }
 
 const script$v = {};
 
 
-script$v.render = render$f;
+script$v.render = render$e;
 script$v.__file = "src/components/icons/ArrowDown.vue";
 
 const _hoisted_1$s = {
@@ -71,14 +71,14 @@ const _hoisted_3$j = [
   _hoisted_2$o
 ];
 
-function render$e(_ctx, _cache) {
+function render$d(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$s, _hoisted_3$j))
 }
 
 const script$u = {};
 
 
-script$u.render = render$e;
+script$u.render = render$d;
 script$u.__file = "src/components/icons/ArrowUp.vue";
 
 const _hoisted_1$r = {
@@ -90,14 +90,14 @@ const _hoisted_3$i = [
   _hoisted_2$n
 ];
 
-function render$d(_ctx, _cache) {
+function render$c(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$r, _hoisted_3$i))
 }
 
 const script$t = {};
 
 
-script$t.render = render$d;
+script$t.render = render$c;
 script$t.__file = "src/components/icons/Pencil.vue";
 
 const _hoisted_1$q = {
@@ -109,14 +109,14 @@ const _hoisted_3$h = [
   _hoisted_2$m
 ];
 
-function render$c(_ctx, _cache) {
+function render$b(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$q, _hoisted_3$h))
 }
 
 const script$s = {};
 
 
-script$s.render = render$c;
+script$s.render = render$b;
 script$s.__file = "src/components/icons/Plus.vue";
 
 const _hoisted_1$p = {
@@ -128,14 +128,14 @@ const _hoisted_3$g = [
   _hoisted_2$l
 ];
 
-function render$b(_ctx, _cache) {
+function render$a(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$p, _hoisted_3$g))
 }
 
 const script$r = {};
 
 
-script$r.render = render$b;
+script$r.render = render$a;
 script$r.__file = "src/components/icons/Refresh.vue";
 
 const _hoisted_1$o = {
@@ -147,14 +147,14 @@ const _hoisted_3$f = [
   _hoisted_2$k
 ];
 
-function render$a(_ctx, _cache) {
+function render$9(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$o, _hoisted_3$f))
 }
 
 const script$q = {};
 
 
-script$q.render = render$a;
+script$q.render = render$9;
 script$q.__file = "src/components/icons/Trash.vue";
 
 const _hoisted_1$n = {
@@ -167,14 +167,14 @@ const _hoisted_3$e = [
   _hoisted_2$j
 ];
 
-function render$9(_ctx, _cache) {
+function render$8(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$n, _hoisted_3$e))
 }
 
 const script$p = {};
 
 
-script$p.render = render$9;
+script$p.render = render$8;
 script$p.__file = "src/components/icons/MinusCircle.vue";
 
 const _hoisted_1$m = {
@@ -187,14 +187,14 @@ const _hoisted_3$d = [
   _hoisted_2$i
 ];
 
-function render$8(_ctx, _cache) {
+function render$7(_ctx, _cache) {
   return (openBlock(), createElementBlock("svg", _hoisted_1$m, _hoisted_3$d))
 }
 
 const script$o = {};
 
 
-script$o.render = render$8;
+script$o.render = render$7;
 script$o.__file = "src/components/icons/PlusCircle.vue";
 
 var script$n = { 
@@ -210,8 +210,8 @@ var script$n = {
     },
     setup(props, { emit }){
       
-      const _actual = ref$1(props.actual);   
-      const _pages = ref$1(props.pages);   
+      const _actual = ref(props.actual);   
+      const _pages = ref(props.pages);   
 
       watch(_pages, (nil) => {
         console.log('novo pages', nil);
@@ -284,7 +284,7 @@ const _hoisted_7$2 = {
   class: "text-md"
 };
 
-function render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function render$6(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChevronLeftIcon = resolveComponent("ChevronLeftIcon");
   const _component_ChevronRightIcon = resolveComponent("ChevronRightIcon");
 
@@ -337,7 +337,7 @@ function render$7(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 
-script$n.render = render$7;
+script$n.render = render$6;
 script$n.__file = "src/components/common/Pagination.vue";
 
 var script$m = {
@@ -366,7 +366,7 @@ const _hoisted_2$g = {
 const _hoisted_3$b = { class: "absolute -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 text center" };
 const _hoisted_4$8 = ["src"];
 
-function render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("div", null, [
     createElementVNode("img", {
       onClick: _cache[0] || (_cache[0] = $event => ($options.showModal($props.data))),
@@ -388,7 +388,7 @@ function render$6(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 
-script$m.render = render$6;
+script$m.render = render$5;
 script$m.__file = "src/components/tables/image.vue";
 
 var script$l = {
@@ -424,7 +424,7 @@ var script$l = {
 const _hoisted_1$j = { key: 0 };
 const _hoisted_2$f = { key: 1 };
 
-function render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function render$4(_ctx, _cache, $props, $setup, $data, $options) {
   return (openBlock(), createElementBlock("span", null, [
     ($data.valid)
       ? (openBlock(), createElementBlock("span", _hoisted_1$j, toDisplayString($data.model && $data.model.join(', ')), 1 /* TEXT */))
@@ -432,10 +432,60 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   ]))
 }
 
-script$l.render = render$5;
+script$l.render = render$4;
 script$l.__file = "src/components/tables/tags.vue";
 
-const { has: has$1, sortBy, get: get$2, isNil: isNil$1, isObject, omit, isEqual, capitalize, round } = _;
+var script$k = {
+    props:['data', 'cell', 'row'],
+    methods: {
+        replaceContent() {
+            if( this.cell?.action?.label ) 
+                return template(this.cell.action.label)({data: this.data, action: this.cell.action, row: this.row  })
+            else
+                return this.data
+        }
+    }
+};
+
+const _hoisted_1$i = ["href", "target", "innerHTML"];
+
+function render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  return (openBlock(), createElementBlock("a", {
+    href: $props.cell?.action?.handler,
+    target: ($props.cell?.action?.target ?? '_self'),
+    innerHTML: $options.replaceContent()
+  }, null, 8 /* PROPS */, _hoisted_1$i))
+}
+
+script$k.render = render$3;
+script$k.__file = "src/components/tables/link.vue";
+
+const _hoisted_1$h = ["innerHTML"];
+  
+  
+var script$j = {
+  __name: 'expression',
+  props: ['data', 'cell', 'row'],
+  setup(__props) {
+
+const { data, cell, row } = __props;
+ 
+  
+  const expression = computed(e => { 
+      let compiled = _.template(_.get(cell, 'action.template', '${data}'));
+      return compiled({data, cell, row}) 
+  });
+
+return (_ctx, _cache) => {
+  return (openBlock(), createElementBlock("span", mergeProps({ innerHTML: expression.value }, toHandlers(_ctx.$listeners, true)), null, 16 /* FULL_PROPS */, _hoisted_1$h))
+}
+}
+
+};
+
+script$j.__file = "src/components/tables/expression.vue";
+
+const { has: has$1, sortBy, get: get$1, isNil: isNil$1, isObject, omit, isEqual, capitalize, round } = _;
  
 
 const mergeDeep  = (a = {}, b = {}) => {
@@ -448,15 +498,15 @@ const mergeDeep  = (a = {}, b = {}) => {
 
 const getErrorMessage = (error) => {
     if(error){
-        if( get$2(error, 'code', '') == "ECONNREFUSED" ){
-            return error.message + "( " + get$2(error, 'config.url') + ")"
+        if( get$1(error, 'code', '') == "ECONNREFUSED" ){
+            return error.message + "( " + get$1(error, 'config.url') + ")"
         }
 
         if( has$1(error, 'response.data.message') )
-            return get$2(error, 'response.data.message')
+            return get$1(error, 'response.data.message')
 
-        if( get$2(error, 'message') )
-            return get$2(error, 'message')
+        if( get$1(error, 'message') )
+            return get$1(error, 'message')
 
         if( typeof error == 'string' )
             return error
@@ -476,7 +526,7 @@ const formatDate = function(value, format, from, utc=false) {
 const interpolate = (string, scope, def) => {
     if( typeof string !== 'string' ) return string; 
 
-    return string.replace(/\{([^}]*)}/g, (r,k) => get$2(scope, k, (def ? def:'{'+k+'}')) );
+    return string.replace(/\{([^}]*)}/g, (r,k) => get$1(scope, k, (def ? def:'{'+k+'}')) );
 };
 
 const queryString = (params, join, data) => {
@@ -503,25 +553,25 @@ const filterParams = (api, queryInfo) => {
     if( !isNil$1(pageSize) && has$1(pagination, 'limitField') )
         params[ pagination.limitField || 'limit'] = pageSize;
     if( sort && !isNil$1(sort.prop) && !isNil$1(sort.order) && has$1(pagination, 'sortField') && has$1(pagination, 'sortExp') ){
-        let pagData = {prop: sort.prop, sort: sort.order == 'ascending'? get$2(pagination,'sortAscChar','asc'): get$2(pagination, 'sortDescChar', 'desc')};
-        params[ pagination.sortField || 'order' ] = interpolate( get$2(pagination, 'sortExp', '{prop},{order}'), pagData);
+        let pagData = {prop: sort.prop, sort: sort.order == 'ascending'? get$1(pagination,'sortAscChar','asc'): get$1(pagination, 'sortDescChar', 'desc')};
+        params[ pagination.sortField || 'order' ] = interpolate( get$1(pagination, 'sortExp', '{prop},{order}'), pagData);
     }
 
-    if( get$2(queryInfo, 'filters', []).length > 0 ){
-      for(let i = 0; i < get$2(queryInfo, 'filters', []).length; i++ ){  
+    if( get$1(queryInfo, 'filters', []).length > 0 ){
+      for(let i = 0; i < get$1(queryInfo, 'filters', []).length; i++ ){  
         let filterField = interpolate(
-          get$2(filters[i], 'filterField', (pagination?.filterField || 'filter')), 
-          get$2(filters, '[0]', {}) 
+          get$1(filters[i], 'filterField', (pagination?.filterField || 'filter')), 
+          get$1(filters, '[0]', {}) 
         );
-        let filterExp = get$2(filters[i], 'filterExp', (pagination?.filterExp || '{prop},like,%{value}%'));
+        let filterExp = get$1(filters[i], 'filterExp', (pagination?.filterExp || '{prop},like,%{value}%'));
         if ( !params[filterField] ) params[ filterField ] = [];
         if( has$1(filters, `[${i}].prop`) && has$1(filters, `[${i}].value`) && filters[i].value && has$1(pagination, 'filterField') && (has$1(pagination, 'filterExp') || has$1(filters[i], 'filterExp')) )
             params[ filterField ].push( interpolate(filterExp, filters[i]) );
       }
     }else if( has$1(pagination, 'filterField') ){
       let filterField = interpolate(
-        get$2(pagination, 'filterField', 'filter'), 
-        get$2(filters, '[0]', {}) 
+        get$1(pagination, 'filterField', 'filter'), 
+        get$1(filters, '[0]', {}) 
       );
       delete params[ filterField ];
     }
@@ -551,20 +601,20 @@ const schemaColumns = (properties) => {
   let columns = [  ];
   let extractdata = (col = {}, k) =>  {
       if( col.children && Array.isArray(col.children) )  col.children.map( i => extractdata(i, k));
-      if( get$2(col, 'config.grid', false) )
+      if( get$1(col, 'config.grid', false) )
           columns.push({
-              sort: get$2(col, 'config.sort', k+1),
-              key: get$2(col, 'name', col.id),
-              label: get$2(col, 'config.label', capitalize((col.label || col.name))),
-              type: get$2(col, 'config.type', (col.type || 'text')),
-              action: Object.assign( get$2(col, 'config.action',{}), get$2(col, 'attributes', {}) ),
-              options: get$2(col, 'options', {}),
-              model: get$2(col, 'model', {}),
-              overwrite: get$2(col, 'overwrite', {}),
-              sorter: get$2(col, 'config.sorter', true),
-              filter: get$2(col, 'config.filter', true),
-              _classes: get$2(col, 'config.classes'),
-              _style: get$2(col, 'config.styles'),
+              sort: get$1(col, 'config.sort', k+1),
+              key: get$1(col, 'name', col.id),
+              label: get$1(col, 'config.label', capitalize((col.label || col.name))),
+              type: get$1(col, 'config.type', (col.type || 'text')),
+              action: Object.assign( get$1(col, 'config.action',{}), get$1(col, 'attributes', {}) ),
+              options: get$1(col, 'options', {}),
+              model: get$1(col, 'model', {}),
+              overwrite: get$1(col, 'overwrite', {}),
+              sorter: get$1(col, 'config.sorter', true),
+              filter: get$1(col, 'config.filter', true),
+              _classes: get$1(col, 'config.classes'),
+              _style: get$1(col, 'config.styles'),
           });
   };
   properties.map((col, k) => {
@@ -576,7 +626,7 @@ const schemaColumns = (properties) => {
 };
 
 const can = (schema, attr, def = true) => {
-  return get$2(schema, attr, def)
+  return get$1(schema, attr, def)
 };
 
 const isSelected = (rows, row) => {
@@ -625,7 +675,7 @@ const validateQueryInfo = (queryInfo) => {
   if( !queryInfo || typeof queryInfo !== 'object' ) return false;
   
   if( ['sizeChange', 'pageSize', 'size', 'pageChange', 'sort', 'filter', 'page', 'init'].includes(queryInfo.type) ){
-      if( queryInfo.type == 'filter' &&  !get$2(queryInfo, 'filters[0].prop')  )
+      if( queryInfo.type == 'filter' &&  !get$1(queryInfo, 'filters[0].prop')  )
           return false;
   }
 
@@ -667,20 +717,21 @@ const schemaFields = (properties) => {
   let columns = [  ];
   let extractdata = (col = {}, k) =>  {
       if( col.children && Array.isArray(col.children) )  col.children.map( i => extractdata(i, k));
-      if( get$2(col, 'name', false) )
+      if( get$1(col, 'name', false) )
           columns.push({
-              sort: get$2(col, 'config.sort', k+1),
-              key: get$2(col, 'name', col.id),
-              label: get$2(col, 'config.label', capitalize((col.label || col.name))),
-              type: get$2(col, 'config.type', (col.type || 'text')),
-              action: Object.assign( get$2(col, 'config.action',{}), get$2(col, 'attributes', {}) ),
-              options: get$2(col, 'options', {}),
-              model: get$2(col, 'model', {}),
-              overwrite: get$2(col, 'overwrite', {}),
-              sorter: get$2(col, 'config.sorter', true),
-              filter: get$2(col, 'config.filter', true),
-              _classes: get$2(col, 'config.classes'),
-              _style: get$2(col, 'config.styles'),
+              sort: get$1(col, 'config.sort', k+1),
+              key: get$1(col, 'name', col.id),
+              ignored: get$1(col, 'ignore', false),
+              label: get$1(col, 'config.label', capitalize((col.label || col.name))),
+              type: get$1(col, 'config.type', (col.type || 'text')),
+              action: Object.assign( get$1(col, 'config.action',{}), get$1(col, 'attributes', {}) ),
+              options: get$1(col, 'options', []),
+              model: get$1(col, 'model', {}),
+              overwrite: get$1(col, 'overwrite', {}),
+              sorter: get$1(col, 'config.sorter', true),
+              filter: get$1(col, 'config.filter', true),
+              _classes: get$1(col, 'config.classes'),
+              _style: get$1(col, 'config.styles'),
           });
   };
   properties.map((col, k) => {
@@ -692,51 +743,7 @@ const schemaFields = (properties) => {
   return sortBy(columns, ['sort'])
 };
 
-var script$k = {
-    props:['data', 'cell', 'row'],
-    methods: {
-        replaceContent() {
-            if( this.cell?.action?.label ) 
-                return interpolate(this.cell.action.label, {data: this.data, action: this.cell.action, row: this.row  })
-            else
-                return this.data
-        }
-    }
-};
-
-const _hoisted_1$i = ["href", "target", "innerHTML"];
-
-function render$4(_ctx, _cache, $props, $setup, $data, $options) {
-  return (openBlock(), createElementBlock("a", {
-    href: $props.cell?.action?.handler,
-    target: ($props.cell?.action?.target ?? '_self'),
-    innerHTML: $options.replaceContent()
-  }, null, 8 /* PROPS */, _hoisted_1$i))
-}
-
-script$k.render = render$4;
-script$k.__file = "src/components/tables/link.vue";
-
-var script$j = {
-    props:['data', 'cell', 'row'],
-    computed:{ 
-        expression(){ 
-            let compiled = _.template(_.get(this.cell, 'action.template', '${ data }'));
-            return compiled({data: this.data, cell: this.cell, row: this.row}) 
-        }
-    }
-};
-
-const _hoisted_1$h = ["innerHTML"];
-
-function render$3(_ctx, _cache, $props, $setup, $data, $options) {
-  return (openBlock(), createElementBlock("span", mergeProps({ innerHTML: $options.expression }, toHandlers(_ctx.$listeners, true)), null, 16 /* FULL_PROPS */, _hoisted_1$h))
-}
-
-script$j.render = render$3;
-script$j.__file = "src/components/tables/expression.vue";
-
-const { get: get$1, set, has, isNil, isEmpty } = _;
+const { get, set, has, isNil, isEmpty } = _;
 
 var ResourceClass = ({ $axios,  }) => {
   let modelUrl = null;
@@ -792,13 +799,13 @@ var ResourceClass = ({ $axios,  }) => {
 
   const can = (perm) => {
     if( perm == 'getData' ){
-      return get$1(model, 'api.getData', true)
+      return get(model, 'api.getData', true)
     }
     if( perm == 'getDataById' ){
-      return get$1(model, 'api.getData', true)
+      return get(model, 'api.getData', true)
     } 
     if( perm == 'deleteDataById' ){
-      return get$1(model, 'api.deleteDataById', true)
+      return get(model, 'api.deleteDataById', true)
     } 
 
     return true
@@ -806,13 +813,13 @@ var ResourceClass = ({ $axios,  }) => {
 
   const isIt = (perm) => {
     if( perm == 'local' ){
-      return get$1(model, 'api.pagination.local', false)
+      return get(model, 'api.pagination.local', false)
     } 
     if( perm == 'sorter' ){
       return sorter
     }
     if( perm == 'logged' ){
-      return get$1(model, 'auth', false)
+      return get(model, 'auth', false)
     }
     return false
   };
@@ -822,13 +829,13 @@ var ResourceClass = ({ $axios,  }) => {
     console.log('setData', resource, filters);
     let data = resource;
     let isRow = has(data, `[${model.primaryKey || 'id'}]`) || model.type == 'form';
-    let api = get$1(model, 'api', {}); 
+    let api = get(model, 'api', {}); 
 
     if( isRow ){
-      return ( !isNil(api.wrapDataById) ? get$1(data, api.wrapDataById, data): data)
+      return ( !isNil(api.wrapDataById) ? get(data, api.wrapDataById, data): data)
     }else {
-      rows = ( !isNil(api.wrapData) ? get$1(data, api.wrapData, data): data);
-      total = ( !isNil(api.totalData) ? get$1(data, api.totalData, rows.length): rows.length );
+      rows = ( !isNil(api.wrapData) ? get(data, api.wrapData, data): data);
+      total = ( !isNil(api.totalData) ? get(data, api.totalData, rows.length): rows.length );
 
       if( !Array.isArray(rows) ) rows = [rows];
       if( typeof total !== 'number' ) total = rows.length;
@@ -884,10 +891,10 @@ var ResourceClass = ({ $axios,  }) => {
       data = sessionConfig.wrap === false ? data : data.data;
 
       if( isRow ){
-        return ( !isNil(api.wrapDataById) ? get$1(data, api.wrapDataById, data): data)
+        return ( !isNil(api.wrapDataById) ? get(data, api.wrapDataById, data): data)
       }else {
-        rows = ( !isNil(api.wrapData) ? get$1(data, api.wrapData, data): data);
-        total = ( !isNil(api.totalData) ? get$1(data, api.totalData, rows.length): rows.length );
+        rows = ( !isNil(api.wrapData) ? get(data, api.wrapData, data): data);
+        total = ( !isNil(api.totalData) ? get(data, api.totalData, rows.length): rows.length );
 
         if( !Array.isArray(rows) ) rows = [rows];
         if( typeof total !== 'number' ) total = rows.length;
@@ -925,7 +932,7 @@ var ResourceClass = ({ $axios,  }) => {
     console.debug('get data object', url, options, sessionConfig);
     return $axios(url, options, sessionConfig)
         .then(({data}) => {   
-          return ( !isNil(api.wrapData) ? get$1(data, api.wrapData, data): data) 
+          return ( !isNil(api.wrapData) ? get(data, api.wrapData, data): data) 
         })
   };
     
@@ -1044,17 +1051,17 @@ var ResourceClass = ({ $axios,  }) => {
       if( !has(config, 'auth.url_login') ) 
         throw new Error('url login doest exist');
       let input = {
-        [get$1(config, 'auth.field_username', 'email')]: username,
-        [get$1(config, 'auth.field_secret', 'password')]: secret, 
+        [get(config, 'auth.field_username', 'email')]: username,
+        [get(config, 'auth.field_secret', 'password')]: secret, 
       };
       if( has(config, 'auth.field_remember') )
-        input[get$1(config, 'auth.field_remember', 'remember')] = remember;
+        input[get(config, 'auth.field_remember', 'remember')] = remember;
 
       return $axios({
-              url: get$1(config, 'auth.url_login'),
-              method: get$1(config, 'auth.url_method', 'post'),
+              url: get(config, 'auth.url_login'),
+              method: get(config, 'auth.url_method', 'post'),
               data: input,
-              headers: get$1(config, 'api.headers', {}) 
+              headers: get(config, 'api.headers', {}) 
             })
       .then(async (res) => {
           let token = setToken(res);
@@ -1136,7 +1143,7 @@ var ResourceClass = ({ $axios,  }) => {
   const authRequest = (token) => { 
     let cfg = _.get(config, 'auth', {});
 
-    let tokenRequest = get$1(cfg, 'request_token_expression', '{token}');
+    let tokenRequest = get(cfg, 'request_token_expression', '{token}');
     if( _.get(cfg, 'request_mode', 'header') == 'query' )
       return { 
         headers: _.get(config, 'api.headers', {}),
@@ -1210,18 +1217,18 @@ var ResourceClass = ({ $axios,  }) => {
   }
 };
 
+const Instance = ResourceClass({ $axios:axios });
+
 var script$i = {
   props:['data', 'cell'],
-  // mixins: [InputMixin],
-  data(){return { 
-    Instance: ResourceClass({ $axios: axios }),  
-  }},
+  // mixins: [InputMixin], 
   computed:{
 
   },
   async mounted(){
     let { action, model } = this.cell;
-    this.Instance = ResourceClass;
+    Instance.setModel(model);
+    // this.Instance = Resource
     // if( schema )
     //   schema = await this.loadNestedSchema(schema)
       
@@ -1256,14 +1263,14 @@ var script$i = {
 
           rootApi = interpolate(rootApi, { data: model });
  
-          this.Instance.setModel({ api: { ...data, rootApi, resource: this.formValues } });
+          Instance.setModel({ api: { ...data, rootApi, resource: this.formValues } });
 
           // console.log("getOoptions", this.Instance.getModel())
-          let { rows } = await this.Instance.getData({ data: model }); 
+          let { rows } = await Instance.getData({ data: model }); 
 
          this.options = rows && rows.map((i, k) => ({ 
-              label: get(i, fieldLabel, i.toString()), 
-              value: get(i, fieldValue, k)
+              label: get$2(i, fieldLabel, i.toString()), 
+              value: get$2(i, fieldValue, k)
             }) 
           );
           
@@ -1314,8 +1321,7 @@ const _hoisted_2$d = {
   key: 1,
   class: "font-semibold text-xs ml-1"
 };
-
-
+  
 var script$h = {
   __name: 'toggle',
   props: ['data', 'cell', 'row'],
@@ -1330,17 +1336,17 @@ return (_ctx, _cache) => {
   return (openBlock(), createElementBlock("div", {
     class: normalizeClass(["flex items-center cursor-pointer py-2", ['cursor-not-allowed']])
   }, [
-    (!unref(model))
+    (!model.value)
       ? (openBlock(), createElementBlock("span", _hoisted_1$f, " Off "))
       : createCommentVNode("v-if", true),
     createElementVNode("div", {
-      class: normalizeClass(["rounded-full w-10 h-6 p-0.5 bg-gray-300", {'bg-red-500': !unref(model),'bg-green-500': unref(model)}])
+      class: normalizeClass(["rounded-full w-10 h-6 p-0.5 bg-gray-300", {'bg-red-500': !model.value,'bg-green-500': model.value}])
     }, [
       createElementVNode("div", {
-        class: normalizeClass(["rounded-full w-5 h-5 bg-white transform mx-auto duration-300 ease-in-out", {'-translate-x-2': !unref(model),'translate-x-2': unref(model)}])
+        class: normalizeClass(["rounded-full w-5 h-5 bg-white transform mx-auto duration-300 ease-in-out", {'-translate-x-2': !model.value,'translate-x-2': model.value}])
       }, null, 2 /* CLASS */)
     ], 2 /* CLASS */),
-    (unref(model))
+    (model.value)
       ? (openBlock(), createElementBlock("span", _hoisted_2$d, " On "))
       : createCommentVNode("v-if", true)
   ]))
@@ -1604,18 +1610,18 @@ const { resource, model:defModel } = __props;
 
   
    
-  let model = defModel ? ref$1(defModel) : inject('model');  
+  let model = defModel ? ref(defModel) : inject('model');  
   inject('session');  
   // const App = useAppContext() 
   let Instance = ResourceClass({ $axios: axios }); 
-  let alert = ref$1(null);
-  let ready = ref$1(false);
-  let schema = ref$1([]);
-  let filters = ref$1({});
-  let selected = ref$1([]);
-  let table = ref$1(resource);
-  let perPage = ref$1(5);
-  let tableCount = ref$1(1);
+  let alert = ref(null);
+  let ready = ref(false);
+  let schema = ref([]);
+  let filters = ref({});
+  let selected = ref([]);
+  let table = ref(resource);
+  let perPage = ref(5);
+  let tableCount = ref(1);
   reactive({});
   let queryInfo = reactive({});
   const gete = _.get;
@@ -2088,7 +2094,7 @@ const { model, data, resource } = __props;
   
   // const App = useAppContext()
   // const Auth = useAuth()
-  const schema = ref$1([]); 
+  const schema = ref([]); 
 
   
  
@@ -2096,7 +2102,7 @@ const { model, data, resource } = __props;
     Instance.setModel(JSON.parse(JSON.stringify(model)));
     // payload = Object.assign(resource, payload)
 
-    let formFields = fields.value.map(i => i.key);
+    let formFields = fields.value.filter(i => !i.ignored).map(i => i.key);
     console.debug('Save', formFields, payload);  
     Instance.saveData(_.pick(payload, formFields)).then((rs) => {
       // $message("Saved ")
@@ -2107,10 +2113,10 @@ const { model, data, resource } = __props;
     }).catch(err => res.value = _.get(err, 'response.data', err) );
   };
 
-  let row = ref$1(data);
-  let res = ref$1({});
-  let ready = ref$1(false);
-  let fields = ref$1(schemaFields(model?.properties)); 
+  let row = ref(data);
+  let res = ref({});
+  let ready = ref(false);
+  let fields = ref(schemaFields(model?.properties)); 
  
   const getDatasource = async (payload={}, config={}) => {
     try { 
@@ -2240,8 +2246,8 @@ var script$b = {
 const { schema } = __props;
 
  
-ref$1(schema); 
-const data =  ref$1();
+ref(schema); 
+const data =  ref();
 
 function setData (newVal) {
   data.value = null;
@@ -2329,10 +2335,10 @@ const { schema, config = {} } = __props;
   
   
 
-  let loading = ref$1(false);
-  let form = ref$1({});
-  let login = ref$1(false);
-  let session = ref$1({});
+  let loading = ref(false);
+  let form = ref({});
+  let login = ref(false);
+  let session = ref({});
   Instance.setModel(schema);  
   Instance.setConfig(config);  
  
@@ -2520,8 +2526,8 @@ var script$8 = {
 const { tabs:tabes , tab } = __props;
   
     
-  const tabs = ref$1(tabes); 
-  const active = ref$1(''); 
+  const tabs = ref(tabes); 
+  const active = ref(''); 
   let styleTag = reactive(); 
 		
   function changeTab(tb){
@@ -2589,8 +2595,8 @@ const { model, resource:res = [] } = __props;
   let Instance = ResourceClass({ $axios:axios });
 
   
-  const ready = ref$1(false);
-  const schema = ref$1([{'$el':'h1', 'children':'Hello World'}]);
+  const ready = ref(false);
+  const schema = ref([{'$el':'h1', 'children':'Hello World'}]);
   let resource = reactive(res);
   
   async function loadData () { 
@@ -2654,8 +2660,8 @@ const { model, resource:res = {} } = __props;
    
    
 
-  const ready = ref$1(false);
-  let schema = ref$1({ });
+  const ready = ref(false);
+  let schema = ref({ });
   let resource = reactive(res);
   let Instance = ResourceClass({ $axios:axios });
   
@@ -2732,13 +2738,13 @@ const { context } = __props;
    
   const props = computed(() => context.node?.props || {});  
 
-  const model = ref$1({
+  const model = ref({
     ..._.get(props.value, 'model', {}),
     canCreate: _.get(props.value, 'model.canEdit', false),
     canEdit: _.get(props.value, 'model.canEdit', false),
     canDelete: _.get(props.value, 'model.canEdit', false),
   }); 
-  const selected = ref$1([]); 
+  const selected = ref([]); 
   
   function changed({rows}) { 
     console.log('change', rows);
@@ -2803,8 +2809,8 @@ const { context } = __props;
    
   const props = computed(() => context.node?.props || {});  
 
-  const model = ref$1( props.value?.model ); 
-  const selected = ref$1([]); 
+  const model = ref( props.value?.model ); 
+  const selected = ref([]); 
   const resource = computed(() => model.value.api?.resource || {});  
   
   function changed(rows) { 
@@ -2856,7 +2862,7 @@ const { context } = __props;
  
    
   const props = computed(() => context.node?.props || {});
-  const model = ref$1(context.value ?? false);
+  const model = ref(context.value ?? false);
 
   function setValue (value) { 
     if( context.attrs?.readonly ) return;
@@ -2936,8 +2942,8 @@ const { context } = __props;
  
    
   const props = computed(() => context.node?.props || {});
-  const valid = ref$1(true);
-  const model = ref$1([]);
+  const valid = ref(true);
+  const model = ref([]);
   
   function checkFormat(data){
     if( data === null || data === undefined ) {
@@ -3079,10 +3085,10 @@ const { context = {} } = __props;
   
    
   const props = computed(() => context.node?.props || {});
-  ref$1(true);
-  const schema = ref$1([]);
-  const model = ref$1([]); 
-  const rendered = ref$1(false);
+  ref(true);
+  const schema = ref([]);
+  const model = ref([]); 
+  const rendered = ref(false);
   const schemaObj = computed(() => {
     if( props.value.inline ) return []
     else
@@ -3248,8 +3254,8 @@ const { context } = __props;
    
   const props = computed(() => context.node?.props || {});
   const slots = computed(() => props.value?.slots || {});
-  const field = ref$1();
-  ref$1([]);
+  const field = ref();
+  ref([]);
   
   const formataMoedaInput = () => {
     field.value = formatarMoeda(field.value);
