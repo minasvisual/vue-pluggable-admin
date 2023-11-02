@@ -44,6 +44,8 @@ Inspired on :
   - [X] Local
   - [X] Slots (alert|prefix|suffix|error)
   - [ ] Errors alerts
+  - [ ] Dynamic/select accept object loops
+  - [ ] Object lists dynamic
   - Custom inputs 
     - [x] HasOne 
     - [x] hasMany

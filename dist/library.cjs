@@ -766,6 +766,7 @@ var ResourceClass = ({ $axios,  }) => {
   const setModel = (modelObj={}) => {
     model = JSON.parse(JSON.stringify(modelObj));
     schema = model.properties;
+    config = config?.domain ? config : _.pick(model, ['auth','domain','type','primaryKey']);
   };
 
   const getModel = () => {
@@ -808,6 +809,9 @@ var ResourceClass = ({ $axios,  }) => {
     } 
     if( perm == 'deleteDataById' ){
       return get(model, 'api.deleteDataById', true)
+    } 
+    if( perm == 'paginate' ){
+      return has(model, 'api.pagination.pageField', false)
     } 
 
     return true
@@ -1213,6 +1217,7 @@ var ResourceClass = ({ $axios,  }) => {
     getSession,
     getToken,
     setToken,
+    authRequest,
     authenticate,
     checkAuth,
     logout,
@@ -1693,7 +1698,7 @@ const { resource, model:defModel } = __props;
       let localPagination = _.get(model.value,'api.pagination.local', false);
       queryInfo = { ...queryInfo, ...fetchQueryInfo('page', num) };
 
-      if( localPagination )
+      if( localPagination === true )
         table.value = Instance.paginate({ local: true, perPage: perPage.value, page:num });
       else
         getDatasource();
@@ -1702,7 +1707,8 @@ const { resource, model:defModel } = __props;
 
   const changeLimit = (v) => {
     vue.nextTick(() => { 
-      queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) };
+      if( Instance.can('paginate') )
+        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) };
 
       getDatasource();
     });
@@ -1728,8 +1734,8 @@ const { resource, model:defModel } = __props;
   };
 
   const getDatasource = async (data={}, config={}) => {
-    try { 
-      if( !Instance.isIt('local') && !validateQueryInfo( JSON.parse(JSON.stringify(queryInfo)) )){
+    try {
+      if( !Instance.isIt('local') && validateQueryInfo(JSON.parse(JSON.stringify(queryInfo)) )){
         let api = filterParams({ ...model.value.api }, { ...queryInfo, data: resource.value }); 
         Instance.setModel({ ...model.value, api });
       }
@@ -1800,8 +1806,8 @@ const { resource, model:defModel } = __props;
       // console.error("table mounted", model.value)
       Instance.setModel({ ...model.value });
   
-      await getDatasource();
-
+      // await getDatasource()
+      changeLimit(perPage.value);
       // $bus.listen('table:refresh', getDatasource)
     } catch (error) {
       console.error("onmounted", error);
@@ -2144,8 +2150,11 @@ const { model, data, resource } = __props;
   const modifyInput = async (input) => {
     if( input.model && typeof input.model == 'string' ) 
       input.model = await Instance.loadModel(input.model);
-     
+      
+    let token = Instance.getToken();
+    let request = Instance.authRequest(token); 
     _.set(input.model, 'api.resource', row.value);
+    _.set(input.model, 'api', mergeDeep(_.get(input.model,'api',({})), request) );
 
     return input
   };

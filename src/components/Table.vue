@@ -225,7 +225,7 @@
       let localPagination = _.get(model.value,'api.pagination.local', false)
       queryInfo = { ...queryInfo, ...fetchQueryInfo('page', num) }
 
-      if( localPagination )
+      if( localPagination === true )
         table.value = Instance.paginate({ local: true, perPage: perPage.value, page:num })
       else
         getDatasource()
@@ -234,7 +234,8 @@
 
   const changeLimit = (v) => {
     nextTick(() => { 
-      queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) }
+      if( Instance.can('paginate') )
+        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) }
 
       getDatasource()
     })
@@ -260,8 +261,8 @@
   }
 
   const getDatasource = async (data={}, config={}) => {
-    try { 
-      if( !Instance.isIt('local') && !validateQueryInfo( JSON.parse(JSON.stringify(queryInfo)) )){
+    try {
+      if( !Instance.isIt('local') && validateQueryInfo(JSON.parse(JSON.stringify(queryInfo)) )){
         let api = filterParams({ ...model.value.api }, { ...queryInfo, data: resource.value }) 
         Instance.setModel({ ...model.value, api })
       }
@@ -332,8 +333,8 @@
       // console.error("table mounted", model.value)
       Instance.setModel({ ...model.value })
   
-      await getDatasource()
-
+      // await getDatasource()
+      changeLimit(perPage.value)
       // $bus.listen('table:refresh', getDatasource)
     } catch (error) {
       console.error("onmounted", error)

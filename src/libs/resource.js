@@ -22,6 +22,7 @@ export default ({ $axios,  }) => {
   const setModel = (modelObj={}) => {
     model = JSON.parse(JSON.stringify(modelObj))
     schema = model.properties
+    config = config?.domain ? config : _.pick(model, ['auth','domain','type','primaryKey'])
   }
 
   const getModel = () => {
@@ -64,6 +65,9 @@ export default ({ $axios,  }) => {
     } 
     if( perm == 'deleteDataById' ){
       return get(model, 'api.deleteDataById', true)
+    } 
+    if( perm == 'paginate' ){
+      return has(model, 'api.pagination.pageField', false)
     } 
 
     return true
@@ -469,6 +473,7 @@ export default ({ $axios,  }) => {
     getSession,
     getToken,
     setToken,
+    authRequest,
     authenticate,
     checkAuth,
     logout,

@@ -34,7 +34,7 @@
   import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
   // import { useAppContext } from '~/store/global'; 
   // import { useAuth } from '~/store/auth'; 
-  import { normalizeInput, can, schemaFields, filterParams } from '../libs/helpers'; 
+  import { normalizeInput, can, schemaFields, filterParams, mergeDeep } from '../libs/helpers'; 
 
   // let { $axios, $bus, $message } = useNuxtApp() 
   let Instance = Resource({ $axios: axios })
@@ -102,8 +102,11 @@
   const modifyInput = async (input) => {
     if( input.model && typeof input.model == 'string' ) 
       input.model = await Instance.loadModel(input.model)
-     
+      
+    let token = Instance.getToken()
+    let request = Instance.authRequest(token) 
     _.set(input.model, 'api.resource', row.value)
+    _.set(input.model, 'api', mergeDeep(_.get(input.model,'api',({})), request) )
 
     return input
   }
