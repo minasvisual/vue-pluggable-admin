@@ -73,9 +73,9 @@
               <td class="px-4 py-2" >
                   <input type="checkbox" :value="false" :checked="isSelected(selected, row)" @change="selectionChange(selected, row)" />
               </td> 
-              <td class="px-2 py-2" v-for="col in schema" :key="col.key">
+              <td class="px-2 py-2" v-for="(col, k) in schema" :key="col.key">
                 <slot name="row-scope" v-bind="{col, row, index}">
-                  <TableInputs :cell="col" :data="row" /> 
+                  <TableInputs :cell="col" :data="row" :key="col.key+k" /> 
                 </slot>
               </td> 
               <td class="px-2 py-2 flex justify-end" >
@@ -154,7 +154,7 @@
   let filters = ref({})
   let selected = ref([])
   let table = ref(resource)
-  let perPage = ref(5)
+  let perPage = ref( _.get(model.value,'api.perPage',5) )
   let tableCount = ref(1)
   let config = reactive({})
   let queryInfo = reactive({})
@@ -293,9 +293,16 @@
     if( input.model && typeof input.model == 'string' ) 
       input.model = await Instance.loadModel(input.model)
 
+    if( _.has(model.value, 'auth') ){ 
+      let request = Instance.authRequest( Instance.getToken() );
+      input.model = mergeDeep(input.model, { api:request })
+    } 
+
     if( input.overwrite && typeof input.overwrite == 'object' )
       input.model = mergeDeep(input.model, input.overwrite)
  
+    input.model = mergeDeep(input.model, _.pick(model.value, ['domain','auth']))
+
     return input
   }
 

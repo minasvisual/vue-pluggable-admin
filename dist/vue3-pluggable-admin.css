@@ -10,14 +10,6 @@
   padding: 10px 0;
 }
 
-.auth-form .formkit-outer .formkit-input {
-  border-radius: 0.25rem;
-}
-.auth-form .formkit-outer .formkit-message {
-  font-size: 0.8em;
-  color: red;
-}
-
 .tabs ul {
   border-bottom-color: blue;
 }
@@ -25,6 +17,14 @@
   color: blue;
   border: 1px solid blue;
   border-bottom-color: white;
+}
+
+.auth-form .formkit-outer .formkit-input {
+  border-radius: 0.25rem;
+}
+.auth-form .formkit-outer .formkit-message {
+  font-size: 0.8em;
+  color: red;
 }
 
 .tag-input[data-v-342edb1f] {
@@ -116,6 +116,6 @@
   text-indent: 1px;
   text-overflow: "";
   border: none !important;
-  background-color: transparent !important;
+  background: transparent !important;
   color: #333;
 }

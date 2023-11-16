@@ -64,7 +64,7 @@
   const emit = defineEmits(['auth:failed','auth:logged','update:schema'])
   const { schema, config = {} } = defineProps(['schema', 'config'])
 
-  let loading = ref(false)
+  let loading = ref(true)
   let form = ref({})
   let login = ref(false)
   let session = ref({})
@@ -131,7 +131,9 @@
     try{  
       if( !hasAuth.value || !Instance.isIt('logged') ) {
         console.debug('bypassed auth', hasAuth.value, Instance.isIt('logged') )
-        return login.value = true  
+        login.value = true  
+        loading.value = false; 
+        return;
       }
 
       console.debug('auth process start')
@@ -148,14 +150,16 @@
         login.value = false;
         console.debug('show login form') 
       } 
+      
+      loading.value = false; 
     }catch(e){
       login.value = false;
       emit('auth:failed', e)
       console.debug('erro mounted auth', e)
       console.error( getErrorMessage(e) )
-    } finally {
+      
       loading.value = false; 
-    }
+    }  
   }) 
 </script>
 

@@ -1,9 +1,8 @@
 <template>
     <select 
-        class="table-select"
         v-if="renderComponent" 
-        :value="data"
-        size="sm" 
+        class="table-select"
+        :value="data" 
         disabled
     >
         <!-- v-on="$listeners" -->
@@ -12,80 +11,74 @@
 </template>
 
 
-<script> 
-import axios  from 'axios' 
-import { get }  from 'lodash' 
-import { filterParams, mergeDeep, interpolate, } from '../../libs/helpers'
-import ResourceClass from '../../libs/resource'
-const Instance = ResourceClass({ $axios:axios })
+<script setup> 
+  import axios  from 'axios' 
+  import _ from 'lodash' 
+  import { onMounted, ref, nextTick } from 'vue'
+  import { filterParams, mergeDeep, interpolate, toRaw } from '../../libs/helpers'
+  import ResourceClass from '../../libs/resource'
 
-export default {
-  props:['data', 'cell'],
-  // mixins: [InputMixin], 
-  computed:{
+  const { data, cell, row } = defineProps(['data','cell','row'])
+  const Instance = ResourceClass({ $axios:axios })
+  const renderComponent = ref(false)
+  const loading = ref(false)
+  const options = ref([])
+ 
+  function forceRerender() {
+    renderComponent.value = false;
 
-  },
-  async mounted(){
-    let { action, model } = this.cell
-    Instance.setModel(model)
-    // this.Instance = Resource
-    // if( schema )
-    //   schema = await this.loadNestedSchema(schema)
-      
-    // if( action && action.fieldValue )
-    //   schema = { api:  }
+    nextTick(() => {
+      renderComponent.value = true;
+    });
+  }
 
-    if( model && model.api  )
-      this.cell.options = await this.getOptions(
-          { ...model.api, ...action }, 
-          this.data, 
-          filterParams(model.api, { filters:[{prop: action.fieldValue, value: this.data}] }) 
+  async function getOptions({ rootApi, fieldLabel, fieldValue, ...apiModel }, modelValue = {}, filter={}){
+    try{ 
+      // console.debug("input mixin get options", { rootApi, fieldLabel, fieldValue, ...data })
+      if( rootApi ){
+        loading.value = true;
+        let request = Instance.authRequest( Instance.getToken() );
+        apiModel = mergeDeep(apiModel, request)
+        if( typeof filter == 'object' )
+          apiModel = mergeDeep(apiModel, filter)
+
+        rootApi = interpolate(rootApi, { data:modelValue, row })
+
+        Instance.setModel({ api: { ...apiModel, rootApi, resource:row } })
+
+        // console.log("getOoptions", this.Instance.getModel())
+        let { rows } = await Instance.getData({ data:modelValue }) 
+
+        options.value = rows && rows.map((i, k) => ({ 
+            label: _.get(i, fieldLabel, i.toString()), 
+            value: _.get(i, fieldValue, k)
+          }) 
+        )
+        
+        loading.value = false;
+        forceRerender()
+        return options.value
+      }
+    }catch(e){
+        alert('Erro to get data from '+ rootApi)
+        console.error('Erro select input', e)
+        return options.value
+    }
+  } 
+    
+  onMounted(async () => {
+    let { action, model } = cell
+    Instance.setModel(toRaw(model))
+
+    if( _.has(model, 'api.rootApi') )
+      cell.options = await getOptions(
+          Object.assign(model.api, action), 
+          data, 
+          filterParams(model.api, { filters:[{prop: action.fieldValue, value:data }] }) 
       )
 
-    this.renderComponent = true
-  },
-  methods:{ 
-    forceRerender() {
-      this.renderComponent = false;
-
-      this.$nextTick(() => {
-        this.renderComponent = true;
-      });
-    }, 
-    async getOptions({ rootApi, fieldLabel, fieldValue, ...data }, model = {}, filter={}){
-      try{ 
-        // console.debug("input mixin get options", { rootApi, fieldLabel, fieldValue, ...data })
-        if( rootApi ){
-          this.loading = true;
-          data = mergeDeep(data, this.request)
-          if( typeof filter == 'object' )
-            data = mergeDeep(data, filter)
-
-          rootApi = interpolate(rootApi, { data: model })
- 
-          Instance.setModel({ api: { ...data, rootApi, resource: this.formValues } })
-
-          // console.log("getOoptions", this.Instance.getModel())
-          let { rows } = await Instance.getData({ data: model }) 
-
-         this.options = rows && rows.map((i, k) => ({ 
-              label: get(i, fieldLabel, i.toString()), 
-              value: get(i, fieldValue, k)
-            }) 
-          )
-          
-          this.loading = false;
-          this.forceRerender()
-          return this.options
-        }
-      }catch(e){
-          alert('Erro to get data from '+ rootApi)
-          console.error('Erro select input', e)
-          return this.options
-      }
-    },
-  }
-}
+    renderComponent.value = true
+  }) 
 </script>
 
 <style lang="css">
@@ -95,7 +88,7 @@ export default {
     text-indent: 1px;
     text-overflow: '';
     border: none  !important;
-    background-color: transparent !important;
+    background: transparent !important; 
     color: #333;
   }
 </style>

@@ -30,6 +30,10 @@ export const getErrorMessage = (error) => {
     }
     return ""
 }
+
+export const toRaw = (model) => {
+  return JSON.parse( JSON.stringify(model) )
+}
  
 export const formatDate = function(value, format, from, utc=false) {
     if (value) {

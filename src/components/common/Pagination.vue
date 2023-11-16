@@ -98,7 +98,7 @@
     },
     mounted(){
       this.$watch('pages', () => {
-        this._pages = (this.pages + 1)
+        this._pages = this.pages
       }, { immediate: true })
     }
   }

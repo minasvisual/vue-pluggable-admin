@@ -23,7 +23,7 @@ const plugin = {
     for (const prop in components) {
       if (components.hasOwnProperty(prop)) {
         const component = components[prop]
-        console.log(`Crud${component.__name}`)
+        // console.log(`Crud${component.__name}`)
         Vue.component(`Crud${component.__name}`, component)
       }
     }
@@ -34,13 +34,14 @@ const {
   CodeInput,
   JsonInput,
   // EditorInput,
+  // DateRangeInput,
   GridInput,
   FormInput,
   ToggleInput,
   TagsInput,
   RepeaterInput,
-  // DateRangeInput,
   CurrencyInput,
+  ObjectInput,
   AutocompleteInput,
   ImageInput,
   DynamicInput,
@@ -52,17 +53,18 @@ export const CustomInputs = {
   // 'code': inputByComponent(CodeInput, 'input'),
   // 'json': inputByComponent(JsonInput, 'input'),
   // 'editor': inputByComponent(EditorInput, 'input'),
+  // 'daterange': inputByComponent(DateRangeInput, 'input', ['format']), 
   'autocomplete': AutocompleteInput,
   'toggle': inputByComponent(ToggleInput, 'input', ['boolean']),
   'tags': inputByComponent(TagsInput, 'input', ['output']),
   'hasMany': inputByComponent(RepeaterInput, 'list', ['schema','inline']),
   'grid': inputByComponent(GridInput, 'input', ['model','overwrite']), 
   'subform': inputByComponent(FormInput, 'input', ['model','overwrite','resource']), 
-  // 'daterange': inputByComponent(DateRangeInput, 'input', ['format']), 
   'currency': inputByComponent(CurrencyInput, 'input', ['slots']), 
   'image': ImageInput,
   'dynamic': DynamicInput,
   'multiple': MultipleInput,
+  'object': inputByComponent(ObjectInput, 'input', ['slots']), 
 }
 
 export const Pluggable = plugin
