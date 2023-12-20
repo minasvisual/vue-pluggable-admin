@@ -1,8 +1,10 @@
 <template> 
   <div class="relative shadow-md sm:rounded-lg crud-table overflow-x-auto w-full" >
-    <div v-if="alert && alert.message" :class="`alert w-full text-center ${ alert?.type || '' }`" >
-      <span>{{ alert.message }}</span>
-    </div>
+    <Alerts :show="alert?.message" :type="alert?.type" :message="alert?.message" >
+      <slot name="alert" v-bind="{ alert, model, resource }" >
+        {{ alert?.message }}
+      </slot>
+    </Alerts>
     <table v-if="ready" class="w-full text-sm text-left text-gray-500 dark:text-gray-400" :class="`${ model.tableClasses || '' }`">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr class="pd-toolbar py-1">
@@ -126,6 +128,7 @@
   import CommonPagination from './common/Pagination.vue'
   import TableInputs from './tables/index.vue'
   import Spinner from './common/Spinner.vue' 
+  import Alerts from './common/Alerts.vue' 
   
   import ResourceClass from '../libs/resource'
   import { 
@@ -285,7 +288,7 @@
       console.debug("concluiu  getDatasource")
     } catch (error) {
       console.error(error)
-      setAlert({ message:"Error to getData" })
+      setAlert({ message:"Error to get data", error, type:'error' })
     }
   }
 
@@ -360,6 +363,16 @@
   .pd-filters {
     .formkit-outer {
       margin: 0
+    }
+  }
+  .alert {
+    padding: 5px;
+    background: lightblue;
+    &.success{
+      background: lightgreen;
+    }
+    &.error{
+      background: lightcoral;
     }
   }
 }

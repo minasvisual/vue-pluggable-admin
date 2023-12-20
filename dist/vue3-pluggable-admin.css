@@ -1,13 +1,40 @@
 .crud-table .pd-filters .formkit-outer {
   margin: 0;
 }
-
-.formkit-wrapper {
-  max-width: 100% !important;
+.crud-table .alert {
+  padding: 5px;
+  background: lightblue;
+}
+.crud-table .alert.success {
+  background: lightgreen;
+}
+.crud-table .alert.error {
+  background: lightcoral;
 }
 
-.formkit-actions {
+.form .formkit-wrapper {
+  max-width: 100% !important;
+}
+.form .formkit-actions {
   padding: 10px 0;
+}
+.form .alert {
+  padding: 5px;
+  background: lightblue;
+}
+.form .alert.success {
+  background: lightgreen;
+}
+.form .alert.error {
+  background: lightcoral;
+}
+
+.auth-form .formkit-outer .formkit-input {
+  border-radius: 0.25rem;
+}
+.auth-form .formkit-outer .formkit-message {
+  font-size: 0.8em;
+  color: red;
 }
 
 .tabs ul {
@@ -17,14 +44,6 @@
   color: blue;
   border: 1px solid blue;
   border-bottom-color: white;
-}
-
-.auth-form .formkit-outer .formkit-input {
-  border-radius: 0.25rem;
-}
-.auth-form .formkit-outer .formkit-message {
-  font-size: 0.8em;
-  color: red;
 }
 
 .tag-input[data-v-342edb1f] {
@@ -73,6 +92,17 @@
 .cell .form-group {
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.alert {
+  padding: 5px;
+  background: lightblue;
+}
+.alert.alert-success {
+  background: lightgreen;
+}
+.alert.alert-error {
+  background: lightcoral !important;
 }
 
 .spinner {

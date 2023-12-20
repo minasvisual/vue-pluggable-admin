@@ -81,7 +81,7 @@ const schema = [
   {
     $el: 'div',
     attrs: {  
-      class: 'flex justify-between items-center gap-2 border-y border-1 ',  
+      class: 'flex justify-between items-center gap-2 border-y border-1 w-full',  
     },
     children: [ 
       {

@@ -1,11 +1,13 @@
 <template >
   <Fragment>
+    <Alerts :show="alerts?.message" :message="alerts?.message" :type="alerts?.type"> 
+    </Alerts>
     <section v-if="login"> 
       <slot v-bind:schema="schema" v-bind:methods="{ logout }" v-bind:session="session">
         vazio
       </slot>
     </section>
-    <section v-else class="auth-form w-1/3 mx-auto"> 
+    <section v-else class="auth-form w-full md:w-1/3 m-auto"> 
         <h3 v-if="loading" class="text-center">
           <Spinner>>Authenticating...</Spinner>  
         </h3>
@@ -68,6 +70,7 @@
   let form = ref({})
   let login = ref(false)
   let session = ref({})
+  let alerts = ref({})
   Instance.setModel(schema)  
   Instance.setConfig(config)  
  
@@ -90,6 +93,7 @@
   const success = function(res){ 
     console.debug("called success", res)
     session.value = res;
+    alerts.value = { message: _.get(res, 'data.message', res.statusText), type:'success'  }
 
     if( !_.has(session.value, 'token') ) {
       loading.value = false;
@@ -113,6 +117,7 @@
     console.log('Auth Error', message, response, data)
     loading.value = false;
     login.value = false;
+    alerts.value = { message: _.get(response, 'data.message', message), type:'error'  }
     
     emit('auth:failed', {message})
   }

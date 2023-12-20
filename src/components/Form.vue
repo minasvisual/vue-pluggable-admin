@@ -1,10 +1,10 @@
 <template>
   <div class="form" v-if="!!row">
-    <div v-if="res.message" class="text-red"> 
+    <Alerts :show="res?.message" :message="res?.message" :type="res?.type"> 
       <slot name="alert" v-bind="{ row, res, model }" >
         {{ res.message }}
       </slot>
-    </div>
+    </Alerts>
     <FormKit v-if="ready && schema" type="form" method="post" submit-label="Submit" :form-class="`w-full ${ model?.formClasses || '' }`"
             :actions="can(model, 'submit')"
             v-model="row" 
@@ -30,6 +30,7 @@
   import axios from 'axios' 
   
   import Spinner from './common/Spinner.vue' 
+  import Alerts from './common/Alerts.vue' 
   import Resource from '../libs/resource'
   import { ref, inject, reactive, computed, watch, onBeforeMount, onMounted, onUnmounted, nextTick  } from 'vue'
   // import { useAppContext } from '~/store/global'; 
@@ -38,9 +39,9 @@
 
   // let { $axios, $bus, $message } = useNuxtApp() 
   let Instance = Resource({ $axios: axios })
-  const emit = defineEmits(['saved'])
+  const emit = defineEmits(['saved','created'])
   // const App = useAppContext()
-  // const Auth = useAuth()
+  // const Auth = useAuth() 
   const schema = ref([]) 
 
   const { model, data, resource } = defineProps({
@@ -59,18 +60,19 @@
   })
  
   const save = (payload) => {
-    Instance.setModel(JSON.parse(JSON.stringify(model)))
-    // payload = Object.assign(resource, payload)
-
+    Instance.setModel(JSON.parse(JSON.stringify(model))) 
     let formFields = fields.value.filter(i => !i.ignored).map(i => i.key)
-    console.debug('Save', formFields, payload)  
+    // console.debug('Save', formFields, payload)  
     Instance.saveData(_.pick(payload, formFields)).then((rs) => {
       // $message("Saved ")
-      res.value = rs
+      res.value = { message: _.get(rs, 'data.message', 'Success saved'), type:'success'  }
       emit('saved', rs)
 
-      // $bus.emit('form:created', payload)
-    }).catch(err => res.value = _.get(err, 'response.data', err) )
+      // emit('form:created', rs)
+    }).catch(err => {
+      console.error('Saved error', err)
+      res.value = { message: _.get(err, 'response.data.message', err.message), type:'error' }
+    })
   }
 
   let row = ref(data)
@@ -85,17 +87,16 @@
 
       Instance.setModel({ ...model, api })
 
-      row.value = await Instance.getDataObject(payload, config)
-        
+      row.value = await Instance.getDataObject(payload, config)  
       console.debug("concluiu  getDatasource", api)
     } catch (error) {
       console.error('error formDatarousce', error)
-      alert("Error to getData")
+      res.value = Object.assign(error, {type:'error'})
     }
   }
 
   watch(model, (newVal) => {
-    console.debug('form wathc', newVal)
+    // console.debug('form wathc', newVal)
     Instance.setModel(JSON.parse(JSON.stringify(newVal))) 
   })
   
@@ -121,12 +122,12 @@
       // Instance.setModel(model.value)
       // resource.value = await Instance.getData() 
 
-      console.debug('fields', fields.value)
+      // console.debug('fields', fields.value)
       for(let row of model.properties){ 
         schema.value.push( await normalizeInput(row, modifyInput) )
       } 
     } catch (error) {
-      console.error("onmounted", error)
+      console.error("onBeforeMount error", error)
     }
   })
 
@@ -138,15 +139,28 @@
   })
 
   onUnmounted(() => { 
-    console.debug("onmounted")
+    console.debug("onUnmounted")
   })
 </script>
 
 <style lang="scss">
-.formkit-wrapper{
-	max-width: 100% !important;
-}
-.formkit-actions {
-  padding: 10px 0;
+.form {
+  .formkit-wrapper{
+    max-width: 100% !important;
+  }
+  .formkit-actions {
+    padding: 10px 0;
+  }
+  
+  .alert {
+    padding: 5px;
+    background: lightblue;
+    &.success{
+      background: lightgreen;
+    }
+    &.error{
+      background: lightcoral;
+    }
+  }
 }
 </style>

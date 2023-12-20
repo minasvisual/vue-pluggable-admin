@@ -15,5 +15,5 @@
 <script setup> 
   import { ref, } from 'vue'
   const { data, cell, row } = defineProps(['data', 'cell', 'row'])  
-  const model = ref(row ?? false)
+  const model = ref(data ?? false)
 </script> 

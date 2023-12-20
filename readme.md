@@ -22,7 +22,7 @@ Inspired on :
   - [X] Formkit custom input install
   - [X] Schema Sorting rows local
   - [X] Default Action permissions 
-  - [ ] Errors alerts
+  - [X] Errors alerts
   - [X] Slots (toolbar|header|footer|row actions)
     - Toolbar (toolbar-left, toolbar-center, toolbar-right)
     - header (header-scope, header-actions)
@@ -43,7 +43,7 @@ Inspired on :
   - [X] Tabs
   - [X] Local
   - [X] Slots (alert|prefix|suffix|error)
-  - [ ] Errors alerts
+  - [X] Errors alerts
   - [ ] Dynamic/select accept object loops
   - [ ] Object lists dynamic
   - Custom inputs 
@@ -61,6 +61,8 @@ Inspired on :
 - Events 
   - [ ] Global event bus
 
+- BUGS
+  - [ ] Filter duplicate when change page or limit
 # Demo
 https://stackblitz.com/edit/vitejs-vite-shfymz
 
@@ -85,7 +87,7 @@ index.html (Tailwind CSS basic styles)
 main.ts
 ```ts 
 import 'vue3-pluggable-admin/dist/vue3-pluggable-admin.css'
-import { CustomInputs, Pluggable } from 'vue3-pluggable-admin';
+import { CustomInputs, CustomPlugins, Pluggable } from 'vue3-pluggable-admin';
 import { plugin, defaultConfig } from '@formkit/vue'
 
 //After const app = createApp(App)
@@ -93,7 +95,11 @@ app.use(plugin, defaultConfig({
   inputs:{
     ...CustomInputs // Add custom pluggable inputs 
     // you can add yours: check docs https://formkit.com/guides/create-a-custom-input
-  }
+  },
+  plugins:[
+    ...CustomPlugins, // Add custom pluggable plugins (masks, date format)
+    // you can add your plugins: check docs https://formkit.com/essentials/examples#plugins
+  ]
 }))
 app.use(Pluggable)
 ```
@@ -116,7 +122,10 @@ export default (app: App) => {
   app.use(plugin, defaultConfig({
     inputs:{
       ...CustomInputs  
-    }
+    },
+    plugins:[
+      ...CustomPlugins
+    ]
   }))
   app.use(Pluggable)
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="whitespace-nowrap"> 
-    {{ formatDate(data, cell?.action?.format || 'MM/DD/YYYY hh:mm', cell?.action?.from || null, cell?.action?.utc || false) }}
+    {{ formatDate(data, cell?.action?.format || 'MM/DD/YYYY HH:mm', cell?.action?.from || null, cell?.action?.utc || false) }}
   </div>
 </template>
 
