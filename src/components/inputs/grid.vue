@@ -27,14 +27,13 @@
 
   const model = ref({
     ..._.get(props.value, 'model', {}),
-    canCreate: _.get(props.value, 'model.canEdit', false),
+    canCreate: _.get(props.value, 'model.canCreate', false),
     canEdit: _.get(props.value, 'model.canEdit', false),
-    canDelete: _.get(props.value, 'model.canEdit', false),
+    canDelete: _.get(props.value, 'model.canDelete', false),
   }) 
   const selected = ref([]) 
   
-  function changed({rows}) { 
-    console.log('change', rows)
+  function changed({rows}) {  
     selected.value = rows
     context.node.input(rows)
   }
@@ -51,7 +50,7 @@
   }
 
   onMounted(() => {
-    console.log('grid', context.attrs.onCreate)
+    console.debug('grid', context.attrs.onCreate)
     
   })
 </script>

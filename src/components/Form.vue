@@ -106,9 +106,14 @@
       
     let token = Instance.getToken()
     let request = Instance.authRequest(token) 
-    _.set(input.model, 'api.resource', row.value)
-    _.set(input.model, 'api', mergeDeep(_.get(input.model,'api',({})), request) )
-
+    if( _.has(input, 'model.api') ){
+      _.set(input.model, 'api.resource', row.value)
+      _.set(input.model, 'api', mergeDeep(_.get(input.model,'api',({})), request) )
+    }
+    if( _.has(input, 'props.schema.api') ){
+      _.set(input.props, 'schema.api.resource', row.value)
+      _.set(input.props, 'schema.api', mergeDeep(_.get(input.props,'schema.api',({})), request) )
+    }
     return input
   }
  

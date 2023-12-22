@@ -1,5 +1,5 @@
 <template>
-  <main :class="`w-full relative ${ $attrs.class || ''}`">  
+  <main :class="`form-flow w-full relative ${ $attrs.class || ''}`" v-if="ready">  
     <Table 
       :model="schema" 
       @create="doEvent"
@@ -11,7 +11,7 @@
    
     <div class="modal fixed w-full h-full bg-black/20 left-0 top-0" v-if="data">
         <button @click="e => setData(null)" class="absolute right-0">&#10006;</button>
-        <div class="absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto ">
+        <div class="absolute w-4/5 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto ">
           <Form
             :model="schema"  
             :data="data"  
@@ -24,13 +24,17 @@
 
 <script setup>
 import _ from 'lodash'
-import { nextTick, ref } from 'vue';
+import axios from 'axios'
+import { nextTick, onBeforeMount, ref } from 'vue';
 import Table from './Table.vue'    
 import Form from './Form.vue'    
-
-const { schema } = defineProps(['schema']) 
+import ResourceClass from '../libs/resource' 
+  
+const Instance = ResourceClass({ $axios: axios })
+const { schema, resource } = defineProps(['schema','resource']) 
 const model = ref(schema) 
-const data =  ref()
+const data =  ref(resource)
+const ready =  ref(false)
 
 function setData (newVal) {
   data.value = null
@@ -46,4 +50,17 @@ function doEvent(e){
   if( e.target == 'edit' )
     setData(e.row) 
 }
+
+onBeforeMount(() => { 
+  Instance.setModel(model.value)
+  const request = Instance.authRequest(Instance.getToken())
+  model.value.api = Object.assign(model.value.api, request)
+  console.debug(model.value)
+  ready.value = true
+})
 </script>
+
+<style lang="scss">
+.form-flow { 
+}
+</style>

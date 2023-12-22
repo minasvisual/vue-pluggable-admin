@@ -56,10 +56,14 @@
       let hasPrev = computed(() => _actual.value > 1)
       let hasNext = computed(() => _actual.value < _pages.value)
       let pageNums = computed(() => {
-        let init =  _pages.value > 5 
-        let ends =  _pages.value > 10 
-        let pg = init && ends && _actual.value > 5 && _actual.value < (_pages.value - 5) ? [_actual.value]:[] 
-        return [ ..._.range(1, ( init ? 5:_pages.value)), ...pg, ..._.range( (ends ? (_pages.value - 5):_pages.value), _pages.value)] 
+        let init =  _pages.value >= 3 
+        let ends =  _pages.value >= 6 
+        let pg = init && ends && _actual.value > 3 && _actual.value < (_pages.value - 2) ? [_actual.value]:[] 
+        return [ 
+          ..._.range(1, ( init ? 4:_pages.value+1)), 
+          ...pg, 
+          ..._.range( (ends ? (_pages.value - 2):_pages.value+1), _pages.value+1)
+        ] 
       })
       
       const prev = () => {

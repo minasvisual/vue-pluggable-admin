@@ -241,10 +241,14 @@ var script$p = {
       let hasPrev = computed(() => _actual.value > 1);
       let hasNext = computed(() => _actual.value < _pages.value);
       let pageNums = computed(() => {
-        let init =  _pages.value > 5; 
-        let ends =  _pages.value > 10; 
-        let pg = init && ends && _actual.value > 5 && _actual.value < (_pages.value - 5) ? [_actual.value]:[]; 
-        return [ ..._.range(1, ( init ? 5:_pages.value)), ...pg, ..._.range( (ends ? (_pages.value - 5):_pages.value), _pages.value)] 
+        let init =  _pages.value >= 3; 
+        let ends =  _pages.value >= 6; 
+        let pg = init && ends && _actual.value > 3 && _actual.value < (_pages.value - 2) ? [_actual.value]:[]; 
+        return [ 
+          ..._.range(1, ( init ? 4:_pages.value+1)), 
+          ...pg, 
+          ..._.range( (ends ? (_pages.value - 2):_pages.value+1), _pages.value+1)
+        ] 
       });
       
       const prev = () => {
@@ -393,7 +397,8 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[0] || (_cache[0] = $event => ($options.showModal($props.data))),
       src: $props.data,
       style: {"height":"30px","width":"auto"},
-      onError: _cache[1] || (_cache[1] = (...args) => ($options.replaceByDefault && $options.replaceByDefault(...args)))
+      onError: _cache[1] || (_cache[1] = (...args) => ($options.replaceByDefault && $options.replaceByDefault(...args))),
+      alt: "image thumb"
     }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_1$l),
     ($data.formopen)
       ? (openBlock(), createElementBlock("div", _hoisted_2$h, [
@@ -402,7 +407,10 @@ function render$4(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: _cache[2] || (_cache[2] = e => $data.formopen = false),
               class: "absolute right-0 top-0"
             }, "✖"),
-            createElementVNode("img", { src: $data.pic }, null, 8 /* PROPS */, _hoisted_4$7)
+            createElementVNode("img", {
+              src: $data.pic,
+              alt: "image preview"
+            }, null, 8 /* PROPS */, _hoisted_4$7)
           ])
         ]))
       : createCommentVNode("v-if", true)
@@ -1403,7 +1411,7 @@ var script$i = {
     
 
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("div", _hoisted_1$f, toDisplayString(unref(formatDate)(__props.data, __props.cell?.action?.format || 'MM/DD/YYYY hh:mm', __props.cell?.action?.from || null, __props.cell?.action?.utc || false)), 1 /* TEXT */))
+  return (openBlock(), createElementBlock("div", _hoisted_1$f, toDisplayString(unref(formatDate)(__props.data, __props.cell?.action?.format || 'MM/DD/YYYY HH:mm', __props.cell?.action?.from || null, __props.cell?.action?.utc || false)), 1 /* TEXT */))
 }
 }
 
@@ -2215,9 +2223,14 @@ const { model, data, resource } = __props;
       
     let token = Instance.getToken();
     let request = Instance.authRequest(token); 
-    _.set(input.model, 'api.resource', row.value);
-    _.set(input.model, 'api', mergeDeep(_.get(input.model,'api',({})), request) );
-
+    if( _.has(input, 'model.api') ){
+      _.set(input.model, 'api.resource', row.value);
+      _.set(input.model, 'api', mergeDeep(_.get(input.model,'api',({})), request) );
+    }
+    if( _.has(input, 'props.schema.api') ){
+      _.set(input.props, 'schema.api.resource', row.value);
+      _.set(input.props, 'schema.api', mergeDeep(_.get(input.props,'schema.api',({})), request) );
+    }
     return input
   };
  
@@ -2313,19 +2326,21 @@ const _hoisted_1$a = {
   key: 0,
   class: "modal fixed w-full h-full bg-black/20 left-0 top-0"
 };
-const _hoisted_2$9 = { class: "absolute w-1/2 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto" };
-
+const _hoisted_2$9 = { class: "absolute w-4/5 -translate-x-1/2 left-1/2 bg-white p-4 rounded-lg my-2 max-h-[95vh] overflow-y-auto" };
+  
 
 var script$c = {
   __name: 'Flow',
-  props: ['schema'],
+  props: ['schema','resource'],
   setup(__props) {
 
-const { schema } = __props;
+const { schema, resource } = __props;
 
+const Instance = ResourceClass({ $axios: axios });
  
-ref(schema); 
-const data =  ref();
+const model = ref(schema); 
+const data =  ref(resource);
+const ready =  ref(false);
 
 function setData (newVal) {
   data.value = null;
@@ -2342,34 +2357,45 @@ function doEvent(e){
     setData(e.row); 
 }
 
+onBeforeMount(() => { 
+  Instance.setModel(model.value);
+  const request = Instance.authRequest(Instance.getToken());
+  model.value.api = Object.assign(model.value.api, request);
+  console.debug(model.value);
+  ready.value = true;
+});
+
 return (_ctx, _cache) => {
-  return (openBlock(), createElementBlock("main", {
-    class: normalizeClass(`w-full relative ${ _ctx.$attrs.class || ''}`)
-  }, [
-    createVNode(script$e, {
-      model: __props.schema,
-      onCreate: doEvent,
-      onEdit: doEvent,
-      onDelete: doEvent,
-      onSelected: doEvent,
-      onRefresh: doEvent
-    }, null, 8 /* PROPS */, ["model"]),
-    (data.value)
-      ? (openBlock(), createElementBlock("div", _hoisted_1$a, [
-          createElementVNode("button", {
-            onClick: _cache[0] || (_cache[0] = e => setData(null)),
-            class: "absolute right-0"
-          }, "✖"),
-          createElementVNode("div", _hoisted_2$9, [
-            createVNode(script$d, {
-              model: __props.schema,
-              data: data.value,
-              onSaved: _cache[1] || (_cache[1] = $event => (setData(null)))
-            }, null, 8 /* PROPS */, ["model", "data"])
-          ])
-        ]))
-      : createCommentVNode("v-if", true)
-  ], 2 /* CLASS */))
+  return (ready.value)
+    ? (openBlock(), createElementBlock("main", {
+        key: 0,
+        class: normalizeClass(`form-flow w-full relative ${ _ctx.$attrs.class || ''}`)
+      }, [
+        createVNode(script$e, {
+          model: __props.schema,
+          onCreate: doEvent,
+          onEdit: doEvent,
+          onDelete: doEvent,
+          onSelected: doEvent,
+          onRefresh: doEvent
+        }, null, 8 /* PROPS */, ["model"]),
+        (data.value)
+          ? (openBlock(), createElementBlock("div", _hoisted_1$a, [
+              createElementVNode("button", {
+                onClick: _cache[0] || (_cache[0] = e => setData(null)),
+                class: "absolute right-0"
+              }, "✖"),
+              createElementVNode("div", _hoisted_2$9, [
+                createVNode(script$d, {
+                  model: __props.schema,
+                  data: data.value,
+                  onSaved: _cache[1] || (_cache[1] = $event => (setData(null)))
+                }, null, 8 /* PROPS */, ["model", "data"])
+              ])
+            ]))
+          : createCommentVNode("v-if", true)
+      ], 2 /* CLASS */))
+    : createCommentVNode("v-if", true)
 }
 }
 
@@ -2831,14 +2857,13 @@ const { context } = __props;
 
   const model = ref({
     ..._.get(props.value, 'model', {}),
-    canCreate: _.get(props.value, 'model.canEdit', false),
+    canCreate: _.get(props.value, 'model.canCreate', false),
     canEdit: _.get(props.value, 'model.canEdit', false),
-    canDelete: _.get(props.value, 'model.canEdit', false),
+    canDelete: _.get(props.value, 'model.canDelete', false),
   }); 
   const selected = ref([]); 
   
-  function changed({rows}) { 
-    console.log('change', rows);
+  function changed({rows}) {  
     selected.value = rows;
     context.node.input(rows);
   }
@@ -2855,7 +2880,7 @@ const { context } = __props;
   }
 
   onMounted(() => {
-    console.log('grid', context.attrs.onCreate);
+    console.debug('grid', context.attrs.onCreate);
     
   });
 
