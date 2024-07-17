@@ -1692,6 +1692,7 @@ const { resource, model:defModel } = __props;
   let selected = vue.ref([]);
   let table = vue.ref(resource);
   let perPage = vue.ref( _.get(model.value,'api.perPage',5) );
+  let currentPage = vue.ref(1);
   let tableCount = vue.ref(1);
   vue.reactive({});
   let queryInfo = vue.reactive({});
@@ -1759,6 +1760,7 @@ const { resource, model:defModel } = __props;
 
   const changePage = (num) => {
     vue.nextTick(() => { 
+      setCurrentPage(num);
       let localPagination = _.get(model.value,'api.pagination.local', false);
       queryInfo = { ...queryInfo, ...fetchQueryInfo('page', num) };
 
@@ -1769,10 +1771,16 @@ const { resource, model:defModel } = __props;
     });
   };
 
+  const setCurrentPage = (num = 1) => {
+    currentPage.value = num;
+    return num
+  };
+
   const changeLimit = (v) => {
-    vue.nextTick(() => { 
-      if( Instance.can('paginate') )
-        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) };
+    vue.nextTick(() => {       
+      if( Instance.can('paginate') ){
+        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v), ...fetchQueryInfo('page', setCurrentPage()) };
+      }
 
       getDatasource();
     });
@@ -1786,13 +1794,19 @@ const { resource, model:defModel } = __props;
     vue.nextTick(() => { 
       console.debug("changeFilters change", e); 
       filters.value = Object.assign(filters.value, e);
+      // TODO REPLACE WITH FILTERS existing
 
       Object.keys(filters.value).map((item) => {
         if( !filters.value[item].value )
            filters.value = _.omit(filters.value, [item]);
       });
 
-      queryInfo = { ...queryInfo, ...fetchQueryInfo('filter', filters.value) };
+      queryInfo = { 
+        ...queryInfo, 
+        ...fetchQueryInfo('filter', filters.value), 
+        ...fetchQueryInfo('page', setCurrentPage()) 
+      };  
+
       getDatasource();
     });
   };
@@ -1879,6 +1893,7 @@ const { resource, model:defModel } = __props;
   
       // await getDatasource()
       changeLimit(perPage.value);
+
       // $bus.listen('table:refresh', getDatasource)
     } catch (error) {
       console.error("onmounted", error);
@@ -2120,9 +2135,9 @@ return (_ctx, _cache) => {
                     ? (vue.openBlock(), vue.createBlock(script$p, {
                         key: 0,
                         pages: vue.unref(totalPages),
-                        actual: 1,
+                        actual: vue.unref(currentPage),
                         onChange: changePage
-                      }, null, 8 /* PROPS */, ["pages"]))
+                      }, null, 8 /* PROPS */, ["pages", "actual"]))
                     : vue.createCommentVNode("v-if", true)
                 ])
               ], 8 /* PROPS */, _hoisted_29)
@@ -2361,9 +2376,10 @@ function doEvent(e){
 
 vue.onBeforeMount(() => { 
   Instance.setModel(model.value);
-  const request = Instance.authRequest(Instance.getToken());
-  model.value.api = Object.assign(model.value.api, request);
-  console.debug(model.value);
+  if( Instance.isIt('logged') ){
+    const request = Instance.authRequest(Instance.getToken());
+    model.value.api = mergeDeep(model.value.api, request); 
+  }
   ready.value = true;
 });
 
@@ -2543,12 +2559,11 @@ const { schema, config = {} } = __props;
   }); 
 
 return (_ctx, _cache) => {
-  const _component_Alerts = vue.resolveComponent("Alerts");
   const _component_FormKit = vue.resolveComponent("FormKit");
 
   return (vue.openBlock(), vue.createBlock(script$b, null, {
     default: vue.withCtx(() => [
-      vue.createVNode(_component_Alerts, {
+      vue.createVNode(script$f, {
         show: vue.unref(alerts)?.message,
         message: vue.unref(alerts)?.message,
         type: vue.unref(alerts)?.type

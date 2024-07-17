@@ -1690,6 +1690,7 @@ const { resource, model:defModel } = __props;
   let selected = ref([]);
   let table = ref(resource);
   let perPage = ref( _.get(model.value,'api.perPage',5) );
+  let currentPage = ref(1);
   let tableCount = ref(1);
   reactive({});
   let queryInfo = reactive({});
@@ -1757,6 +1758,7 @@ const { resource, model:defModel } = __props;
 
   const changePage = (num) => {
     nextTick(() => { 
+      setCurrentPage(num);
       let localPagination = _.get(model.value,'api.pagination.local', false);
       queryInfo = { ...queryInfo, ...fetchQueryInfo('page', num) };
 
@@ -1767,10 +1769,16 @@ const { resource, model:defModel } = __props;
     });
   };
 
+  const setCurrentPage = (num = 1) => {
+    currentPage.value = num;
+    return num
+  };
+
   const changeLimit = (v) => {
-    nextTick(() => { 
-      if( Instance.can('paginate') )
-        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) };
+    nextTick(() => {       
+      if( Instance.can('paginate') ){
+        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v), ...fetchQueryInfo('page', setCurrentPage()) };
+      }
 
       getDatasource();
     });
@@ -1784,13 +1792,19 @@ const { resource, model:defModel } = __props;
     nextTick(() => { 
       console.debug("changeFilters change", e); 
       filters.value = Object.assign(filters.value, e);
+      // TODO REPLACE WITH FILTERS existing
 
       Object.keys(filters.value).map((item) => {
         if( !filters.value[item].value )
            filters.value = _.omit(filters.value, [item]);
       });
 
-      queryInfo = { ...queryInfo, ...fetchQueryInfo('filter', filters.value) };
+      queryInfo = { 
+        ...queryInfo, 
+        ...fetchQueryInfo('filter', filters.value), 
+        ...fetchQueryInfo('page', setCurrentPage()) 
+      };  
+
       getDatasource();
     });
   };
@@ -1877,6 +1891,7 @@ const { resource, model:defModel } = __props;
   
       // await getDatasource()
       changeLimit(perPage.value);
+
       // $bus.listen('table:refresh', getDatasource)
     } catch (error) {
       console.error("onmounted", error);
@@ -2118,9 +2133,9 @@ return (_ctx, _cache) => {
                     ? (openBlock(), createBlock(script$p, {
                         key: 0,
                         pages: unref(totalPages),
-                        actual: 1,
+                        actual: unref(currentPage),
                         onChange: changePage
-                      }, null, 8 /* PROPS */, ["pages"]))
+                      }, null, 8 /* PROPS */, ["pages", "actual"]))
                     : createCommentVNode("v-if", true)
                 ])
               ], 8 /* PROPS */, _hoisted_29)
@@ -2359,9 +2374,10 @@ function doEvent(e){
 
 onBeforeMount(() => { 
   Instance.setModel(model.value);
-  const request = Instance.authRequest(Instance.getToken());
-  model.value.api = Object.assign(model.value.api, request);
-  console.debug(model.value);
+  if( Instance.isIt('logged') ){
+    const request = Instance.authRequest(Instance.getToken());
+    model.value.api = mergeDeep(model.value.api, request); 
+  }
   ready.value = true;
 });
 
@@ -2541,12 +2557,11 @@ const { schema, config = {} } = __props;
   }); 
 
 return (_ctx, _cache) => {
-  const _component_Alerts = resolveComponent("Alerts");
   const _component_FormKit = resolveComponent("FormKit");
 
   return (openBlock(), createBlock(script$b, null, {
     default: withCtx(() => [
-      createVNode(_component_Alerts, {
+      createVNode(script$f, {
         show: unref(alerts)?.message,
         message: unref(alerts)?.message,
         type: unref(alerts)?.type

@@ -53,7 +53,9 @@
                 &nbsp;
               </th>
               <th scope="col" class="px-2" v-for="col in schema" :key="col.key">
-                <FormKit v-if="can(model, 'api.pagination.filterExp', false) && col.filter" :type="gete(col, 'filter.type', 'search')" :delay="500" outer-class="m-0 p-0" input-class="w-full p-1"
+                <FormKit v-if="can(model, 'api.pagination.filterExp', false) && col.filter" 
+                        :type="gete(col, 'filter.type', 'search')" 
+                        :delay="500" outer-class="m-0 p-0" input-class="w-full p-1"
                         :model="gete(col, 'model', {})"
                         :overwrite="gete(col, 'overwrite', {})"
                         :options="gete(col, 'options', [])"
@@ -107,7 +109,7 @@
             <td :colspan="totalCols" class="w-full pt-4">
               <slot name="pagination" v-bind="{totalPages, actual:1, changePage}">
                 <CommonPagination v-if="can(model, 'api.pagination.pageField', false) || can(model, 'api.pagination.local', false)" 
-                                  :pages="totalPages" :actual="1" @change="changePage" />
+                                  :pages="totalPages" :actual="currentPage" @change="changePage" />
               </slot>
             </td>
           </tr>
@@ -158,6 +160,7 @@
   let selected = ref([])
   let table = ref(resource)
   let perPage = ref( _.get(model.value,'api.perPage',5) )
+  let currentPage = ref(1)
   let tableCount = ref(1)
   let config = reactive({})
   let queryInfo = reactive({})
@@ -225,6 +228,7 @@
 
   const changePage = (num) => {
     nextTick(() => { 
+      setCurrentPage(num)
       let localPagination = _.get(model.value,'api.pagination.local', false)
       queryInfo = { ...queryInfo, ...fetchQueryInfo('page', num) }
 
@@ -235,10 +239,16 @@
     })
   }
 
+  const setCurrentPage = (num = 1) => {
+    currentPage.value = num
+    return num
+  }
+
   const changeLimit = (v) => {
-    nextTick(() => { 
-      if( Instance.can('paginate') )
-        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v) }
+    nextTick(() => {       
+      if( Instance.can('paginate') ){
+        queryInfo = { ...queryInfo, ...fetchQueryInfo('pageSize', v), ...fetchQueryInfo('page', setCurrentPage()) }
+      }
 
       getDatasource()
     })
@@ -252,13 +262,19 @@
     nextTick(() => { 
       console.debug("changeFilters change", e) 
       filters.value = Object.assign(filters.value, e)
+      // TODO REPLACE WITH FILTERS existing
 
       Object.keys(filters.value).map((item) => {
         if( !filters.value[item].value )
            filters.value = _.omit(filters.value, [item])
       })
 
-      queryInfo = { ...queryInfo, ...fetchQueryInfo('filter', filters.value) }
+      queryInfo = { 
+        ...queryInfo, 
+        ...fetchQueryInfo('filter', filters.value), 
+        ...fetchQueryInfo('page', setCurrentPage()) 
+      }  
+
       getDatasource()
     })
   }
@@ -345,6 +361,7 @@
   
       // await getDatasource()
       changeLimit(perPage.value)
+
       // $bus.listen('table:refresh', getDatasource)
     } catch (error) {
       console.error("onmounted", error)

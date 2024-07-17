@@ -29,6 +29,7 @@ import { nextTick, onBeforeMount, ref } from 'vue';
 import Table from './Table.vue'    
 import Form from './Form.vue'    
 import ResourceClass from '../libs/resource' 
+import { mergeDeep } from '../libs/helpers'; 
   
 const Instance = ResourceClass({ $axios: axios })
 const { schema, resource } = defineProps(['schema','resource']) 
@@ -53,9 +54,10 @@ function doEvent(e){
 
 onBeforeMount(() => { 
   Instance.setModel(model.value)
-  const request = Instance.authRequest(Instance.getToken())
-  model.value.api = Object.assign(model.value.api, request)
-  console.debug(model.value)
+  if( Instance.isIt('logged') ){
+    const request = Instance.authRequest(Instance.getToken())
+    model.value.api = mergeDeep(model.value.api, request) 
+  }
   ready.value = true
 })
 </script>

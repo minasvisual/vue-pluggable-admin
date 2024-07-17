@@ -31,8 +31,8 @@ Inspired on :
     - pagination 
   - Custom views 
     - [ ] currency 
-    - [ ] toggle 
-    - [ ] autocomplete
+    - [X] toggle 
+    - [X] autocomplete
     - [ ] dynamic
     - [ ] Subform
     - [ ] Grid 
@@ -44,14 +44,15 @@ Inspired on :
   - [X] Local
   - [X] Slots (alert|prefix|suffix|error)
   - [X] Errors alerts
+  - [X] Object lists dynamic
   - [ ] Dynamic/select accept object loops
-  - [ ] Object lists dynamic
+  - [ ] Toolbars/Custom forms
   - Custom inputs 
     - [x] HasOne 
     - [x] hasMany
     - [ ] Collection
-    - [ ] Subform
-    - [ ] Grid
+    - [X] Subform
+    - [X] Grid
     - [ ] Json
     - [ ] Editor
 - Auth 
@@ -63,6 +64,7 @@ Inspired on :
 
 - BUGS
   - [ ] Filter duplicate when change page or limit
+  - [ ] Filter new search add new array duplicated
 # Demo
 https://stackblitz.com/edit/vitejs-vite-shfymz
 

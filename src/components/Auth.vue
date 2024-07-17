@@ -61,6 +61,7 @@
   import { getErrorMessage, mergeDeep } from '../libs/helpers' 
   import Fragment from './common/Fragment.vue' 
   import Spinner from './common/Spinner.vue' 
+  import Alerts from './common/Alerts.vue' 
 
   const Instance = Resource({ $axios: axios })
   const emit = defineEmits(['auth:failed','auth:logged','update:schema'])
